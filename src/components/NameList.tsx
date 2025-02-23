@@ -4,6 +4,7 @@ import { Heart, Sparkles, ArrowUpDown, Filter } from 'lucide-react';
 import { Name } from '../data/names';
 import { useFavorites } from '../context/FavoritesContext';
 import { getCategoryContent } from '../content/categoryContent';
+import SEO from './SEO';
 
 interface NameListProps {
   category: 'boy' | 'girl' | 'dog' | 'cat';
@@ -62,11 +63,20 @@ function NameList({ category, names }: NameListProps) {
                  category === 'girl' ? 'bg-pink-400' : 
                  category === 'dog' ? 'bg-orange-400' : 'bg-purple-400';
 
+  const categoryTitle = category === 'boy' ? 'Guttenavn' :
+                       category === 'girl' ? 'Jentenavn' :
+                       category === 'dog' ? 'Hundenavn' : 'Kattenavn';
+
+  const seoTitle = `${categoryTitle} - Finn det perfekte navnet | Navnetips.no`;
+  const seoDescription = `Utforsk vår samling av ${categoryTitle.toLowerCase()} med betydninger og opprinnelse. ${names.length} unike navn å velge mellom.`;
+
   // Get category content
   const categoryContent = getCategoryContent(category);
 
   return (
     <main className="max-w-7xl mx-auto space-y-8">
+      <SEO title={seoTitle} description={seoDescription} />
+
       {/* Category Description */}
       <div className="bg-white border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
         <div className="prose max-w-none" dangerouslySetInnerHTML={{ __html: categoryContent }} />

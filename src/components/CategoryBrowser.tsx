@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import { ArrowLeft, Tags } from 'lucide-react';
 import { names, Name } from '../data/names';
 import { getCategoryContent } from '../content/categoryContent';
+import SEO from './SEO';
 
 interface CategoryBrowserProps {
   category: 'boy' | 'girl';
@@ -25,10 +26,16 @@ function CategoryBrowser({ category }: CategoryBrowserProps) {
     { id: 'unikt', name: 'Unike navn' },
   ];
 
+  const currentCategory = categories.find(c => c.id === nameCategory)?.name || 'Navn etter kategori';
   const content = getCategoryContent(category, nameCategory);
+
+  const seoTitle = `${currentCategory} - ${categoryText} | Navnetips.no`;
+  const seoDescription = `Utforsk ${categoryText.toLowerCase()} i kategorien ${currentCategory.toLowerCase()}. ${filteredNames.length} unike navn med betydning og opprinnelse.`;
 
   return (
     <div className="max-w-7xl mx-auto space-y-8">
+      <SEO title={seoTitle} description={seoDescription} />
+
       <div className="flex items-center justify-between">
         <Link
           to={basePath}
@@ -45,7 +52,7 @@ function CategoryBrowser({ category }: CategoryBrowserProps) {
         <div className="flex items-center space-x-4 mb-8">
           <Tags className="h-10 w-10" />
           <h1 className="text-4xl font-black">
-            {categoryText} - {categories.find(c => c.id === nameCategory)?.name || 'Navn etter kategori'}
+            {categoryText} - {currentCategory}
           </h1>
         </div>
 

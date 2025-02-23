@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Heart, Sparkles } from 'lucide-react';
 import { useFavorites } from '../context/FavoritesContext';
 import { names, Name } from '../data/names';
+import SEO from './SEO';
 
 function LikedNames() {
   const { favorites, toggleFavorite } = useFavorites();
@@ -27,6 +28,11 @@ function LikedNames() {
 
   return (
     <div className="max-w-7xl mx-auto space-y-8">
+      <SEO 
+        title="Mine favoritter | Navnetips.no"
+        description={`Din personlige samling av favorittnavn. Du har lagret ${likedNames.length} navn som inspirasjon til ditt valg av navn.`}
+      />
+
       <div className="bg-white border-4 border-black p-6 sm:p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
         <h1 className="text-4xl sm:text-5xl font-black mb-6">Dine favoritt navn</h1>
         

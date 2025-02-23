@@ -1,24 +1,51 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
-import { Baby, Cat, Dog, Search, PcCase as AlphabetCase, Tags } from 'lucide-react';
+import { Baby, Cat, Dog, Search, PcCase as AlphabetCase, Tags, ChevronDown, ChevronUp } from 'lucide-react';
 import Header from './components/Header';
 import NameList from './components/NameList';
 import AlphabetBrowser from './components/AlphabetBrowser';
 import CategoryBrowser from './components/CategoryBrowser';
 import LikedNames from './components/LikedNames';
 import SEO from './components/SEO';
+import { useScrollToTop } from './hooks/useScrollToTop';
 import { names } from './data/names';
 
+function ScrollToTop() {
+  useScrollToTop();
+  return null;
+}
+
 function App() {
+  const [isNavExpanded, setIsNavExpanded] = useState(true);
+
   return (
     <Router>
+      <ScrollToTop />
       <div className="min-h-screen bg-yellow-50 p-4">
         <SEO />
         <Header />
         
         {/* Navigation */}
         <nav className="max-w-7xl mx-auto mb-12">
-          <div className="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6">
+          <button
+            onClick={() => setIsNavExpanded(!isNavExpanded)}
+            className="w-full sm:hidden mb-4 px-6 py-3 bg-white border-4 border-black font-bold
+              flex items-center justify-between
+              transform transition-transform duration-300
+              hover:translate-y-[-2px]"
+          >
+            <span>Vis kategorier</span>
+            {isNavExpanded ? (
+              <ChevronUp className="h-5 w-5" />
+            ) : (
+              <ChevronDown className="h-5 w-5" />
+            )}
+          </button>
+          
+          <div className={`${isNavExpanded ? 'grid' : 'hidden'} 
+            grid-cols-1 xs:grid-cols-2 sm:grid-cols-4 gap-4
+            transition-all duration-300 ease-in-out`}
+          >
             <NavLink to="/guttenavn" icon={<Baby />} text="Guttenavn" color="blue" />
             <NavLink to="/jentenavn" icon={<Baby />} text="Jentenavn" color="pink" />
             <NavLink to="/hundenavn" icon={<Dog />} text="Hundenavn" color="orange" />
@@ -77,15 +104,15 @@ function NavLink({ to, icon, text, color }: NavLinkProps) {
   return (
     <Link
       to={to}
-      className={`w-full sm:w-auto px-8 py-4 border-4 border-black font-bold text-black
+      className={`w-full px-4 sm:px-6 py-3 border-4 border-black font-bold text-black
         ${isActive ? `${bgColor} -rotate-2` : 'bg-white rotate-2'}
         transform transition-all duration-300 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]
         hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-1
         active:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] active:translate-y-1`}
     >
-      <div className="flex items-center justify-center sm:justify-start space-x-3">
+      <div className="flex items-center justify-center space-x-2">
         {icon}
-        <span className="text-lg relative">{text}</span>
+        <span className="text-base sm:text-lg">{text}</span>
       </div>
     </Link>
   );

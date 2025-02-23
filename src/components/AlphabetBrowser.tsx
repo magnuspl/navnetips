@@ -2,6 +2,7 @@ import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { ArrowLeft, PcCase as AlphabetCase } from 'lucide-react';
 import { names } from '../data/names';
+import SEO from './SEO';
 
 interface AlphabetBrowserProps {
   category: 'boy' | 'girl';
@@ -18,8 +19,13 @@ function AlphabetBrowser({ category }: AlphabetBrowserProps) {
   const categoryText = category === 'boy' ? 'Guttenavn' : 'Jentenavn';
   const bgColor = category === 'boy' ? 'bg-blue-400' : 'bg-pink-400';
 
+  const seoTitle = `${categoryText} som starter på ${letter.toUpperCase()} | Navnetips.no`;
+  const seoDescription = `Utforsk ${categoryText.toLowerCase()} som starter på bokstaven ${letter.toUpperCase()}. Finn betydning og opprinnelse for ${filteredNames.length} unike navn.`;
+
   return (
     <div className="max-w-7xl mx-auto space-y-8">
+      <SEO title={seoTitle} description={seoDescription} />
+      
       <div className="flex items-center justify-between">
         <Link
           to={basePath}
