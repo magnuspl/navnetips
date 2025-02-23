@@ -10,7 +10,7 @@ function LikedNames() {
   const { favorites, toggleFavorite } = useFavorites();
 
   // Collect all names from all categories
-  const allNames = [...names.boy, ...names.girl, ...names.pet];
+  const allNames = [...names.boy, ...names.girl, ...names.dog, ...names.cat];
   
   // Filter for favorited names
   const likedNames = allNames.filter(name => favorites.has(name.name));
@@ -18,12 +18,14 @@ function LikedNames() {
   const getNamePath = (name: Name) => {
     if (names.boy.some(n => n.name === name.name)) return `/guttenavn/${name.name.toLowerCase()}`;
     if (names.girl.some(n => n.name === name.name)) return `/jentenavn/${name.name.toLowerCase()}`;
+    if (names.dog.some(n => n.name === name.name)) return `/hundenavn/${name.name.toLowerCase()}`;
     return `/kattenavn/${name.name.toLowerCase()}`;
   };
 
   const getNameColor = (name: Name) => {
     if (names.boy.some(n => n.name === name.name)) return 'bg-blue-400';
     if (names.girl.some(n => n.name === name.name)) return 'bg-pink-400';
+    if (names.dog.some(n => n.name === name.name)) return 'bg-orange-400';
     return 'bg-purple-400';
   };
 
@@ -68,11 +70,19 @@ function LikedNames() {
                 <p className="text-gray-700 mt-4 text-lg font-medium">
                   {name.meaning}
                 </p>
-                <div className="mt-4">
-                  <span className="px-4 py-1 bg-black text-white text-sm font-bold
-                    transform -rotate-2 inline-block">
-                    {name.origin}
-                  </span>
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {name.categories?.map((cat: string) => (
+                    <span
+                      key={cat}
+                      className={`px-3 py-1 text-sm font-bold transform -rotate-2
+                        ${getNameColor(name)} border-2 border-black`}
+                    >
+                      {cat === 'norrønt' ? 'Norrønt' :
+                       cat === 'klassisk' ? 'Klassisk' :
+                       cat === 'moderne' ? 'Moderne' :
+                       cat === 'unikt' ? 'Unikt' : cat}
+                    </span>
+                  ))}
                 </div>
               </div>
             ))}

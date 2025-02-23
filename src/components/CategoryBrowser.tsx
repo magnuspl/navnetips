@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
-import { ArrowLeft, Tags } from 'lucide-react';
+import { ArrowLeft, Tags, ArrowUpDown, Filter } from 'lucide-react';
 import { names } from '../data/names';
 import { getCategoryContent } from '../content/categoryContent';
 import Breadcrumb from './Breadcrumb';
@@ -10,13 +10,39 @@ interface CategoryBrowserProps {
   category: 'boy' | 'girl';
 }
 
+type SortOption = 'alphabetical' | 'length';
+type SortDirection = 'asc' | 'desc';
+
 function CategoryBrowser({ category }: CategoryBrowserProps) {
   const { nameCategory = 'norrønt' } = useParams();
   const navigate = useNavigate();
+  const [sortBy, setSortBy] = useState<SortOption>('alphabetical');
+  const [sortDirection, setSortDirection] = useState<SortDirection>('asc');
+  const [searchTerm, setSearchTerm] = useState('');
+
   const categoryNames = category === 'boy' ? names.boy : names.girl;
   const filteredNames = categoryNames.filter(name => 
-    name.categories.includes(nameCategory.toLowerCase())
+    name.categories.includes(nameCategory.toLowerCase()) &&
+    (searchTerm === '' || 
+     name.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+     name.meaning.toLowerCase().includes(searchTerm.toLowerCase()))
   );
+
+  // Sort names based on selected option
+  const sortedNames = [...filteredNames].sort((a, b) => {
+    let comparison = 0;
+    
+    switch (sortBy) {
+      case 'alphabetical':
+        comparison = a.name.localeCompare(b.name);
+        break;
+      case 'length':
+        comparison = a.name.length - b.name.length;
+        break;
+    }
+
+    return sortDirection === 'asc' ? comparison : -comparison;
+  });
 
   const basePath = category === 'boy' ? '/guttenavn' : '/jentenavn';
   const categoryText = category === 'boy' ? 'Guttenavn' : 'Jentenavn';
@@ -39,6 +65,10 @@ function CategoryBrowser({ category }: CategoryBrowserProps) {
     navigate(`${basePath}/kategori/${categoryName}`);
   };
 
+  const toggleSortDirection = () => {
+    setSortDirection(prev => prev === 'asc' ? 'desc' : 'asc');
+  };
+
   const formatCategoryName = (cat: string) => {
     switch (cat) {
       case 'norrønt': return 'Norrønt';
@@ -58,6 +88,40 @@ function CategoryBrowser({ category }: CategoryBrowserProps) {
         nameCategory={nameCategory}
       />
 
+      {/* Filters and Sort Controls */}
+      <div className="bg-white border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+        <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-between">
+          {/* Search */}
+          <div className="relative w-full sm:w-64">
+            <input
+              type="text"
+              placeholder="Søk etter navn..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              className="w-full px-4 py-2 border-2 border-black focus:outline-none"
+            />
+          </div>
+
+          {/* Sort Controls */}
+          <div className="flex items-center space-x-4 w-full sm:w-auto">
+            <select
+              value={sortBy}
+              onChange={(e) => setSortBy(e.target.value as SortOption)}
+              className="px-4 py-2 border-2 border-black focus:outline-none w-full sm:w-auto"
+            >
+              <option value="alphabetical">Alfabetisk</option>
+              <option value="length">Lengde</option>
+            </select>
+            <button
+              onClick={toggleSortDirection}
+              className="p-2 border-2 border-black hover:bg-gray-100"
+            >
+              <ArrowUpDown className={`h-5 w-5 transform ${sortDirection === 'desc' ? 'rotate-180' : ''}`} />
+            </button>
+          </div>
+        </div>
+      </div>
+
       <div className="bg-white border-4 border-black p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
         <div className="flex items-center space-x-4 mb-8">
           <Tags className="h-10 w-10" />
@@ -69,7 +133,7 @@ function CategoryBrowser({ category }: CategoryBrowserProps) {
         <div className="prose max-w-none mb-12" dangerouslySetInnerHTML={{ __html: content }} />
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredNames.map((name, index) => (
+          {sortedNames.map((name, index) => (
             <div
               key={name.name}
               className={`bg-white border-4 border-black p-6
@@ -103,7 +167,7 @@ function CategoryBrowser({ category }: CategoryBrowserProps) {
           ))}
         </div>
 
-        {filteredNames.length === 0 && (
+        {sortedNames.length === 0 && (
           <div className="text-center py-12">
             <p className="text-xl font-bold">
               Ingen navn funnet i denne kategorien
