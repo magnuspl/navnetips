@@ -182,6 +182,12 @@ function Home() {
               Klassiske navn
             </Link>
             <Link
+              to="/guttenavn/kategori/moderne"
+              className="bg-blue-400 border-2 border-black p-4 text-center font-bold hover:transform hover:-translate-y-1 transition-transform"
+            >
+              Moderne navn
+            </Link>
+            <Link
               to="/guttenavn/kategori/unikt"
               className="bg-blue-400 border-2 border-black p-4 text-center font-bold hover:transform hover:-translate-y-1 transition-transform"
             >
@@ -207,6 +213,12 @@ function Home() {
               className="bg-pink-400 border-2 border-black p-4 text-center font-bold hover:transform hover:-translate-y-1 transition-transform"
             >
               Klassiske navn
+            </Link>
+            <Link
+              to="/jentenavn/kategori/moderne"
+              className="bg-pink-400 border-2 border-black p-4 text-center font-bold hover:transform hover:-translate-y-1 transition-transform"
+            >
+              Moderne navn
             </Link>
             <Link
               to="/jentenavn/kategori/unikt"

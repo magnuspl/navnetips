@@ -2,6 +2,7 @@ import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { ArrowLeft, PcCase as AlphabetCase } from 'lucide-react';
 import { names } from '../data/names';
+import Breadcrumb from './Breadcrumb';
 import SEO from './SEO';
 
 interface AlphabetBrowserProps {
@@ -26,17 +27,10 @@ function AlphabetBrowser({ category }: AlphabetBrowserProps) {
     <div className="max-w-7xl mx-auto space-y-8">
       <SEO title={seoTitle} description={seoDescription} />
       
-      <div className="flex items-center justify-between">
-        <Link
-          to={basePath}
-          className="flex items-center space-x-2 px-4 py-2 bg-white border-4 border-black
-            shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]
-            transform transition-all duration-300 hover:-translate-y-1"
-        >
-          <ArrowLeft className="h-5 w-5" />
-          <span>Tilbake til {categoryText.toLowerCase()}</span>
-        </Link>
-      </div>
+      <Breadcrumb 
+        category={category} 
+        currentPage={`Navn på ${letter.toUpperCase()}`} 
+      />
 
       <div className="bg-white border-4 border-black p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
         <div className="flex items-center space-x-4 mb-8">
@@ -60,9 +54,20 @@ function AlphabetBrowser({ category }: AlphabetBrowserProps) {
             >
               <h2 className="text-2xl font-black mb-2">{name.name}</h2>
               <p className="text-sm font-medium">{name.meaning}</p>
-              <span className="inline-block mt-2 px-3 py-1 bg-black text-white text-xs font-bold transform -rotate-2">
-                {name.origin}
-              </span>
+              <div className="mt-4 flex flex-wrap gap-2">
+                {name.categories.map(cat => (
+                  <Link
+                    key={cat}
+                    to={`${basePath}/kategori/${cat}`}
+                    className="px-3 py-1 bg-black text-white text-xs font-bold transform -rotate-2 hover:scale-105 transition-transform"
+                  >
+                    {cat === 'norrønt' ? 'Norrønt' :
+                     cat === 'klassisk' ? 'Klassisk' :
+                     cat === 'moderne' ? 'Moderne' :
+                     cat === 'unikt' ? 'Unikt' : cat}
+                  </Link>
+                ))}
+              </div>
             </Link>
           ))}
         </div>

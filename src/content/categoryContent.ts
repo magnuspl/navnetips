@@ -98,6 +98,28 @@ Klassiske navn har ofte en lang historie av bruk i Norge og andre europeiske lan
 
 Klassiske navn opplever ofte en renessanse i moderne tid, der foreldre søker navn med historie og betydning. De gir en følelse av kontinuitet og tradisjon i en stadig skiftende verden.`;
 
+const boyModernNames = `# Moderne guttenavn
+
+Moderne guttenavn reflekterer dagens trender og samfunn. Disse navnene er ofte inspirert av populærkultur, internasjonale impulser eller nye kombinasjoner av tradisjonelle elementer.
+
+## Hvorfor velge et moderne navn?
+
+Moderne navn kan gi barnet ditt en tidsaktuell og frisk start. De kan reflektere vår globaliserte verden og moderne verdier, samtidig som de ofte har en unik klang.
+
+## Karakteristikker
+
+- **Internasjonalt**: Mange moderne navn fungerer godt på tvers av landegrenser
+- **Trendy**: Disse navnene følger dagens navnetrender
+- **Nyskapende**: Ofte nye kombinasjoner eller moderne tolkninger av tradisjonelle navn
+
+## Moderne trender
+
+Vi ser en økende trend mot:
+- Korte, enkle navn
+- Internasjonale navn som er lette å uttale
+- Navn inspirert av populærkultur og kjente personligheter
+- Kreative kombinasjoner av tradisjonelle elementer`;
+
 const boyUniqueNames = `# Unike guttenavn
 
 Unike guttenavn skiller seg ut fra mengden og gir barnet ditt en distinkt identitet. Disse navnene kan være moderne oppfinnelser, sjeldne historiske navn, eller navn fra andre kulturer som er mindre vanlige i Norge.
@@ -151,6 +173,28 @@ Klassiske jentenavn har ofte dype røtter i europeisk og norsk historie. De har 
 ## Moderne bruk
 
 I dag velger mange foreldre klassiske navn for deres tidløse appell og sterke kulturelle forankring. Disse navnene gir en følelse av kontinuitet og tradisjon i en moderne verden.`;
+
+const girlModernNames = `# Moderne jentenavn
+
+Moderne jentenavn representerer dagens mangfoldige navnekultur. Disse navnene kombinerer ofte det beste fra ulike tradisjoner med nye, kreative elementer.
+
+## Hvorfor velge et moderne navn?
+
+Et moderne navn kan gi barnet ditt en tidsaktuell identitet som reflekterer vår samtid. Disse navnene er ofte både stilige og betydningsfulle.
+
+## Karakteristikker
+
+- **Allsidighet**: Fungerer godt i en internasjonal kontekst
+- **Kreativitet**: Nye kombinasjoner og moderne tolkninger
+- **Enkelhet**: Ofte korte og lettuttalte navn
+
+## Moderne trender
+
+Dagens trender inkluderer:
+- Naturinspirerte navn
+- Korte, kraftfulle navn
+- Internasjonale navn med nordisk twist
+- Vintage navn i ny drakt`;
 
 const girlUniqueNames = `# Unike jentenavn
 
@@ -232,11 +276,13 @@ export function getCategoryContent(category: 'boy' | 'girl' | 'dog' | 'cat', nam
     boy: {
       norrønt: boyNorseNames,
       klassisk: boyClassicNames,
+      moderne: boyModernNames,
       unikt: boyUniqueNames,
     },
     girl: {
       norrønt: girlNorseNames,
       klassisk: girlClassicNames,
+      moderne: girlModernNames,
       unikt: girlUniqueNames,
     },
   };

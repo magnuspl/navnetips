@@ -1,8 +1,9 @@
 import React from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 import { ArrowLeft, Tags } from 'lucide-react';
-import { names, Name } from '../data/names';
+import { names } from '../data/names';
 import { getCategoryContent } from '../content/categoryContent';
+import Breadcrumb from './Breadcrumb';
 import SEO from './SEO';
 
 interface CategoryBrowserProps {
@@ -11,6 +12,7 @@ interface CategoryBrowserProps {
 
 function CategoryBrowser({ category }: CategoryBrowserProps) {
   const { nameCategory = 'norrønt' } = useParams();
+  const navigate = useNavigate();
   const categoryNames = category === 'boy' ? names.boy : names.girl;
   const filteredNames = categoryNames.filter(name => 
     name.categories.includes(nameCategory.toLowerCase())
@@ -23,6 +25,7 @@ function CategoryBrowser({ category }: CategoryBrowserProps) {
   const categories = [
     { id: 'norrønt', name: 'Norrøne navn' },
     { id: 'klassisk', name: 'Klassiske navn' },
+    { id: 'moderne', name: 'Moderne navn' },
     { id: 'unikt', name: 'Unike navn' },
   ];
 
@@ -32,21 +35,28 @@ function CategoryBrowser({ category }: CategoryBrowserProps) {
   const seoTitle = `${currentCategory} - ${categoryText} | Navnetips.no`;
   const seoDescription = `Utforsk ${categoryText.toLowerCase()} i kategorien ${currentCategory.toLowerCase()}. ${filteredNames.length} unike navn med betydning og opprinnelse.`;
 
+  const handleCategoryClick = (categoryName: string) => {
+    navigate(`${basePath}/kategori/${categoryName}`);
+  };
+
+  const formatCategoryName = (cat: string) => {
+    switch (cat) {
+      case 'norrønt': return 'Norrønt';
+      case 'klassisk': return 'Klassisk';
+      case 'moderne': return 'Moderne';
+      case 'unikt': return 'Unikt';
+      default: return cat;
+    }
+  };
+
   return (
     <div className="max-w-7xl mx-auto space-y-8">
       <SEO title={seoTitle} description={seoDescription} />
-
-      <div className="flex items-center justify-between">
-        <Link
-          to={basePath}
-          className="flex items-center space-x-2 px-4 py-2 bg-white border-4 border-black
-            shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]
-            transform transition-all duration-300 hover:-translate-y-1"
-        >
-          <ArrowLeft className="h-5 w-5" />
-          <span>Tilbake til {categoryText.toLowerCase()}</span>
-        </Link>
-      </div>
+      
+      <Breadcrumb 
+        category={category}
+        nameCategory={nameCategory}
+      />
 
       <div className="bg-white border-4 border-black p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
         <div className="flex items-center space-x-4 mb-8">
@@ -56,27 +66,40 @@ function CategoryBrowser({ category }: CategoryBrowserProps) {
           </h1>
         </div>
 
-        {/* Category Description */}
         <div className="prose max-w-none mb-12" dangerouslySetInnerHTML={{ __html: content }} />
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredNames.map((name, index) => (
-            <Link
+            <div
               key={name.name}
-              to={`${basePath}/${name.name.toLowerCase()}`}
-              className={`${bgColor} border-4 border-black p-6
-                shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]
+              className={`bg-white border-4 border-black p-6
+                shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]
                 transform transition-all duration-300
-                hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]
+                hover:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)]
                 hover:-translate-y-1
                 ${index % 2 === 0 ? 'rotate-1' : '-rotate-1'}`}
             >
-              <h2 className="text-2xl font-black mb-2">{name.name}</h2>
-              <p className="text-sm font-medium">{name.meaning}</p>
-              <span className="inline-block mt-2 px-3 py-1 bg-black text-white text-xs font-bold transform -rotate-2">
-                {name.origin}
-              </span>
-            </Link>
+              <Link to={`${basePath}/${name.name.toLowerCase()}`}>
+                <h2 className="text-3xl font-black tracking-tight hover:underline">
+                  {name.name}
+                </h2>
+              </Link>
+              <p className="text-gray-700 mt-4 text-lg font-medium">
+                {name.meaning}
+              </p>
+              <div className="mt-4 flex flex-wrap gap-2">
+                {name.categories.map(cat => (
+                  <button
+                    key={cat}
+                    onClick={() => handleCategoryClick(cat)}
+                    className={`px-3 py-1 text-sm font-bold transform -rotate-2 transition-all duration-300
+                      ${bgColor} border-2 border-black hover:scale-105 cursor-pointer`}
+                  >
+                    {formatCategoryName(cat)}
+                  </button>
+                ))}
+              </div>
+            </div>
           ))}
         </div>
 
@@ -90,7 +113,7 @@ function CategoryBrowser({ category }: CategoryBrowserProps) {
       </div>
 
       <div className="bg-white border-4 border-black p-4 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-4 gap-4">
           {categories.map((cat) => (
             <Link
               key={cat.id}

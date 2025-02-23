@@ -1,35 +1,36 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Heart, Sparkles, ArrowUpDown, Filter } from 'lucide-react';
-import { Name } from '../data/names';
+import { Name, names } from '../data/names';
 import { useFavorites } from '../context/FavoritesContext';
 import { getCategoryContent } from '../content/categoryContent';
+import Breadcrumb from './Breadcrumb';
 import SEO from './SEO';
 
 interface NameListProps {
   category: 'boy' | 'girl' | 'dog' | 'cat';
-  names: Name[];
 }
 
 type SortOption = 'alphabetical' | 'length' | 'origin';
 type SortDirection = 'asc' | 'desc';
 
-function NameList({ category, names }: NameListProps) {
+function NameList({ category }: NameListProps) {
   const [searchTerm, setSearchTerm] = useState('');
   const [sortBy, setSortBy] = useState<SortOption>('alphabetical');
   const [sortDirection, setSortDirection] = useState<SortDirection>('asc');
   const [selectedOrigin, setSelectedOrigin] = useState<string>('all');
   const { favorites, toggleFavorite } = useFavorites();
+  const navigate = useNavigate();
 
   // Get unique origins for filter dropdown
-  const origins = ['all', ...new Set(names.map(name => name.origin))];
+  const origins = ['all', ...new Set(names[category].map(name => name.origin))];
 
   const toggleSortDirection = () => {
     setSortDirection(prev => prev === 'asc' ? 'desc' : 'asc');
   };
 
   // Filter names based on search term and origin
-  const filteredNames = names.filter(name =>
+  const filteredNames = names[category].filter(name =>
     (searchTerm === '' || 
      name.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
      name.meaning.toLowerCase().includes(searchTerm.toLowerCase())) &&
@@ -67,8 +68,24 @@ function NameList({ category, names }: NameListProps) {
                        category === 'girl' ? 'Jentenavn' :
                        category === 'dog' ? 'Hundenavn' : 'Kattenavn';
 
+  const handleCategoryClick = (categoryName: string) => {
+    if (category === 'boy' || category === 'girl') {
+      navigate(`${basePath}/kategori/${categoryName}`);
+    }
+  };
+
+  const getCategoryLabel = (cat: string) => {
+    switch (cat) {
+      case 'norrønt': return 'Norrønt';
+      case 'klassisk': return 'Klassisk';
+      case 'moderne': return 'Moderne';
+      case 'unikt': return 'Unikt';
+      default: return cat;
+    }
+  };
+
   const seoTitle = `${categoryTitle} - Finn det perfekte navnet | Navnetips.no`;
-  const seoDescription = `Utforsk vår samling av ${categoryTitle.toLowerCase()} med betydninger og opprinnelse. ${names.length} unike navn å velge mellom.`;
+  const seoDescription = `Utforsk vår samling av ${categoryTitle.toLowerCase()} med betydninger og opprinnelse. ${names[category].length} unike navn å velge mellom.`;
 
   // Get category content
   const categoryContent = getCategoryContent(category);
@@ -76,6 +93,8 @@ function NameList({ category, names }: NameListProps) {
   return (
     <main className="max-w-7xl mx-auto space-y-8">
       <SEO title={seoTitle} description={seoDescription} />
+      
+      <Breadcrumb category={category} />
 
       {/* Category Description */}
       <div className="bg-white border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
@@ -170,11 +189,17 @@ function NameList({ category, names }: NameListProps) {
             <p className="text-gray-700 mt-4 text-lg font-medium">
               {name.meaning}
             </p>
-            <div className="mt-4">
-              <span className={`px-4 py-1 bg-black text-white text-sm font-bold
-                transform -rotate-2 inline-block`}>
-                {name.origin}
-              </span>
+            <div className="mt-4 flex flex-wrap gap-2">
+              {(category === 'boy' || category === 'girl') && name.categories.map(cat => (
+                <button
+                  key={cat}
+                  onClick={() => handleCategoryClick(cat)}
+                  className={`px-3 py-1 text-sm font-bold transform -rotate-2 transition-all duration-300
+                    ${bgColor} border-2 border-black hover:scale-105 cursor-pointer`}
+                >
+                  {getCategoryLabel(cat)}
+                </button>
+              ))}
             </div>
           </div>
         ))}
