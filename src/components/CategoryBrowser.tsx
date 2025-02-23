@@ -52,7 +52,7 @@ function CategoryBrowser({ category }: CategoryBrowserProps) {
     { id: 'norrønt', name: 'Norrøne navn' },
     { id: 'klassisk', name: 'Klassiske navn' },
     { id: 'moderne', name: 'Moderne navn' },
-    { id: 'unikt', name: 'Unike navn' },
+    { id: 'unikt', name: 'Unike navn' }
   ];
 
   const currentCategory = categories.find(c => c.id === nameCategory)?.name || 'Navn etter kategori';
@@ -130,7 +130,7 @@ function CategoryBrowser({ category }: CategoryBrowserProps) {
           </h1>
         </div>
 
-        <div className="prose max-w-none mb-12" dangerouslySetInnerHTML={{ __html: content }} />
+        <div className="prose prose-lg prose-slate mb-12" dangerouslySetInnerHTML={{ __html: content }} />
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {sortedNames.map((name, index) => (

@@ -27,3 +27,32 @@
 .animate-spin-slow {
   animation: spin-slow 3s linear infinite;
 }
+
+/* Custom prose styles */
+.prose h1 {
+  @apply text-4xl font-black mb-8;
+}
+
+.prose h2 {
+  @apply text-2xl font-bold mt-8 mb-4;
+}
+
+.prose h3 {
+  @apply text-xl font-bold mt-6 mb-3;
+}
+
+.prose p {
+  @apply text-lg mb-4;
+}
+
+.prose ul {
+  @apply list-disc list-inside mb-4 space-y-2;
+}
+
+.prose li {
+  @apply text-lg;
+}
+
+.prose strong {
+  @apply font-bold;
+}

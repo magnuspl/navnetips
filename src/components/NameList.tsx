@@ -97,8 +97,8 @@ function NameList({ category }: NameListProps) {
       <Breadcrumb category={category} />
 
       {/* Category Description */}
-      <div className="bg-white border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
-        <div className="prose max-w-none" dangerouslySetInnerHTML={{ __html: categoryContent }} />
+      <div className="bg-white border-4 border-black p-6 sm:p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+        <div className="prose prose-lg prose-slate" dangerouslySetInnerHTML={{ __html: categoryContent }} />
       </div>
 
       {/* Filters and Sort Controls */}
