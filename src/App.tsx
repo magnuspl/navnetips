@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
-import { Baby, Cat, Dog, Search, PcCase as AlphabetCase, Tags, ChevronDown, ChevronUp } from 'lucide-react';
+import { Baby, Cat, Dog, Search, PcCase as AlphabetCase, Tags, ChevronDown, ChevronUp, Heart } from 'lucide-react';
 import Header from './components/Header';
 import NameList from './components/NameList';
 import AlphabetBrowser from './components/AlphabetBrowser';
@@ -9,6 +9,7 @@ import LikedNames from './components/LikedNames';
 import SEO from './components/SEO';
 import { useScrollToTop } from './hooks/useScrollToTop';
 import { names } from './data/names';
+import { useFavorites } from './context/FavoritesContext';
 
 function ScrollToTop() {
   useScrollToTop();
@@ -264,6 +265,7 @@ function NameDetail({ category }: { category: 'boy' | 'girl' | 'dog' | 'cat' }) 
   const nameFromPath = location.pathname.split('/').pop() || '';
   const categoryNames = names[category];
   const nameData = categoryNames.find(n => n.name.toLowerCase() === nameFromPath.toLowerCase());
+  const { favorites, toggleFavorite } = useFavorites();
 
   const getCategoryLabel = (cat: typeof category) => {
     switch (cat) {
@@ -293,6 +295,9 @@ function NameDetail({ category }: { category: 'boy' | 'girl' | 'dog' | 'cat' }) 
     );
   }
 
+  const isLiked = favorites.has(nameData.name);
+  const bgColor = getBgColor(category);
+
   return (
     <div className="max-w-7xl mx-auto">
       <SEO 
@@ -302,9 +307,24 @@ function NameDetail({ category }: { category: 'boy' | 'girl' | 'dog' | 'cat' }) 
       <div className="bg-white border-4 border-black p-6 sm:p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
         <div className="flex items-center justify-between mb-6">
           <h1 className="text-4xl sm:text-5xl font-black">{nameData.name}</h1>
-          <span className={`${getBgColor(category)} px-4 py-2 border-4 border-black font-bold transform -rotate-3`}>
-            {getCategoryLabel(category)}
-          </span>
+          <div className="flex items-center space-x-4">
+            <button 
+              onClick={() => toggleFavorite(nameData.name)}
+              className={`p-4 border-4 border-black transition-all duration-300
+                ${isLiked ? `${bgColor} rotate-12` : 'bg-white -rotate-12 hover:rotate-0'}
+                transform hover:scale-110 active:scale-95`}
+              aria-label={isLiked ? 'Fjern fra favoritter' : 'Legg til i favoritter'}
+            >
+              <Heart 
+                className={`h-8 w-8 transition-all duration-300 ${
+                  isLiked ? 'fill-black scale-110' : 'scale-100'
+                }`} 
+              />
+            </button>
+            <span className={`${bgColor} px-4 py-2 border-4 border-black font-bold transform -rotate-3`}>
+              {getCategoryLabel(category)}
+            </span>
+          </div>
         </div>
         <div className="space-y-4">
           <div>
@@ -318,7 +338,7 @@ function NameDetail({ category }: { category: 'boy' | 'girl' | 'dog' | 'cat' }) 
           <div>
             <h2 className="text-xl sm:text-2xl font-bold mb-2">Kategorier</h2>
             <div className="flex flex-wrap gap-2">
-              {(nameData as any).categories?.map((category: string) => (
+              {nameData.categories?.map((category: string) => (
                 <span
                   key={category}
                   className="px-3 py-1 bg-black text-white text-sm font-bold transform -rotate-2"
