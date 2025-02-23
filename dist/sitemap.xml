@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Main pages -->
+  <url>
+    <loc>https://navnetips.netlify.app/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://navnetips.netlify.app/favoritter</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Boy names -->
+  <url>
+    <loc>https://navnetips.netlify.app/guttenavn</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://navnetips.netlify.app/guttenavn/kategori/norrønt</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://navnetips.netlify.app/guttenavn/kategori/klassisk</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://navnetips.netlify.app/guttenavn/kategori/unikt</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Girl names -->
+  <url>
+    <loc>https://navnetips.netlify.app/jentenavn</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://navnetips.netlify.app/jentenavn/kategori/norrønt</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://navnetips.netlify.app/jentenavn/kategori/klassisk</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://navnetips.netlify.app/jentenavn/kategori/unikt</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Dog names -->
+  <url>
+    <loc>https://navnetips.netlify.app/hundenavn</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Cat names -->
+  <url>
+    <loc>https://navnetips.netlify.app/kattenavn</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Alphabet pages for boy names -->
+  <url>
+    <loc>https://navnetips.netlify.app/guttenavn/bokstav/a</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Alphabet pages for girl names -->
+  <url>
+    <loc>https://navnetips.netlify.app/jentenavn/bokstav/a</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+</urlset>
