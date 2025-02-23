@@ -6,12 +6,14 @@ import NameList from './components/NameList';
 import AlphabetBrowser from './components/AlphabetBrowser';
 import CategoryBrowser from './components/CategoryBrowser';
 import LikedNames from './components/LikedNames';
+import SEO from './components/SEO';
 import { names } from './data/names';
 
 function App() {
   return (
     <Router>
       <div className="min-h-screen bg-yellow-50 p-4">
+        <SEO />
         <Header />
         
         {/* Navigation */}
@@ -236,6 +238,24 @@ function NameDetail({ category }: { category: 'boy' | 'girl' | 'dog' | 'cat' }) 
   const categoryNames = names[category];
   const nameData = categoryNames.find(n => n.name.toLowerCase() === nameFromPath.toLowerCase());
 
+  const getCategoryLabel = (cat: typeof category) => {
+    switch (cat) {
+      case 'boy': return 'guttenavn';
+      case 'girl': return 'jentenavn';
+      case 'dog': return 'hundenavn';
+      case 'cat': return 'kattenavn';
+    }
+  };
+
+  const getBgColor = (cat: typeof category) => {
+    switch (cat) {
+      case 'boy': return 'bg-blue-400';
+      case 'girl': return 'bg-pink-400';
+      case 'dog': return 'bg-orange-400';
+      case 'cat': return 'bg-purple-400';
+    }
+  };
+
   if (!nameData) {
     return (
       <div className="max-w-7xl mx-auto">
@@ -248,8 +268,17 @@ function NameDetail({ category }: { category: 'boy' | 'girl' | 'dog' | 'cat' }) 
 
   return (
     <div className="max-w-7xl mx-auto">
+      <SEO 
+        title={`${nameData.name} - Betydning og opprinnelse | Navnetips.no`}
+        description={`Lær om navnet ${nameData.name}: Betydning, opprinnelse og historie. ${nameData.meaning}. Opprinnelse: ${nameData.origin}.`}
+      />
       <div className="bg-white border-4 border-black p-6 sm:p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
-        <h1 className="text-4xl sm:text-5xl font-black mb-6">{nameData.name}</h1>
+        <div className="flex items-center justify-between mb-6">
+          <h1 className="text-4xl sm:text-5xl font-black">{nameData.name}</h1>
+          <span className={`${getBgColor(category)} px-4 py-2 border-4 border-black font-bold transform -rotate-3`}>
+            {getCategoryLabel(category)}
+          </span>
+        </div>
         <div className="space-y-4">
           <div>
             <h2 className="text-xl sm:text-2xl font-bold mb-2">Betydning</h2>
