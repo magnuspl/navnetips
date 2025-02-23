@@ -17,7 +17,7 @@ function ScrollToTop() {
 }
 
 function App() {
-  const [isNavExpanded, setIsNavExpanded] = useState(true);
+  const [isNavExpanded, setIsNavExpanded] = useState(false);
 
   return (
     <Router>
@@ -44,7 +44,7 @@ function App() {
           </button>
           
           <div className={`${isNavExpanded ? 'grid' : 'hidden'} 
-            grid-cols-1 xs:grid-cols-2 sm:grid-cols-4 gap-4
+            sm:grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-4 gap-4
             transition-all duration-300 ease-in-out`}
           >
             <NavLink to="/guttenavn" icon={<Baby />} text="Guttenavn" color="blue" />
