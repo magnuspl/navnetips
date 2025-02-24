@@ -52,7 +52,7 @@ function CategoryBrowser({ category }: CategoryBrowserProps) {
     { id: 'norrønt', name: 'Norrøne navn' },
     { id: 'klassisk', name: 'Klassiske navn' },
     { id: 'moderne', name: 'Moderne navn' },
-    { id: 'unikt', name: 'Unike navn' },
+    { id: 'unikt', name: 'Unike navn' }
   ];
 
   const currentCategory = categories.find(c => c.id === nameCategory)?.name || 'Navn etter kategori';
@@ -98,7 +98,8 @@ function CategoryBrowser({ category }: CategoryBrowserProps) {
               placeholder="Søk etter navn..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full px-4 py-2 border-2 border-black focus:outline-none"
+              className="w-full px-4 py-2 border-2 border-black focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent
+                transition-all duration-300 hover:shadow-inner"
             />
           </div>
 
@@ -107,16 +108,20 @@ function CategoryBrowser({ category }: CategoryBrowserProps) {
             <select
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value as SortOption)}
-              className="px-4 py-2 border-2 border-black focus:outline-none w-full sm:w-auto"
+              className="px-4 py-2 border-2 border-black focus:outline-none w-full sm:w-auto
+                transition-all duration-300 hover:shadow-inner button-press"
             >
               <option value="alphabetical">Alfabetisk</option>
               <option value="length">Lengde</option>
             </select>
             <button
               onClick={toggleSortDirection}
-              className="p-2 border-2 border-black hover:bg-gray-100"
+              className="p-2 border-2 border-black hover:bg-gray-100 ripple button-press
+                transition-all duration-300"
             >
-              <ArrowUpDown className={`h-5 w-5 transform ${sortDirection === 'desc' ? 'rotate-180' : ''}`} />
+              <ArrowUpDown className={`h-5 w-5 transform transition-transform duration-300 ${
+                sortDirection === 'desc' ? 'rotate-180' : ''
+              }`} />
             </button>
           </div>
         </div>
@@ -130,21 +135,26 @@ function CategoryBrowser({ category }: CategoryBrowserProps) {
           </h1>
         </div>
 
-        <div className="prose max-w-none mb-12" dangerouslySetInnerHTML={{ __html: content }} />
+        <div className="prose prose-lg prose-slate mb-12" dangerouslySetInnerHTML={{ __html: content }} />
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {sortedNames.map((name, index) => (
+          {sortedNames.map((name) => (
             <div
-              key={name.name}
+              key={name.id}
               className={`bg-white border-4 border-black p-6
                 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]
                 transform transition-all duration-300
                 hover:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)]
-                hover:-translate-y-1
-                ${index % 2 === 0 ? 'rotate-1' : '-rotate-1'}`}
+                hover:-translate-y-1 active:translate-y-0
+                ${Math.random() > 0.5 ? 'rotate-1' : '-rotate-1'}
+                interactive-hover`}
             >
-              <Link to={`${basePath}/${name.name.toLowerCase()}`}>
-                <h2 className="text-3xl font-black tracking-tight hover:underline">
+              <Link 
+                to={`${basePath}/${name.name.toLowerCase()}`}
+                className="group transition-all duration-300"
+              >
+                <h2 className="text-3xl font-black tracking-tight group-hover:underline 
+                  group-hover:scale-105 transition-all duration-300">
                   {name.name}
                 </h2>
               </Link>
@@ -154,10 +164,12 @@ function CategoryBrowser({ category }: CategoryBrowserProps) {
               <div className="mt-4 flex flex-wrap gap-2">
                 {name.categories.map(cat => (
                   <button
-                    key={cat}
+                    key={`${name.id}-${cat}`}
                     onClick={() => handleCategoryClick(cat)}
-                    className={`px-3 py-1 text-sm font-bold transform -rotate-2 transition-all duration-300
-                      ${bgColor} border-2 border-black hover:scale-105 cursor-pointer`}
+                    className={`px-3 py-1 text-sm font-bold transform -rotate-2 
+                      transition-all duration-300 ${bgColor} border-2 border-black 
+                      hover:scale-105 active:scale-95 hover:-rotate-1 
+                      active:rotate-0 button-press ripple`}
                   >
                     {formatCategoryName(cat)}
                   </button>
@@ -169,7 +181,7 @@ function CategoryBrowser({ category }: CategoryBrowserProps) {
 
         {sortedNames.length === 0 && (
           <div className="text-center py-12">
-            <p className="text-xl font-bold">
+            <p className="text-xl font-bold error-shake">
               Ingen navn funnet i denne kategorien
             </p>
           </div>
@@ -184,7 +196,8 @@ function CategoryBrowser({ category }: CategoryBrowserProps) {
               to={`${basePath}/kategori/${cat.id}`}
               className={`${cat.id === nameCategory ? bgColor : 'bg-white'}
                 border-4 border-black p-4 text-center font-bold text-lg
-                hover:transform hover:-translate-y-1 transition-transform
+                hover:transform hover:-translate-y-1 active:translate-y-0
+                transition-all duration-300 button-press ripple
                 ${cat.id === nameCategory ? '-rotate-2' : 'rotate-2'}`}
             >
               {cat.name}

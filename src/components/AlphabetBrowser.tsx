@@ -83,7 +83,8 @@ function AlphabetBrowser({ category }: AlphabetBrowserProps) {
             <select
               value={selectedCategory}
               onChange={(e) => setSelectedCategory(e.target.value)}
-              className="px-4 py-2 border-2 border-black focus:outline-none w-full sm:w-auto"
+              className="px-4 py-2 border-2 border-black focus:outline-none w-full sm:w-auto
+                transition-all duration-300 hover:shadow-inner button-press"
             >
               {categories.map(cat => (
                 <option key={cat} value={cat}>
@@ -98,16 +99,20 @@ function AlphabetBrowser({ category }: AlphabetBrowserProps) {
             <select
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value as SortOption)}
-              className="px-4 py-2 border-2 border-black focus:outline-none w-full sm:w-auto"
+              className="px-4 py-2 border-2 border-black focus:outline-none w-full sm:w-auto
+                transition-all duration-300 hover:shadow-inner button-press"
             >
               <option value="alphabetical">Alfabetisk</option>
               <option value="length">Lengde</option>
             </select>
             <button
               onClick={toggleSortDirection}
-              className="p-2 border-2 border-black hover:bg-gray-100"
+              className="p-2 border-2 border-black hover:bg-gray-100 ripple button-press
+                transition-all duration-300"
             >
-              <ArrowUpDown className={`h-5 w-5 transform ${sortDirection === 'desc' ? 'rotate-180' : ''}`} />
+              <ArrowUpDown className={`h-5 w-5 transform transition-transform duration-300 ${
+                sortDirection === 'desc' ? 'rotate-180' : ''
+              }`} />
             </button>
           </div>
         </div>
@@ -122,28 +127,37 @@ function AlphabetBrowser({ category }: AlphabetBrowserProps) {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {sortedNames.map((name, index) => (
+          {sortedNames.map((name) => (
             <div
-              key={name.name}
+              key={name.id}
               className={`${bgColor} border-4 border-black p-6
                 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]
                 transform transition-all duration-300
                 hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]
-                hover:-translate-y-1
-                ${index % 2 === 0 ? 'rotate-1' : '-rotate-1'}`}
+                hover:-translate-y-1 active:translate-y-0
+                ${Math.random() > 0.5 ? 'rotate-1' : '-rotate-1'}
+                interactive-hover`}
             >
-              <Link to={`${basePath}/${name.name.toLowerCase()}`}>
-                <h2 className="text-2xl font-black mb-2">{name.name}</h2>
+              <Link 
+                to={`${basePath}/${name.name.toLowerCase()}`}
+                className="group transition-all duration-300"
+              >
+                <h2 className="text-2xl font-black mb-2 group-hover:underline 
+                  group-hover:scale-105 transition-all duration-300">
+                  {name.name}
+                </h2>
                 <p className="text-sm font-medium">{name.meaning}</p>
               </Link>
               <div className="mt-4 flex flex-wrap gap-2">
                 {name.categories.map(cat => (
                   <button
-                    key={cat}
+                    key={`${name.id}-${cat}`}
                     onClick={() => {
                       window.location.href = `${basePath}/kategori/${cat}`;
                     }}
-                    className="px-3 py-1 bg-black text-white text-xs font-bold transform -rotate-2 hover:scale-105 transition-transform"
+                    className="px-3 py-1 bg-black text-white text-xs font-bold 
+                      transform -rotate-2 hover:scale-105 hover:-rotate-1 
+                      active:rotate-0 transition-all duration-300 button-press ripple"
                   >
                     {formatCategoryName(cat)}
                   </button>
@@ -155,7 +169,7 @@ function AlphabetBrowser({ category }: AlphabetBrowserProps) {
 
         {sortedNames.length === 0 && (
           <div className="text-center py-12">
-            <p className="text-xl font-bold">
+            <p className="text-xl font-bold error-shake">
               Ingen navn funnet som starter på {letter.toUpperCase()}
             </p>
           </div>
@@ -170,7 +184,8 @@ function AlphabetBrowser({ category }: AlphabetBrowserProps) {
               to={`${basePath}/bokstav/${l.toLowerCase()}`}
               className={`${l.toLowerCase() === letter.toLowerCase() ? bgColor : 'bg-white'}
                 border-2 border-black p-2 text-center font-bold
-                hover:transform hover:-translate-y-1 transition-transform`}
+                hover:transform hover:-translate-y-1 active:translate-y-0
+                transition-all duration-300 button-press ripple`}
             >
               {l}
             </Link>
