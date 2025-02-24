@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
-import { Baby, Cat, Dog, Search, PcCase as AlphabetCase, Tags, ChevronDown, ChevronUp, Heart } from 'lucide-react';
+import { Baby, Cat, Dog, Search, PcCase as AlphabetCase, Tags, ChevronDown, ChevronUp, Heart, Sparkles } from 'lucide-react';
 import Header from './components/Header';
 import NameList from './components/NameList';
 import AlphabetBrowser from './components/AlphabetBrowser';
 import CategoryBrowser from './components/CategoryBrowser';
 import LikedNames from './components/LikedNames';
+import NameSuggester from './components/NameSuggester';
 import SEO from './components/SEO';
 import { useScrollToTop } from './hooks/useScrollToTop';
 import { names } from './data/names';
@@ -14,6 +15,117 @@ import { useFavorites } from './context/FavoritesContext';
 function ScrollToTop() {
   useScrollToTop();
   return null;
+}
+
+function NameDetail({ category }: { category: 'boy' | 'girl' | 'dog' | 'cat' }) {
+  const location = useLocation();
+  const nameFromPath = location.pathname.split('/').pop() || '';
+  const categoryNames = names[category];
+  const nameData = categoryNames.find(n => n.name.toLowerCase() === nameFromPath.toLowerCase());
+  const { favorites, toggleFavorite } = useFavorites();
+
+  const getCategoryLabel = (cat: typeof category) => {
+    switch (cat) {
+      case 'boy': return 'guttenavn';
+      case 'girl': return 'jentenavn';
+      case 'dog': return 'hundenavn';
+      case 'cat': return 'kattenavn';
+    }
+  };
+
+  const getBgColor = (cat: typeof category) => {
+    switch (cat) {
+      case 'boy': return 'bg-blue-400';
+      case 'girl': return 'bg-pink-400';
+      case 'dog': return 'bg-orange-400';
+      case 'cat': return 'bg-purple-400';
+    }
+  };
+
+  if (!nameData) {
+    return (
+      <div className="max-w-7xl mx-auto">
+        <Breadcrumb category={category} />
+        <div className="bg-white border-4 border-black p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+          <h1 className="text-3xl font-bold">Navn ikke funnet</h1>
+        </div>
+      </div>
+    );
+  }
+
+  const isLiked = favorites.has(nameData.name);
+  const bgColor = getBgColor(category);
+
+  return (
+    <div className="max-w-7xl mx-auto">
+      <SEO 
+        title={`${nameData.name} - Betydning og opprinnelse | Navnetips.no`}
+        description={`Lær om navnet ${nameData.name}: Betydning, opprinnelse og historie. ${nameData.meaning}. Opprinnelse: ${nameData.origin}.`}
+      />
+      
+      <Breadcrumb 
+        category={category}
+        currentPage={nameData.name}
+      />
+
+      <div className="bg-white border-4 border-black p-6 sm:p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+        <div className="flex items-center justify-between mb-6">
+          <h1 className="text-4xl sm:text-5xl font-black">{nameData.name}</h1>
+          <div className="flex items-center space-x-4">
+            <button 
+              onClick={() => toggleFavorite(nameData.name)}
+              className={`p-4 border-4 border-black transition-all duration-300
+                ${isLiked ? `${bgColor} rotate-12` : 'bg-white -rotate-12 hover:rotate-0'}
+                transform hover:scale-110 active:scale-95`}
+              aria-label={isLiked ? 'Fjern fra favoritter' : 'Legg til i favoritter'}
+            >
+              <Heart 
+                className={`h-8 w-8 transition-all duration-300 ${
+                  isLiked ? 'fill-black scale-110' : 'scale-100'
+                }`} 
+              />
+            </button>
+            <span className={`${bgColor} px-4 py-2 border-4 border-black font-bold transform -rotate-3`}>
+              {getCategoryLabel(category)}
+            </span>
+          </div>
+        </div>
+        <div className="space-y-4">
+          <div>
+            <h2 className="text-xl sm:text-2xl font-bold mb-2">Betydning</h2>
+            <p className="text-lg sm:text-xl">{nameData.meaning}</p>
+          </div>
+          <div>
+            <h2 className="text-xl sm:text-2xl font-bold mb-2">Opprinnelse</h2>
+            <p className="text-lg sm:text-xl">{nameData.origin}</p>
+          </div>
+          {(category === 'boy' || category === 'girl') && (
+            <div>
+              <h2 className="text-xl sm:text-2xl font-bold mb-2">Kategorier</h2>
+              <div className="flex flex-wrap gap-2">
+                {nameData.categories?.map((cat: string) => (
+                  <button
+                    key={cat}
+                    onClick={() => {
+                      const basePath = category === 'boy' ? '/guttenavn' : '/jentenavn';
+                      window.location.href = `${basePath}/kategori/${cat}`;
+                    }}
+                    className={`px-3 py-1 font-bold transform -rotate-2 transition-all duration-300
+                      ${bgColor} border-2 border-black hover:scale-105 cursor-pointer`}
+                  >
+                    {cat === 'norrønt' ? 'Norrønt' :
+                     cat === 'klassisk' ? 'Klassisk' :
+                     cat === 'moderne' ? 'Moderne' :
+                     cat === 'unikt' ? 'Unikt' : cat}
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  );
 }
 
 function App() {
@@ -44,13 +156,14 @@ function App() {
           </button>
           
           <div className={`${isNavExpanded ? 'grid' : 'hidden'} 
-            sm:grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-4 gap-4
+            sm:grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-5 gap-4
             transition-all duration-300 ease-in-out`}
           >
             <NavLink to="/guttenavn" icon={<Baby />} text="Guttenavn" color="blue" />
             <NavLink to="/jentenavn" icon={<Baby />} text="Jentenavn" color="pink" />
             <NavLink to="/hundenavn" icon={<Dog />} text="Hundenavn" color="orange" />
             <NavLink to="/kattenavn" icon={<Cat />} text="Kattenavn" color="purple" />
+            <NavLink to="/navneforslag" icon={<Sparkles />} text="Navneforslag" color="yellow" />
           </div>
         </nav>
 
@@ -62,6 +175,7 @@ function App() {
           <Route path="/hundenavn" element={<NameList category="dog" names={names.dog} />} />
           <Route path="/kattenavn" element={<NameList category="cat" names={names.cat} />} />
           <Route path="/favoritter" element={<LikedNames />} />
+          <Route path="/navneforslag" element={<NameSuggester />} />
           <Route path="/guttenavn/bokstav/:letter" element={<AlphabetBrowser category="boy" />} />
           <Route path="/jentenavn/bokstav/:letter" element={<AlphabetBrowser category="girl" />} />
           <Route path="/guttenavn/kategori/:nameCategory" element={<CategoryBrowser category="boy" />} />
@@ -100,7 +214,8 @@ function NavLink({ to, icon, text, color }: NavLinkProps) {
   const bgColor = color === 'blue' ? 'bg-blue-400' : 
                  color === 'pink' ? 'bg-pink-400' : 
                  color === 'orange' ? 'bg-orange-400' : 
-                 'bg-purple-400';
+                 color === 'purple' ? 'bg-purple-400' :
+                 'bg-yellow-400';
 
   return (
     <Link
@@ -159,6 +274,24 @@ function Home() {
             <p>Finn det perfekte navnet til din katt</p>
           </Link>
         </div>
+      </div>
+
+      {/* Navneforslag Section */}
+      <div className="bg-yellow-400 border-4 border-black p-6 sm:p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transform -rotate-1">
+        <div className="flex items-center space-x-4 mb-6">
+          <Sparkles className="h-8 w-8" />
+          <h2 className="text-2xl sm:text-3xl font-black">Prøv vår navneforslagstjeneste</h2>
+        </div>
+        <p className="text-lg mb-6">
+          La oss hjelpe deg med å finne det perfekte navnet. Velg type og kategorier, og få personlige navneforslag.
+        </p>
+        <Link
+          to="/navneforslag"
+          className="inline-block bg-black text-white px-6 py-3 font-bold text-lg
+            transform transition-all duration-300 hover:-translate-y-1"
+        >
+          Prøv navneforslag
+        </Link>
       </div>
 
       {/* Categories Section */}
@@ -265,102 +398,6 @@ function Home() {
                 {letter}
               </Link>
             ))}
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function NameDetail({ category }: { category: 'boy' | 'girl' | 'dog' | 'cat' }) {
-  const location = useLocation();
-  const nameFromPath = location.pathname.split('/').pop() || '';
-  const categoryNames = names[category];
-  const nameData = categoryNames.find(n => n.name.toLowerCase() === nameFromPath.toLowerCase());
-  const { favorites, toggleFavorite } = useFavorites();
-
-  const getCategoryLabel = (cat: typeof category) => {
-    switch (cat) {
-      case 'boy': return 'guttenavn';
-      case 'girl': return 'jentenavn';
-      case 'dog': return 'hundenavn';
-      case 'cat': return 'kattenavn';
-    }
-  };
-
-  const getBgColor = (cat: typeof category) => {
-    switch (cat) {
-      case 'boy': return 'bg-blue-400';
-      case 'girl': return 'bg-pink-400';
-      case 'dog': return 'bg-orange-400';
-      case 'cat': return 'bg-purple-400';
-    }
-  };
-
-  if (!nameData) {
-    return (
-      <div className="max-w-7xl mx-auto">
-        <div className="bg-white border-4 border-black p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
-          <h1 className="text-3xl font-bold">Navn ikke funnet</h1>
-        </div>
-      </div>
-    );
-  }
-
-  const isLiked = favorites.has(nameData.name);
-  const bgColor = getBgColor(category);
-
-  return (
-    <div className="max-w-7xl mx-auto">
-      <SEO 
-        title={`${nameData.name} - Betydning og opprinnelse | Navnetips.no`}
-        description={`Lær om navnet ${nameData.name}: Betydning, opprinnelse og historie. ${nameData.meaning}. Opprinnelse: ${nameData.origin}.`}
-      />
-      <div className="bg-white border-4 border-black p-6 sm:p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
-        <div className="flex items-center justify-between mb-6">
-          <h1 className="text-4xl sm:text-5xl font-black">{nameData.name}</h1>
-          <div className="flex items-center space-x-4">
-            <button 
-              onClick={() => toggleFavorite(nameData.name)}
-              className={`p-4 border-4 border-black transition-all duration-300
-                ${isLiked ? `${bgColor} rotate-12` : 'bg-white -rotate-12 hover:rotate-0'}
-                transform hover:scale-110 active:scale-95`}
-              aria-label={isLiked ? 'Fjern fra favoritter' : 'Legg til i favoritter'}
-            >
-              <Heart 
-                className={`h-8 w-8 transition-all duration-300 ${
-                  isLiked ? 'fill-black scale-110' : 'scale-100'
-                }`} 
-              />
-            </button>
-            <span className={`${bgColor} px-4 py-2 border-4 border-black font-bold transform -rotate-3`}>
-              {getCategoryLabel(category)}
-            </span>
-          </div>
-        </div>
-        <div className="space-y-4">
-          <div>
-            <h2 className="text-xl sm:text-2xl font-bold mb-2">Betydning</h2>
-            <p className="text-lg sm:text-xl">{nameData.meaning}</p>
-          </div>
-          <div>
-            <h2 className="text-xl sm:text-2xl font-bold mb-2">Opprinnelse</h2>
-            <p className="text-lg sm:text-xl">{nameData.origin}</p>
-          </div>
-          <div>
-            <h2 className="text-xl sm:text-2xl font-bold mb-2">Kategorier</h2>
-            <div className="flex flex-wrap gap-2">
-              {nameData.categories?.map((category: string) => (
-                <span
-                  key={category}
-                  className="px-3 py-1 bg-black text-white text-sm font-bold transform -rotate-2"
-                >
-                  {category === 'norrønt' ? 'Norrønt' :
-                   category === 'klassisk' ? 'Klassisk' :
-                   category === 'unikt' ? 'Unikt' : category}
-                </span>
-              ))}
-            </div>
           </div>
         </div>
       </div>
