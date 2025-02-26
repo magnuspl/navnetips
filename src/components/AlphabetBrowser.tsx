@@ -47,8 +47,8 @@ function AlphabetBrowser({ category }: AlphabetBrowserProps) {
   const categoryText = category === 'boy' ? 'Guttenavn' : 'Jentenavn';
   const bgColor = category === 'boy' ? 'bg-blue-400' : 'bg-pink-400';
 
-  const seoTitle = `${categoryText} som starter på ${letter.toUpperCase()} | Navnetips.no`;
-  const seoDescription = `Utforsk ${categoryText.toLowerCase()} som starter på bokstaven ${letter.toUpperCase()}. Finn betydning og opprinnelse for ${filteredNames.length} unike navn.`;
+  const seoTitle = `${categoryText} som starter på ${letter.toUpperCase()} - Komplett liste | Navnetips.no`;
+  const seoDescription = `Utforsk ${categoryText.toLowerCase()} som starter på bokstaven ${letter.toUpperCase()}. Finn betydning og opprinnelse for ${filteredNames.length} unike navn på Navnetips.no.`;
 
   const toggleSortDirection = () => {
     setSortDirection(prev => prev === 'asc' ? 'desc' : 'asc');

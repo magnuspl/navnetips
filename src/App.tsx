@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route, Link, useLocation, useSearchParams } from 'react-router-dom';
 import { Baby, Cat, Dog, Search, PcCase as AlphabetCase, Tags, ChevronDown, ChevronUp, Heart, Sparkles } from 'lucide-react';
 import Header from './components/Header';
 import NameList from './components/NameList';
@@ -10,12 +10,117 @@ import NameSuggester from './components/NameSuggester';
 import SEO from './components/SEO';
 import Breadcrumb from './components/Breadcrumb';
 import { useScrollToTop } from './hooks/useScrollToTop';
-import { names } from './data/names';
+import { names, Name } from './data/names';
 import { useFavorites } from './context/FavoritesContext';
 
 function ScrollToTop() {
   useScrollToTop();
   return null;
+}
+
+function SearchResults() {
+  const [searchParams] = useSearchParams();
+  const searchTerm = searchParams.get('search') || '';
+  const allNames = [...names.boy, ...names.girl, ...names.dog, ...names.cat];
+  
+  const filteredNames = allNames.filter(name => 
+    name.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    name.meaning.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    name.origin.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
+  const getNamePath = (name: Name) => {
+    if (names.boy.some(n => n.name === name.name)) return `/guttenavn/${name.name.toLowerCase()}`;
+    if (names.girl.some(n => n.name === name.name)) return `/jentenavn/${name.name.toLowerCase()}`;
+    if (names.dog.some(n => n.name === name.name)) return `/hundenavn/${name.name.toLowerCase()}`;
+    return `/kattenavn/${name.name.toLowerCase()}`;
+  };
+
+  const getNameColor = (name: Name) => {
+    if (names.boy.some(n => n.name === name.name)) return 'bg-blue-400';
+    if (names.girl.some(n => n.name === name.name)) return 'bg-pink-400';
+    if (names.dog.some(n => n.name === name.name)) return 'bg-orange-400';
+    return 'bg-purple-400';
+  };
+
+  const getNameCategory = (name: Name) => {
+    if (names.boy.some(n => n.name === name.name)) return 'Guttenavn';
+    if (names.girl.some(n => n.name === name.name)) return 'Jentenavn';
+    if (names.dog.some(n => n.name === name.name)) return 'Hundenavn';
+    return 'Kattenavn';
+  };
+
+  return (
+    <div className="max-w-7xl mx-auto space-y-8">
+      <SEO 
+        title={`Søkeresultater for "${searchTerm}" - Finn navn | Navnetips.no`}
+        description={`Søkeresultater for "${searchTerm}". Vi fant ${filteredNames.length} navn som matcher ditt søk på Navnetips.no.`}
+      />
+      
+      <Breadcrumb currentPage={`Søk: ${searchTerm}`} />
+
+      <div className="bg-white border-4 border-black p-6 sm:p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+        <h1 className="text-4xl sm:text-5xl font-black mb-6">Søkeresultater for "{searchTerm}"</h1>
+        
+        {filteredNames.length > 0 ? (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {filteredNames.map((name) => (
+              <div
+                key={name.id}
+                className="bg-white border-4 border-black p-6
+                  shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]
+                  transform transition-all duration-300
+                  hover:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)]
+                  hover:-translate-y-1 active:translate-y-0
+                  interactive-hover"
+              >
+                <div className="flex justify-between items-start">
+                  <Link to={getNamePath(name)}>
+                    <h2 className="text-3xl font-black tracking-tight hover:underline">
+                      {name.name}
+                    </h2>
+                  </Link>
+                  <span className={`${getNameColor(name)} px-3 py-1 text-sm font-bold border-2 border-black transform -rotate-3`}>
+                    {getNameCategory(name)}
+                  </span>
+                </div>
+                <p className="text-gray-700 mt-4 text-lg font-medium">
+                  {name.meaning}
+                </p>
+                <p className="text-gray-600 mt-2">
+                  Opprinnelse: {name.origin}
+                </p>
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {name.categories?.map((cat: string) => (
+                    <span
+                      key={`${name.id}-${cat}`}
+                      className={`px-3 py-1 text-sm font-bold transform -rotate-2
+                        ${getNameColor(name)} border-2 border-black opacity-70`}
+                    >
+                      {cat === 'norrønt' ? 'Norrønt' :
+                       cat === 'klassisk' ? 'Klassisk' :
+                       cat === 'moderne' ? 'Moderne' :
+                       cat === 'unikt' ? 'Unikt' : cat}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        ) : (
+          <div className="text-center py-16">
+            <Search className="h-12 w-12 text-black mx-auto mb-4" />
+            <p className="text-xl font-bold">
+              Ingen navn funnet for "{searchTerm}"
+            </p>
+            <p className="mt-2 text-gray-600">
+              Prøv et annet søkeord eller utforsk navnene våre via kategoriene.
+            </p>
+          </div>
+        )}
+      </div>
+    </div>
+  );
 }
 
 function NameDetail({ category }: { category: 'boy' | 'girl' | 'dog' | 'cat' }) {
@@ -57,11 +162,23 @@ function NameDetail({ category }: { category: 'boy' | 'girl' | 'dog' | 'cat' }) 
   const isLiked = favorites.has(nameData.name);
   const bgColor = getBgColor(category);
 
+  // Create a more SEO-friendly title based on name and category
+  const getCategoryName = (cat: typeof category) => {
+    switch (cat) {
+      case 'boy': return 'guttenavn';
+      case 'girl': return 'jentenavn';
+      case 'dog': return 'hundenavn';
+      case 'cat': return 'kattenavn';
+    }
+  };
+
+  const seoTitle = `${nameData.name} - ${nameData.meaning} | ${getCategoryName(category).charAt(0).toUpperCase() + getCategoryName(category).slice(1)} med betydning og opprinnelse`;
+
   return (
     <div className="max-w-7xl mx-auto">
       <SEO 
-        title={`${nameData.name} - Betydning og opprinnelse | Navnetips.no`}
-        description={`Lær om navnet ${nameData.name}: Betydning, opprinnelse og historie. ${nameData.meaning}. Opprinnelse: ${nameData.origin}.`}
+        title={seoTitle}
+        description={`Lær om navnet ${nameData.name}: Betydning, opprinnelse og historie. ${nameData.meaning}. Opprinnelse: ${nameData.origin}. Finn ut om ${nameData.name} er det rette navnet for deg.`}
       />
       
       <Breadcrumb 
@@ -186,6 +303,7 @@ function App() {
           <Route path="/jentenavn/:name" element={<NameDetail category="girl" />} />
           <Route path="/hundenavn/:name" element={<NameDetail category="dog" />} />
           <Route path="/kattenavn/:name" element={<NameDetail category="cat" />} />
+          <Route path="/search" element={<SearchResults />} />
         </Routes>
 
         {/* Footer */}
@@ -238,6 +356,13 @@ function NavLink({ to, icon, text, color }: NavLinkProps) {
 }
 
 function Home() {
+  const [searchParams] = useSearchParams();
+  const searchTerm = searchParams.get('search');
+
+  if (searchTerm) {
+    return <SearchResults />;
+  }
+
   return (
     <div className="max-w-7xl mx-auto space-y-12">
       <div className="bg-white border-4 border-black p-6 sm:p-12 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
