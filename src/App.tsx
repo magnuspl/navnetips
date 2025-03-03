@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link, useLocation, useSearchParams } from 'react-router-dom';
-import { Baby, Cat, Dog, Search, PcCase as AlphabetCase, Tags, ChevronDown, ChevronUp, Heart, Sparkles } from 'lucide-react';
+import { Baby, Cat, Dog, Search, PcCase as AlphabetCase, Tags, ChevronDown, ChevronUp, Heart, Sparkles, TrendingUp } from 'lucide-react';
 import Header from './components/Header';
 import NameList from './components/NameList';
 import AlphabetBrowser from './components/AlphabetBrowser';
 import CategoryBrowser from './components/CategoryBrowser';
 import LikedNames from './components/LikedNames';
 import NameSuggester from './components/NameSuggester';
+import PopularNames from './components/PopularNames';
 import SEO from './components/SEO';
 import Breadcrumb from './components/Breadcrumb';
 import { useScrollToTop } from './hooks/useScrollToTop';
@@ -275,13 +276,14 @@ function App() {
           </button>
           
           <div className={`${isNavExpanded ? 'grid' : 'hidden'} 
-            sm:grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-5 gap-4
+            sm:grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-6 gap-4
             transition-all duration-300 ease-in-out`}
           >
             <NavLink to="/guttenavn" icon={<Baby />} text="Guttenavn" color="blue" />
             <NavLink to="/jentenavn" icon={<Baby />} text="Jentenavn" color="pink" />
             <NavLink to="/hundenavn" icon={<Dog />} text="Hundenavn" color="orange" />
             <NavLink to="/kattenavn" icon={<Cat />} text="Kattenavn" color="purple" />
+            <NavLink to="/populaere-navn" icon={<TrendingUp />} text="Populære" color="green" />
             <NavLink to="/navneforslag" icon={<Sparkles />} text="Navneforslag" color="yellow" />
           </div>
         </nav>
@@ -294,6 +296,7 @@ function App() {
           <Route path="/hundenavn" element={<NameList category="dog" names={names.dog} />} />
           <Route path="/kattenavn" element={<NameList category="cat" names={names.cat} />} />
           <Route path="/favoritter" element={<LikedNames />} />
+          <Route path="/populaere-navn" element={<PopularNames />} />
           <Route path="/navneforslag" element={<NameSuggester />} />
           <Route path="/guttenavn/bokstav/:letter" element={<AlphabetBrowser category="boy" />} />
           <Route path="/jentenavn/bokstav/:letter" element={<AlphabetBrowser category="girl" />} />
@@ -335,6 +338,7 @@ function NavLink({ to, icon, text, color }: NavLinkProps) {
                  color === 'pink' ? 'bg-pink-400' : 
                  color === 'orange' ? 'bg-orange-400' : 
                  color === 'purple' ? 'bg-purple-400' :
+                 color === 'green' ? 'bg-green-400' :
                  'bg-yellow-400';
 
   return (
@@ -406,6 +410,25 @@ function Home() {
             <p>Finn det perfekte navnet til din katt</p>
           </Link>
         </div>
+      </div>
+
+      {/* Popular Names Section */}
+      <div className="bg-green-400 border-4 border-black p-6 sm:p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transform rotate-1">
+        <div className="flex items-center space-x-4 mb-6">
+          <TrendingUp className="h-8 w-8" />
+          <h2 className="text-2xl sm:text-3xl font-black">Mest populære navn 2024</h2>
+        </div>
+        <p className="text-lg mb-6">
+          Utforsk de mest populære navnene i 2024. Se hvilke navn som topper listene for gutter, jenter, hunder og katter.
+        </p>
+        <Link
+          to="/populaere-navn"
+          className="inline-block bg-black text-white px-6 py-3 font-bold text-lg
+            transform transition-all duration-300 hover:-translate-y-1 active:translate-y-0
+            button-press ripple"
+        >
+          Se populære navn
+        </Link>
       </div>
 
       {/* Navneforslag Section */}

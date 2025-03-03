@@ -19,6 +19,7 @@ export default function SEO({ title, description }: SEOProps) {
     if (path.includes('kattenavn')) return 'Velg det ideelle navnet til din katt. Utforsk vår samling av kreative og klassiske kattenavn.';
     if (path.includes('favoritter')) return 'Se dine lagrede favorittnavn og hold oversikt over navnene du liker best.';
     if (path.includes('navneforslag')) return 'Få personlige navneforslag basert på dine preferanser. Vår navnegenerator hjelper deg å finne det perfekte navnet.';
+    if (path.includes('populaere-navn')) return 'Utforsk de mest populære navnene i 2024. Topp 10 gutte- og jentenavn, samt populære hunde- og kattenavn.';
     return 'Finn det perfekte navnet med Navnetips.no - din guide til navn med betydning og historie.';
   };
 
@@ -44,6 +45,9 @@ export default function SEO({ title, description }: SEOProps) {
     
     // Name suggester page
     if (path === '/navneforslag') return `Navneforslag - Personlig navnegenerator | ${baseTitle}`;
+    
+    // Popular names page
+    if (path === '/populaere-navn') return `Mest populære navn 2024 - Topp 10 liste | ${baseTitle}`;
     
     // Category browsing pages
     if (mainCategory === 'guttenavn' && subCategory === 'kategori') {
