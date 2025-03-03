@@ -227,6 +227,49 @@ function PopularNames() {
             </li>
           </ul>
         </div>
+
+        {/* Detailed Analysis Section */}
+        <div className="mt-12 prose prose-lg prose-slate">
+          <h2 className="text-3xl font-bold mb-6">Navnetrender og samfunnsutvikling</h2>
+          
+          <p>I en verden i konstant endring forblir navnevalg en av de mest personlige og betydningsfulle beslutningene foreldre tar. Årets navnestatistikk avslører fascinerende mønstre som reflekterer bredere samfunnstrender, kulturelle skifter og endrede verdier i det norske samfunnet.</p>
+          
+          <h3 className="text-2xl font-bold mt-8 mb-4">Kontinuitet og tradisjon</h3>
+          <p>Navnestatistikken for 2024 viser at mange klassiske navn fortsatt har en sterk posisjon i Norge. Emma og Noah holder seg stabilt på toppen av listene, noe som illustrerer hvordan visse navn oppnår en tidløs status. Disse navnene balanserer perfekt mellom det kjente og det moderne – de er tradisjonelle nok til å føles solide, men ikke så vanlige at de oppfattes som utdaterte.</p>
+          <p>Det er interessant å se hvordan noen navn har evnen til å transcendere trender og forbli populære over flere tiår. Disse navnene har ofte en universell kvalitet – de er lette å uttale, fungerer godt på tvers av språkgrenser, og bærer positive kulturelle assosiasjoner.</p>
+          <p>For mange foreldre representerer valget av et klassisk navn en forbindelse til tradisjon i en ellers hurtig endrende verden. Dette reflekterer et ønske om å gi barnet et solid fundament – et navn som vil fungere like godt i barndommen som i voksenlivet.</p>
+          
+          <h3 className="text-2xl font-bold mt-8 mb-4">Den globale landsbyen</h3>
+          <p>I takt med at verden blir stadig mer sammenkoblet, ser vi en økende tendens til at norske foreldre velger navn med internasjonal klang. Navn som Sofia, Oliver, William og Olivia figurerer høyt på listene og gjenspeiler en bevissthet om at dagens barn vil vokse opp i en global kontekst.</p>
+          <p>Dagens foreldre tenker i økende grad på barnets fremtidige muligheter i en internasjonal setting. Et navn som fungerer godt på tvers av landegrenser kan være en fordel i en fremtid der arbeid, studier og relasjoner stadig krysser nasjonale grenser.</p>
+          <p>Denne trenden er særlig fremtredende i urbane områder med høy grad av internasjonalisering. I Oslo, Bergen og Trondheim ser vi en markant høyere andel internasjonalt klingende navn sammenlignet med mer rurale strøk, hvor lokale og tradisjonelle navn fortsatt har en sterkere posisjon.</p>
+          
+          <h3 className="text-2xl font-bold mt-8 mb-4">Den norrøne renessansen</h3>
+          <p>En av de mest fascinerende trendene i årets statistikk er den markante økningen i norrøne navn. Navn som Odin, Frøya, Tor, Idun og Brage har opplevd en betydelig popularitetsøkning det siste året. Denne trenden representerer en form for kulturell selvbevissthet og en fornyet interesse for norsk historie og mytologi.</p>
+          <p>Det er en interessant motreaksjon mot globaliseringen at mange søker tilbake til røttene. Norrøne navn gir en følelse av historisk kontinuitet og kulturell identitet i en tid der nasjonale grenser blir mindre betydningsfulle.</p>
+          <p>Populærkulturens innflytelse kan ikke undervurderes i denne sammenhengen. TV-serier som "Vikings" og "Ragnarok" har bidratt til å gjøre norrøn mytologi mer tilgjengelig for allmennheten, og har tilført disse gamle navnene et moderne og dynamisk preg.</p>
+          
+          <h3 className="text-2xl font-bold mt-8 mb-4">Enkelhet og lydkvalitet</h3>
+          <p>Årets liste bekrefter også den langvarige trenden med preferanse for korte, klangfulle navn. Navn som Ella, Liam, Maja og Emil eksemplifiserer denne tendensen. Disse navnene har en melodiøs kvalitet samtidig som de er enkle å uttale og stave.</p>
+          <p>Vi ser en økende preferanse for navn med få stavelser og en åpen lydstruktur. Disse navnene oppleves som behagelige å uttale og har ofte en universell appell som fungerer godt på tvers av generasjoner og sosiale kontekster.</p>
+          <p>Denne trenden reflekterer også praktiske hensyn i en digital tidsalder. Korte navn er ofte lettere å bruke i digitale plattformer, fra e-postadresser til sosiale medier, noe som gjør dem funksjonelle for barnets fremtidige digitale identitet.</p>
+          
+          <h3 className="text-2xl font-bold mt-8 mb-4">Vintage-bølgen fortsetter</h3>
+          <p>Årets statistikk bekrefter også at den såkalte "vintage-bølgen" fortsetter med uforminsket styrke. Navn som var populære for 80-100 år siden, som Oskar, Agnes, Arthur og Hedda, har gjort et sterkt comeback. Denne trenden følger det som kalles "hundreårsregelen" – tendensen til at navn går ut av bruk, hviler i omkring tre generasjoner, og deretter kommer tilbake i ny friskhet.</p>
+          <p>Når et navn har vært ute av sirkulasjon lenge nok, mister det assosiasjonene til foreldregenerasjonen og får i stedet en aura av distinksjon og særpreg. Disse navnene oppleves som både tradisjonelle og overraskende på samme tid.</p>
+          
+          <h3 className="text-2xl font-bold mt-8 mb-4">Naturen som inspirasjonskilde</h3>
+          <p>I tråd med økt miljøbevissthet og naturfokus i samfunnet generelt, ser vi en tydelig trend med navn inspirert av naturfenomener. Navn som Luna, Nova, Storm og Furu representerer en forbindelse til naturen som mange foreldre ønsker å videreføre til sine barn.</p>
+          <p>Navnevalg reflekterer alltid underliggende verdier. Når vi ser en økning i naturnavn, forteller det oss noe om hvordan norske foreldre ønsker å formidle naturbevissthet og miljøverdier til neste generasjon.</p>
+          
+          <h3 className="text-2xl font-bold mt-8 mb-4">Individualitet i fellesskapet</h3>
+          <p>Selv om vi ser tydelige trender, er det verdt å merke seg at variasjonene i navnevalg er større enn noensinne. I 2024 er konsentrasjonen av de mest populære navnene lavere enn tidligere tiår, noe som betyr at foreldre i økende grad velger unike eller mindre vanlige navn til sine barn.</p>
+          <p>Det er et paradoks at mens vi ser klare trender, velger stadig flere foreldre navn som ligger utenfor topp-50-listen. Dette reflekterer en bredere samfunnstrend der individualitet verdsettes høyt, selv innenfor rammen av kulturelle fellesskap.</p>
+          
+          <h3 className="text-2xl font-bold mt-8 mb-4">Konklusjon</h3>
+          <p>Navnetrender er aldri tilfeldige – de forteller en historie om samfunnet vi lever i, verdiene vi holder høyt, og hvordan vi ser på framtiden. Årets navnestatistikk viser et samfunn som både søker røtter og internasjonale forbindelser, som verdsetter enkelhet og lydkvalitet, og som i økende grad gir rom for individualitet innenfor kulturelle rammer.</p>
+          <p>Når vi spekulerer om fremtidens navnetrender, er det rimelig å anta at vi vil se en fortsatt balansegang mellom tradisjon og fornyelse, mellom det lokale og det globale. Navn vil fortsette å være ikke bare etiketter, men meningsbærende symboler som reflekterer hvem vi er og hva vi verdsetter som samfunn.</p>
+        </div>
       </div>
     </div>
   );

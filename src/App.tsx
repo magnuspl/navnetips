@@ -419,7 +419,7 @@ function Home() {
           <h2 className="text-2xl sm:text-3xl font-black">Mest populære navn 2024</h2>
         </div>
         <p className="text-lg mb-6">
-          Utforsk de mest populære navnene i 2024. Se hvilke navn som topper listene for gutter, jenter, hunder og katter.
+          Utforsk de mest populære navnene i 2024. Se hvilke navn som topper listene for gutter og jenter.
         </p>
         <Link
           to="/populaere-navn"
