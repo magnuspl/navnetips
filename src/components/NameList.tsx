@@ -100,8 +100,8 @@ function NameList({ category }: NameListProps) {
     }
   };
 
-  const seoTitle = `${categoryTitle} - Finn det perfekte navnet | Navnetips.no`;
-  const seoDescription = `Utforsk vår samling av ${categoryTitle.toLowerCase()} med betydninger og opprinnelse. ${names[category].length} unike navn å velge mellom.`;
+  const seoTitle = `${categoryTitle} - Finn det perfekte navnet | ${category === 'boy' ? 'Fine guttenavn' : category === 'girl' ? 'Fine og sjeldne jentenavn' : categoryTitle}`;
+  const seoDescription = `Utforsk vår samling av ${category === 'boy' ? 'fine guttenavn' : category === 'girl' ? 'fine og sjeldne jentenavn' : categoryTitle.toLowerCase()} med betydninger og opprinnelse. ${names[category].length} unike navn å velge mellom.`;
 
   // Get category content
   const categoryContent = getCategoryContent(category);
@@ -267,9 +267,9 @@ function NameList({ category }: NameListProps) {
 
       {/* Name Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {paginatedNames.map((name) => (
+        {paginatedNames.map((name, index) => (
           <div
-            key={name.id}
+            key={`${name.id}-${index}`}
             className={`bg-white border-4 border-black p-6
               shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]
               transform transition-all duration-300
@@ -308,9 +308,9 @@ function NameList({ category }: NameListProps) {
               {name.meaning}
             </p>
             <div className="mt-4 flex flex-wrap gap-2">
-              {(category === 'boy' || category === 'girl') && name.categories.map(cat => (
+              {(category === 'boy' || category === 'girl') && name.categories.map((cat, catIndex) => (
                 <button
-                  key={cat}
+                  key={`${name.id}-${cat}-${catIndex}`}
                   onClick={() => handleCategoryClick(cat)}
                   className={`px-3 py-1 text-sm font-bold transform -rotate-2 
                     transition-all duration-300 ${bgColor} border-2 border-black 
@@ -360,7 +360,7 @@ function NameList({ category }: NameListProps) {
             </button>
             
             {getPageNumbers().map((pageNum, index) => (
-              <React.Fragment key={index}>
+              <React.Fragment key={`page-${pageNum}-${index}`}>
                 {pageNum === '...' ? (
                   <span className="px-3 py-2">...</span>
                 ) : (
