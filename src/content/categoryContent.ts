@@ -1,8 +1,8 @@
 import { marked } from 'marked';
 
-const guttenavnMain = `# Guttenavn
+const guttenavnMain = `# Fine guttenavn og gamle guttenavn
 
-Velkommen til vår omfattende guide til guttenavn. Her finner du et bredt utvalg av navn med ulik opprinnelse, betydning og karakter.
+Velkommen til vår omfattende guide til guttenavn. Her finner du et bredt utvalg av fine guttenavn og gamle guttenavn med ulik opprinnelse, betydning og karakter.
 
 ## Hvordan velge guttenavn?
 
@@ -16,24 +16,24 @@ Velkommen til vår omfattende guide til guttenavn. Her finner du et bredt utvalg
 ## Våre kategorier
 
 ### Norrøne navn
-Sterke navn med røtter i vikingtidens Norge og den norrøne kulturen.
+Gamle guttenavn med røtter i vikingtidens Norge og den norrøne kulturen.
 
 ### Klassiske navn
-Tidløse valg som har stått sterkt gjennom generasjoner.
+Fine guttenavn som har stått sterkt gjennom generasjoner.
 
 ### Unike navn
 Spesielle navn som skiller seg ut i mengden.
 
 ## Trender i guttenavn
 
-- Kortere navn blir stadig mer populære
-- Økende interesse for norrøne og nordiske navn
+- Korte, fine guttenavn blir stadig mer populære
+- Økende interesse for gamle guttenavn fra norrøn tid
 - Internasjonale navn får større aksept
 - Gamle navn får ny popularitet`;
 
-const jentenavnMain = `# Jentenavn
+const jentenavnMain = `# Fine jentenavn og sjeldne jentenavn
 
-Utforsk vår samling av vakre og betydningsfulle jentenavn. Fra tidløse klassikere til unike perler, her finner du inspirasjon til å velge det perfekte navnet.
+Utforsk vår samling av fine jentenavn og sjeldne jentenavn med betydning. Fra tidløse klassikere til unike perler, her finner du inspirasjon til å velge det perfekte navnet.
 
 ## Velge jentenavn
 
@@ -47,18 +47,18 @@ Når du skal velge navn til en jente, er det flere faktorer å tenke på:
 ## Våre kategorier
 
 ### Norrøne navn
-Sterke kvinnenavn fra vår nordiske kulturarv.
+Fine og sjeldne jentenavn fra vår nordiske kulturarv.
 
 ### Klassiske navn
-Elegante og tidløse navn som alltid er aktuelle.
+Elegante og tidløse fine jentenavn.
 
 ### Unike navn
-Spesielle navn for den som ønsker noe utenom det vanlige.
+Spesielle og sjeldne jentenavn for den som ønsker noe utenom det vanlige.
 
 ## Moderne trender
 
-- Gjenoppdagelse av tradisjonelle navn
-- Økende popularitet for naturinspirerte navn
+- Gjenoppdagelse av sjeldne jentenavn
+- Økende popularitet for fine jentenavn inspirert av naturen
 - Kortere varianter av lengre navn
 - Internasjonale navn blir mer vanlige`;
 

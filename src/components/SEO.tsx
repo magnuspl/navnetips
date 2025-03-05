@@ -12,14 +12,14 @@ export default function SEO({ title, description }: SEOProps) {
 
   // Default descriptions for different routes
   const getDefaultDescription = (path: string) => {
-    if (path === '/') return 'Finn det perfekte navnet til ditt barn eller kjæledyr. Utforsk vår samling av unike navn med betydninger og opprinnelse.';
-    if (path.includes('guttenavn')) return 'Utforsk vår samling av guttenavn med betydninger og opprinnelse. Fra norrøne til moderne navn - finn det perfekte navnet til din sønn.';
-    if (path.includes('jentenavn')) return 'Opplev vår samling av vakre jentenavn med betydninger og historie. Fra klassiske til unike navn - finn inspirasjon til din datter.';
+    if (path === '/') return 'Finn det perfekte navnet til ditt barn eller kjæledyr. Utforsk vår samling av fine jentenavn, sjeldne jentenavn og vakre navn med betydninger og opprinnelse.';
+    if (path.includes('guttenavn')) return 'Utforsk vår samling av fine guttenavn og gamle guttenavn med betydninger og opprinnelse. Fra norrøne til moderne navn - finn det perfekte navnet til din sønn.';
+    if (path.includes('jentenavn')) return 'Opplev vår samling av fine jentenavn og sjeldne jentenavn med betydninger og historie. Fra klassiske til unike navn - finn inspirasjon til din datter.';
     if (path.includes('hundenavn')) return 'Finn det perfekte navnet til din hund. Utforsk vår liste over populære og unike hundenavn med betydninger.';
     if (path.includes('kattenavn')) return 'Velg det ideelle navnet til din katt. Utforsk vår samling av kreative og klassiske kattenavn.';
     if (path.includes('favoritter')) return 'Se dine lagrede favorittnavn og hold oversikt over navnene du liker best.';
     if (path.includes('navneforslag')) return 'Få personlige navneforslag basert på dine preferanser. Vår navnegenerator hjelper deg å finne det perfekte navnet.';
-    if (path.includes('populaere-navn')) return 'Utforsk de mest populære navnene i 2024. Topp 10 gutte- og jentenavn, samt populære hunde- og kattenavn.';
+    if (path.includes('populaere-navn')) return 'Utforsk de mest populære navnene i 2024. Topp 10 fine jentenavn og sjeldne jentenavn, samt trender i navnevalg.';
     return 'Finn det perfekte navnet med Navnetips.no - din guide til navn med betydning og historie.';
   };
 
@@ -32,11 +32,11 @@ export default function SEO({ title, description }: SEOProps) {
     const nameOrLetter = pathParts[2] || '';
 
     // Home page
-    if (path === '/') return `${baseTitle} - Finn det perfekte navnet til barn og kjæledyr`;
+    if (path === '/') return `${baseTitle} - Fine jentenavn og sjeldne jentenavn til barn`;
     
     // Main category pages
-    if (path === '/guttenavn') return `Guttenavn med betydning og opprinnelse | ${baseTitle}`;
-    if (path === '/jentenavn') return `Jentenavn med betydning og opprinnelse | ${baseTitle}`;
+    if (path === '/guttenavn') return `Fine guttenavn og gamle guttenavn med betydning | ${baseTitle}`;
+    if (path === '/jentenavn') return `Fine jentenavn og sjeldne jentenavn med betydning | ${baseTitle}`;
     if (path === '/hundenavn') return `Hundenavn - 50+ unike og populære navn til hunden din | ${baseTitle}`;
     if (path === '/kattenavn') return `Kattenavn - 50+ kreative og søte navn til katten din | ${baseTitle}`;
     
@@ -47,37 +47,35 @@ export default function SEO({ title, description }: SEOProps) {
     if (path === '/navneforslag') return `Navneforslag - Personlig navnegenerator | ${baseTitle}`;
     
     // Popular names page
-    if (path === '/populaere-navn') return `Mest populære navn 2024 - Topp 10 liste | ${baseTitle}`;
+    if (path === '/populaere-navn') return `Mest populære fine jentenavn og sjeldne jentenavn 2024 | ${baseTitle}`;
     
     // Category browsing pages
     if (mainCategory === 'guttenavn' && subCategory === 'kategori') {
-      if (nameOrLetter === 'norrønt') return `Norrøne guttenavn med historisk betydning | ${baseTitle}`;
-      if (nameOrLetter === 'klassisk') return `Klassiske guttenavn med tidløs eleganse | ${baseTitle}`;
+      if (nameOrLetter === 'norrønt') return `Gamle guttenavn fra norrøn tid med historisk betydning | ${baseTitle}`;
+      if (nameOrLetter === 'klassisk') return `Fine guttenavn med tidløs eleganse | ${baseTitle}`;
       if (nameOrLetter === 'moderne') return `Moderne guttenavn - Populære navn i 2024 | ${baseTitle}`;
-      if (nameOrLetter === 'unikt') return `Unike guttenavn som skiller seg ut | ${baseTitle}`;
+      if (nameOrLetter === 'unikt') return `Unike og fine guttenavn som skiller seg ut | ${baseTitle}`;
     }
     
     if (mainCategory === 'jentenavn' && subCategory === 'kategori') {
-      if (nameOrLetter === 'norrønt') return `Norrøne jentenavn med historisk betydning | ${baseTitle}`;
-      if (nameOrLetter === 'klassisk') return `Klassiske jentenavn med tidløs eleganse | ${baseTitle}`;
+      if (nameOrLetter === 'norrønt') return `Fine og sjeldne jentenavn fra norrøn tid | ${baseTitle}`;
+      if (nameOrLetter === 'klassisk') return `Fine jentenavn med tidløs eleganse | ${baseTitle}`;
       if (nameOrLetter === 'moderne') return `Moderne jentenavn - Populære navn i 2024 | ${baseTitle}`;
-      if (nameOrLetter === 'unikt') return `Unike jentenavn som skiller seg ut | ${baseTitle}`;
+      if (nameOrLetter === 'unikt') return `Unike og sjeldne jentenavn som skiller seg ut | ${baseTitle}`;
     }
     
     // Alphabet browsing pages
     if (mainCategory === 'guttenavn' && subCategory === 'bokstav' && nameOrLetter) {
-      return `Guttenavn på ${nameOrLetter.toUpperCase()} - Alle guttenavn som starter med ${nameOrLetter.toUpperCase()} | ${baseTitle}`;
+      return `Fine guttenavn på ${nameOrLetter.toUpperCase()} - Alle guttenavn som starter med ${nameOrLetter.toUpperCase()} | ${baseTitle}`;
     }
     
     if (mainCategory === 'jentenavn' && subCategory === 'bokstav' && nameOrLetter) {
-      return `Jentenavn på ${nameOrLetter.toUpperCase()} - Alle jentenavn som starter med ${nameOrLetter.toUpperCase()} | ${baseTitle}`;
+      return `Fine og sjeldne jentenavn på ${nameOrLetter.toUpperCase()} - Alle jentenavn som starter med ${nameOrLetter.toUpperCase()} | ${baseTitle}`;
     }
     
-    // Individual name pages - these are handled by the NameDetail component with custom titles
-    
     // Default fallbacks for main categories
-    if (mainCategory === 'guttenavn') return `Guttenavn - Finn det perfekte navnet til din sønn | ${baseTitle}`;
-    if (mainCategory === 'jentenavn') return `Jentenavn - Finn det perfekte navnet til din datter | ${baseTitle}`;
+    if (mainCategory === 'guttenavn') return `Fine guttenavn og gamle guttenavn til din sønn | ${baseTitle}`;
+    if (mainCategory === 'jentenavn') return `Fine jentenavn og sjeldne jentenavn til din datter | ${baseTitle}`;
     if (mainCategory === 'hundenavn') return `Hundenavn - Finn det perfekte navnet til din hund | ${baseTitle}`;
     if (mainCategory === 'kattenavn') return `Kattenavn - Finn det perfekte navnet til din katt | ${baseTitle}`;
     
