@@ -1,0 +1,13 @@
+# Normaliser linjeskift til LF i arbeidskopien.
+#
+# Uten dette gir core.autocrlf=true CRLF i arbeidskopien på Windows, og da
+# flagger Prettier hver eneste linje i hver eneste fil. Byggeverktøyene og
+# Netlify forventer LF uansett.
+* text=auto eol=lf
+
+# Binærfiler skal ikke røres.
+*.png binary
+*.jpg binary
+*.ico binary
+*.woff binary
+*.woff2 binary
