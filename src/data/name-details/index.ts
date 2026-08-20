@@ -16,6 +16,7 @@ import { germanske } from "./germanske";
 import { norskeOgOvrige } from "./norske-og-ovrige";
 import { norroneNye } from "./norrone-nye";
 import { internasjonaleNye } from "./internasjonale-nye";
+import { nyeRunde2 } from "./nye-runde-2";
 
 export type { NameDetail, NameElement, NameSource } from "./types";
 
@@ -31,4 +32,5 @@ export const nameDetails: Record<string, NameDetail> = {
   ...norskeOgOvrige,
   ...norroneNye,
   ...internasjonaleNye,
+  ...nyeRunde2,
 };
