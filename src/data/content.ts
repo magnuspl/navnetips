@@ -1,0 +1,357 @@
+// Redaksjonelt innhold til kategori- og stilsidene.
+//
+// Teksten er hentet fra den forrige versjonen av Navnetips, der den lå som
+// markdown. Her ligger den strukturert, slik at sidene kan style avsnitt,
+// lister og overskrifter selv i stedet for å dumpe HTML inn i DOM-en.
+
+import type { Category, Style } from "./names";
+
+export type ContentSection = {
+  heading: string;
+  body?: string;
+  bullets?: { lead?: string; text: string }[];
+};
+
+export type Editorial = {
+  lead: string;
+  sections: ContentSection[];
+};
+
+export const categoryEditorial: Record<Category, Editorial> = {
+  gutt: {
+    lead: "Velkommen til vår omfattende guide til guttenavn. Her finner du et bredt utvalg av fine guttenavn og gamle guttenavn med ulik opprinnelse, betydning og karakter.",
+    sections: [
+      {
+        heading: "Hvordan velge guttenavn?",
+        body: "Å velge navn til en gutt er en viktig beslutning som vil følge barnet gjennom hele livet. Her er noen ting det er verdt å tenke over:",
+        bullets: [
+          { lead: "Betydning", text: "Vurder navnets betydning og historie" },
+          { lead: "Uttale", text: "Tenk på hvordan navnet uttales og skrives" },
+          {
+            lead: "Kombinasjoner",
+            text: "Se hvordan navnet fungerer med eventuelle mellomnavn og etternavn",
+          },
+          {
+            lead: "Tidløshet",
+            text: "Vurder om navnet vil passe like godt for en voksen mann som for en liten gutt",
+          },
+        ],
+      },
+      {
+        heading: "Trender i guttenavn",
+        bullets: [
+          { text: "Korte, fine guttenavn blir stadig mer populære" },
+          { text: "Økende interesse for gamle guttenavn fra norrøn tid" },
+          { text: "Internasjonale navn får større aksept" },
+          { text: "Gamle navn får ny popularitet" },
+        ],
+      },
+    ],
+  },
+  jente: {
+    lead: "Utforsk vår samling av fine jentenavn og sjeldne jentenavn med betydning. Fra tidløse klassikere til unike perler finner du inspirasjon til å velge det perfekte navnet.",
+    sections: [
+      {
+        heading: "Hvordan velge jentenavn?",
+        body: "Når du skal velge navn til en jente, er det flere faktorer å tenke på:",
+        bullets: [
+          { lead: "Klang", text: "Hvordan navnet lyder og flyter" },
+          { lead: "Betydning", text: "Navnets historie og symbolikk" },
+          { lead: "Anvendelighet", text: "Hvordan navnet fungerer i ulike livsfaser" },
+          { lead: "Kulturell tilknytning", text: "Navnets kulturelle og familiære bånd" },
+        ],
+      },
+      {
+        heading: "Moderne trender",
+        bullets: [
+          { text: "Gjenoppdagelse av sjeldne jentenavn" },
+          { text: "Økende popularitet for fine jentenavn inspirert av naturen" },
+          { text: "Kortere varianter av lengre navn" },
+          { text: "Internasjonale navn blir mer vanlige" },
+        ],
+      },
+    ],
+  },
+  hund: {
+    lead: "Å velge det perfekte navnet til din firbente venn er en viktig beslutning. Et godt hundenavn skal være lett å rope på, ha en positiv klang, og passe til hundens personlighet.",
+    sections: [
+      {
+        heading: "Tips for å velge hundenavn",
+        bullets: [
+          { text: "Velg et navn som er lett å uttale og gjenkjenne for hunden" },
+          { text: "Unngå navn som kan forveksles med kommandoer" },
+          { text: "Tenk på navnet i hverdagssituasjoner, som på hundeparken" },
+        ],
+      },
+      {
+        heading: "Populære kategorier",
+        bullets: [
+          { lead: "Klassiske navn", text: "Tidløse valg som alltid fungerer" },
+          {
+            lead: "Menneskenavn",
+            text: "Stadig mer populært å gi hunder menneskelige navn",
+          },
+          {
+            lead: "Naturinspirerte navn",
+            text: "Navn inspirert av naturfenomener og årstider",
+          },
+        ],
+      },
+      {
+        heading: "Trender i hundenavn",
+        body: "Moderne hundeeiere velger ofte navn som reflekterer deres interesser, humor eller kulturelle referanser. Noen velger også navn som passer til hundens rase eller opprinnelsesland.",
+      },
+    ],
+  },
+  katt: {
+    lead: "Katter fortjener navn som reflekterer deres unike personlighet og eleganse. Et godt kattenavn kan være alt fra søtt og lekent til sofistikert og verdig.",
+    sections: [
+      {
+        heading: "Velge det perfekte kattenavnet",
+        bullets: [
+          { text: "La kattens personlighet inspirere navnevalget" },
+          { text: "Tenk på hvordan navnet vil passe både en kattunge og en voksen katt" },
+          { text: "Vurder navn som er lette å si og som katten kan lære å gjenkjenne" },
+        ],
+      },
+      {
+        heading: "Populære temaer",
+        bullets: [
+          {
+            lead: "Royale navn",
+            text: "Katter har ofte blitt assosiert med kongelig verdighet",
+          },
+          {
+            lead: "Mytologiske navn",
+            text: "Mange kulturer knytter katter til guddommer og myter",
+          },
+          { lead: "Naturinspirerte navn", text: "Navn som reflekterer kattens ville natur" },
+        ],
+      },
+      {
+        heading: "Moderne kattenavn",
+        body: "Dagens katteeiere velger ofte navn som reflekterer deres interesser eller humor. Mange velger også navn fra populærkultur eller litteratur.",
+      },
+    ],
+  },
+};
+
+/** Stilsidene finnes bare for jente- og guttenavn, slik de gjorde før. */
+export type StylePageCategory = Extract<Category, "jente" | "gutt">;
+
+export const styleEditorial: Record<StylePageCategory, Record<Style, Editorial>> = {
+  gutt: {
+    norrønt: {
+      lead: "Norrøne guttenavn har en rik historie som strekker seg tilbake til vikingtiden og den norrøne kulturen. Disse navnene bærer ofte sterke betydninger knyttet til norrøn mytologi, natur og krigføring.",
+      sections: [
+        {
+          heading: "Historisk betydning",
+          body: "Norrøne navn var mer enn bare identifikatorer – de var bærere av familietradisjoner og kulturelle verdier. Foreldre valgte ofte navn som skulle gi barnet styrke og beskyttelse, eller som hedret forfedre og guder.",
+        },
+        {
+          heading: "Karakteristikker",
+          bullets: [
+            {
+              lead: "Styrke",
+              text: "Mange navn inneholder elementer som betyr «styrke», «makt» eller «beskyttelse»",
+            },
+            {
+              lead: "Natur",
+              text: "Referanser til naturkrefter som torden, ild og hav er vanlige",
+            },
+            {
+              lead: "Guder",
+              text: "Mange navn har tilknytning til norrøne guder som Tor, Odin og Frøy",
+            },
+          ],
+        },
+        {
+          heading: "Moderne relevans",
+          body: "I dag opplever vi en fornyet interesse for norrøne navn. De representerer en forbindelse til vår kulturarv, samtidig som de ofte har en unik og kraftfull klang som skiller seg ut i dagens navnelandskap.",
+        },
+      ],
+    },
+    klassisk: {
+      lead: "Klassiske guttenavn representerer tidløs eleganse og har vært populære gjennom generasjoner. Disse navnene har ofte røtter i historiske, religiøse eller kulturelle tradisjoner.",
+      sections: [
+        {
+          heading: "Historisk betydning",
+          body: "Klassiske navn har ofte en lang historie av bruk i Norge og andre europeiske land. De har vist seg å være tidløse valg som fungerer like godt i dag som for hundre år siden.",
+        },
+        {
+          heading: "Karakteristikker",
+          bullets: [
+            { lead: "Tradisjon", text: "Disse navnene har en lang historie i norsk kultur" },
+            { lead: "Stabilitet", text: "Klassiske navn går sjelden av moten" },
+            {
+              lead: "Universalitet",
+              text: "Mange av navnene er gjenkjennelige på tvers av kulturer",
+            },
+          ],
+        },
+        {
+          heading: "Moderne bruk",
+          body: "Klassiske navn opplever ofte en renessanse i moderne tid, der foreldre søker navn med historie og betydning. De gir en følelse av kontinuitet og tradisjon i en stadig skiftende verden.",
+        },
+      ],
+    },
+    moderne: {
+      lead: "Moderne guttenavn reflekterer dagens trender og samfunn. Disse navnene er ofte inspirert av populærkultur, internasjonale impulser eller nye kombinasjoner av tradisjonelle elementer.",
+      sections: [
+        {
+          heading: "Hvorfor velge et moderne navn?",
+          body: "Moderne navn kan gi barnet ditt en tidsaktuell og frisk start. De kan reflektere vår globaliserte verden og moderne verdier, samtidig som de ofte har en unik klang.",
+        },
+        {
+          heading: "Karakteristikker",
+          bullets: [
+            {
+              lead: "Internasjonalt",
+              text: "Mange moderne navn fungerer godt på tvers av landegrenser",
+            },
+            { lead: "Trendy", text: "Disse navnene følger dagens navnetrender" },
+            {
+              lead: "Nyskapende",
+              text: "Ofte nye kombinasjoner eller moderne tolkninger av tradisjonelle navn",
+            },
+          ],
+        },
+        {
+          heading: "Moderne trender",
+          body: "Vi ser en økende trend mot:",
+          bullets: [
+            { text: "Korte, enkle navn" },
+            { text: "Internasjonale navn som er lette å uttale" },
+            { text: "Navn inspirert av populærkultur og kjente personligheter" },
+            { text: "Kreative kombinasjoner av tradisjonelle elementer" },
+          ],
+        },
+      ],
+    },
+    unikt: {
+      lead: "Unike guttenavn skiller seg ut fra mengden og gir barnet ditt en distinkt identitet. Disse navnene kan være moderne oppfinnelser, sjeldne historiske navn, eller navn fra andre kulturer som er mindre vanlige i Norge.",
+      sections: [
+        {
+          heading: "Hvorfor velge et unikt navn?",
+          body: "Et unikt navn kan gi barnet ditt en spesiell start i livet og en følelse av individualitet. Det kan også reflektere familiens kreativitet eller kulturelle bakgrunn.",
+        },
+        {
+          heading: "Karakteristikker",
+          bullets: [
+            { lead: "Originalitet", text: "Disse navnene er mindre vanlige i dagens samfunn" },
+            {
+              lead: "Kreativitet",
+              text: "Mange unike navn har interessante kombinasjoner av lyder eller betydninger",
+            },
+            {
+              lead: "Kulturell fusjon",
+              text: "Noen navn kombinerer elementer fra forskjellige kulturer",
+            },
+          ],
+        },
+        {
+          heading: "Moderne trender",
+          body: "I dag ser vi en økende trend mot mer unike navn, der foreldre søker å gi sine barn navn som skiller seg ut, samtidig som de beholder en viss forbindelse til tradisjon eller betydning.",
+        },
+      ],
+    },
+  },
+  jente: {
+    norrønt: {
+      lead: "Norrøne jentenavn bærer med seg en rik arv fra vikingtiden og den norrøne kulturen. Disse navnene representerer ofte styrke, skjønnhet og visdom fra vår nordiske fortid.",
+      sections: [
+        {
+          heading: "Historisk betydning",
+          body: "I norrøn tid var kvinners navn ofte knyttet til guddommelige krefter, naturens elementer eller ønskede egenskaper. Navnene kunne også hedre valkyrjer eller mektige gudinner fra den norrøne mytologien.",
+        },
+        {
+          heading: "Karakteristikker",
+          bullets: [
+            { lead: "Styrke", text: "Mange navn reflekterer kvinnelig styrke og uavhengighet" },
+            { lead: "Natur", text: "Referanser til naturens skjønnhet og kraft er vanlige" },
+            {
+              lead: "Gudinner",
+              text: "Tilknytning til norrøne gudinner som Frøya og Idun",
+            },
+          ],
+        },
+        {
+          heading: "Moderne relevans",
+          body: "Norrøne jentenavn har fått en renessanse i moderne tid, der foreldre søker navn som kombinerer historisk dybde med feminin styrke. Disse navnene gir en unik forbindelse til vår kulturarv.",
+        },
+      ],
+    },
+    klassisk: {
+      lead: "Klassiske jentenavn representerer tidløs eleganse og har vært elsket gjennom generasjoner. Disse navnene bærer med seg en rik historie og kulturell betydning.",
+      sections: [
+        {
+          heading: "Historisk betydning",
+          body: "Klassiske jentenavn har ofte dype røtter i europeisk og norsk historie. De har vist seg å være tidløse valg som forblir populære gjennom skiftende trender.",
+        },
+        {
+          heading: "Karakteristikker",
+          bullets: [
+            { lead: "Eleganse", text: "Klassiske navn har ofte en naturlig eleganse" },
+            { lead: "Tradisjon", text: "Disse navnene har en lang historie i norsk kultur" },
+            { lead: "Allsidighet", text: "Fungerer godt både i barndom og voksenliv" },
+          ],
+        },
+        {
+          heading: "Moderne bruk",
+          body: "I dag velger mange foreldre klassiske navn for deres tidløse appell og sterke kulturelle forankring. Disse navnene gir en følelse av kontinuitet og tradisjon i en moderne verden.",
+        },
+      ],
+    },
+    moderne: {
+      lead: "Moderne jentenavn representerer dagens mangfoldige navnekultur. Disse navnene kombinerer ofte det beste fra ulike tradisjoner med nye, kreative elementer.",
+      sections: [
+        {
+          heading: "Hvorfor velge et moderne navn?",
+          body: "Et moderne navn kan gi barnet ditt en tidsaktuell identitet som reflekterer vår samtid. Disse navnene er ofte både stilige og betydningsfulle.",
+        },
+        {
+          heading: "Karakteristikker",
+          bullets: [
+            { lead: "Allsidighet", text: "Fungerer godt i en internasjonal kontekst" },
+            { lead: "Kreativitet", text: "Nye kombinasjoner og moderne tolkninger" },
+            { lead: "Enkelhet", text: "Ofte korte og lettuttalte navn" },
+          ],
+        },
+        {
+          heading: "Moderne trender",
+          body: "Dagens trender inkluderer:",
+          bullets: [
+            { text: "Naturinspirerte navn" },
+            { text: "Korte, kraftfulle navn" },
+            { text: "Internasjonale navn med nordisk vri" },
+            { text: "Vintage-navn i ny drakt" },
+          ],
+        },
+      ],
+    },
+    unikt: {
+      lead: "Unike jentenavn gir muligheten til å skille seg ut og uttrykke individualitet. Disse navnene kan være moderne kreasjoner, sjeldne historiske perler, eller inspirert av andre kulturer.",
+      sections: [
+        {
+          heading: "Hvorfor velge et unikt navn?",
+          body: "Et unikt navn kan gi barnet ditt en spesiell identitet og muligheten til å skille seg ut på en positiv måte. Det kan også reflektere familiens kreativitet eller kulturelle mangfold.",
+        },
+        {
+          heading: "Karakteristikker",
+          bullets: [
+            { lead: "Originalitet", text: "Disse navnene er mindre vanlige i dagens samfunn" },
+            { lead: "Kreativitet", text: "Mange unike navn har interessante lydkombinasjoner" },
+            {
+              lead: "Personlighet",
+              text: "Navnene kan reflektere spesielle betydninger eller historier",
+            },
+          ],
+        },
+        {
+          heading: "Moderne trender",
+          body: "Det er en økende trend mot å velge unike navn som skiller seg ut, samtidig som de beholder en viss eleganse og betydning. Disse navnene kan gi barnet en spennende start på livet.",
+        },
+      ],
+    },
+  },
+};

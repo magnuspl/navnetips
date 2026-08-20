@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Personlige eller tynne sider – ingen grunn til å bruke crawlebudsjett på dem.
+Disallow: /favoritter
+Disallow: /sok
+
+Sitemap: https://navnetips.no/sitemap.xml

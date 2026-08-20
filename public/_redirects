@@ -1,1 +1,73 @@
-/* /index.html 200
+# GENERERT AV scripts/build-redirects.mjs – ikke rediger for hånd.
+# Kjør `npm run redirects` (eller `npm run build`) for å bygge filen på nytt.
+
+# ---------------------------------------------------------------------------
+# Navnesider flyttet fra /<kategori>/<navn> til /navn/<slug> i redesignet.
+#
+# Reglene er ikke tvungne (ingen «!»), så Netlify serverer den prerendrede
+# filen når den finnes. Det er det som gjør at /guttenavn/bokstav/a og
+# /guttenavn/kategori/norrønt fortsatt treffer sine egne sider.
+# ---------------------------------------------------------------------------
+
+# Navn med æ/ø/å – slugen er translitterert, så disse må listes eksplisitt.
+# Både dekodet og prosentkodet form, så regelen treffer uansett hvordan
+# forespørselen kommer inn.
+/guttenavn/bjørn  /navn/bjorn  301
+/guttenavn/bj%C3%B8rn  /navn/bjorn  301
+/guttenavn/bjørnar  /navn/bjornar  301
+/guttenavn/bj%C3%B8rnar  /navn/bjornar  301
+/jentenavn/frøya  /navn/froya  301
+/jentenavn/fr%C3%B8ya  /navn/froya  301
+/jentenavn/hallbjørg  /navn/hallbjorg  301
+/jentenavn/hallbj%C3%B8rg  /navn/hallbjorg  301
+/guttenavn/håkon  /navn/hakon  301
+/guttenavn/h%C3%A5kon  /navn/hakon  301
+/guttenavn/håvar  /navn/havar  301
+/guttenavn/h%C3%A5var  /navn/havar  301
+/guttenavn/kolbjørn  /navn/kolbjorn  301
+/guttenavn/kolbj%C3%B8rn  /navn/kolbjorn  301
+/guttenavn/kåre  /navn/kare  301
+/guttenavn/k%C3%A5re  /navn/kare  301
+/kattenavn/måne  /navn/mane  301
+/kattenavn/m%C3%A5ne  /navn/mane  301
+/guttenavn/njål  /navn/njal  301
+/guttenavn/nj%C3%A5l  /navn/njal  301
+/hundenavn/snø  /navn/sno  301
+/hundenavn/sn%C3%B8  /navn/sno  301
+/guttenavn/torbjørn  /navn/torbjorn  301
+/guttenavn/torbj%C3%B8rn  /navn/torbjorn  301
+/guttenavn/øystein  /navn/oystein  301
+/guttenavn/%C3%B8ystein  /navn/oystein  301
+/guttenavn/øyvind  /navn/oyvind  301
+/guttenavn/%C3%B8yvind  /navn/oyvind  301
+/guttenavn/åge  /navn/age  301
+/guttenavn/%C3%A5ge  /navn/age  301
+/jentenavn/åsa  /navn/asa  301
+/jentenavn/%C3%A5sa  /navn/asa  301
+/jentenavn/åse  /navn/ase  301
+/jentenavn/%C3%A5se  /navn/ase  301
+/jentenavn/åshild  /navn/ashild  301
+/jentenavn/%C3%A5shild  /navn/ashild  301
+/guttenavn/åsmund  /navn/asmund  301
+/guttenavn/%C3%A5smund  /navn/asmund  301
+
+# Alle andre navn: segmentet er allerede identisk med slugen.
+/jentenavn/:navn  /navn/:navn  301
+/guttenavn/:navn  /navn/:navn  301
+/hundenavn/:navn  /navn/:navn  301
+/kattenavn/:navn  /navn/:navn  301
+
+# Stilsidene beholder de indekserte adressene med æ/ø/å. ASCII-varianten
+# finnes som alias, så lenker uten særnorske tegn også lander riktig.
+/jentenavn/kategori/norront  /jentenavn/kategori/norrønt  301
+/guttenavn/kategori/norront  /guttenavn/kategori/norrønt  301
+
+# Søkesiden byttet adresse og parameternavn.
+/search  search=:q  /sok?q=:q  301
+/search  /sok  301
+
+# Gamle kategorinavn på engelsk, i tilfelle noe lenker dit.
+/boy/*  /guttenavn  301
+/girl/*  /jentenavn  301
+/dog/*  /hundenavn  301
+/cat/*  /kattenavn  301

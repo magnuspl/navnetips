@@ -1,19 +1,23 @@
 {
   "name": "Navnetips.no",
   "short_name": "Navnetips",
+  "description": "Finn det perfekte navnet til barnet eller kjæledyret.",
+  "lang": "no",
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#fbf6ee",
+  "background_color": "#fbf6ee",
   "icons": [
     {
-      "src": "/android-chrome-192x192.png",
-      "sizes": "192x192",
-      "type": "image/png"
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
     },
     {
-      "src": "/android-chrome-512x512.png",
-      "sizes": "512x512",
-      "type": "image/png"
+      "src": "/favicon.ico",
+      "sizes": "32x32",
+      "type": "image/x-icon"
     }
-  ],
-  "theme_color": "#fefce8",
-  "background_color": "#fefce8",
-  "display": "standalone"
+  ]
 }

@@ -1,0 +1,20 @@
+# Navnetips bygges som en helt statisk side: alle rutene prerendres til ferdig
+# HTML av TanStack Start, så utgivelsen er bare filer – ingen serverfunksjoner.
+
+[build]
+  command = "npm run build"
+  publish = "dist/client"
+
+[build.environment]
+  NODE_VERSION = "22"
+
+# Langtidscache for filer med innholdshash i navnet.
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"

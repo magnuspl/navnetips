@@ -1,0 +1,12 @@
+node_modules
+dist
+.output
+.vinxi
+pnpm-lock.yaml
+package-lock.json
+bun.lock
+routeTree.gen.ts
+
+# Navnedatabasen holdes på tabellform – én oppføring per linje er langt lettere
+# å lese og redigere enn 400 oppføringer sprengt over åtte linjer hver.
+src/data/names.ts
