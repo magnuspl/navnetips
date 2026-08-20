@@ -10,7 +10,13 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { styleLabels, type Style } from "@/data/names";
+import { categoryLabels, styleLabels, type Category, type Style } from "@/data/names";
+
+/**
+ * Skiller navn som først og fremst hører til kategorien fra navn som er lånt
+ * inn fra en annen bruk. På /hundenavn er det forskjell på Pusur og Angus.
+ */
+export type UseKey = "alle" | "primar" | "ogsa";
 
 export type LengthKey = "kort" | "middels" | "lang";
 export type SortKey = "az" | "za" | "kortest" | "lengst";
@@ -33,6 +39,7 @@ export const lengthOf = (name: string): LengthKey =>
 
 export type FilterState = {
   query: string;
+  use: UseKey;
   letters: string[];
   origins: string[];
   styles: Style[];
@@ -42,6 +49,7 @@ export type FilterState = {
 
 export const emptyFilters: FilterState = {
   query: "",
+  use: "alle",
   letters: [],
   origins: [],
   styles: [],
@@ -50,6 +58,7 @@ export const emptyFilters: FilterState = {
 };
 
 export const countActive = (f: FilterState) =>
+  (f.use === "alle" ? 0 : 1) +
   f.letters.length +
   f.origins.length +
   f.styles.length +
@@ -62,6 +71,8 @@ type Props = {
   letters: string[];
   origins: string[];
   styles: Style[];
+  /** Kategorien siden viser, brukes til å tekste «Bruk»-valget. */
+  category: Category;
   /** Filtre som er låst av selve siden (f.eks. /guttenavn/kategori/norrønt). */
   lockedStyle?: Style;
   lockedLetter?: string;
@@ -79,6 +90,7 @@ export function NameFilters({
   letters,
   origins,
   styles,
+  category,
   lockedStyle,
   lockedLetter,
   activeCount,
@@ -145,6 +157,24 @@ export function NameFilters({
                 {sortLabels[k]}
               </SelectItem>
             ))}
+          </SelectContent>
+        </Select>
+      </div>
+
+      <div className="space-y-2">
+        <Label className="text-xs uppercase tracking-[0.14em] text-muted-foreground">Bruk</Label>
+        <Select value={filters.use} onValueChange={(v) => patch({ use: v as UseKey })}>
+          <SelectTrigger className="bg-card">
+            <SelectValue />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="alle">Alle {categoryLabels[category].toLowerCase()}</SelectItem>
+            <SelectItem value="primar">
+              Først og fremst {categoryLabels[category].toLowerCase()}
+            </SelectItem>
+            <SelectItem value="ogsa">
+              Brukes også som {categoryLabels[category].toLowerCase()}
+            </SelectItem>
           </SelectContent>
         </Select>
       </div>

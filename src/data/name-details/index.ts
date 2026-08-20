@@ -14,8 +14,10 @@ import { greske } from "./greske";
 import { latinske } from "./latinske";
 import { germanske } from "./germanske";
 import { norskeOgOvrige } from "./norske-og-ovrige";
+import { norroneNye } from "./norrone-nye";
+import { internasjonaleNye } from "./internasjonale-nye";
 
-export type { NameDetail, NameElement } from "./types";
+export type { NameDetail, NameElement, NameSource } from "./types";
 
 export const nameDetails: Record<string, NameDetail> = {
   ...norroneAG,
@@ -27,4 +29,6 @@ export const nameDetails: Record<string, NameDetail> = {
   ...latinske,
   ...germanske,
   ...norskeOgOvrige,
+  ...norroneNye,
+  ...internasjonaleNye,
 };

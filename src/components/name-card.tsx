@@ -1,14 +1,24 @@
 import { Link } from "@tanstack/react-router";
 import { FavoriteButton } from "@/components/favorite-button";
-import { categoryLabels, styleLabels, type NameEntry } from "@/data/names";
+import {
+  categoryLabels,
+  spansKinds,
+  styleLabels,
+  type Category,
+  type NameEntry,
+} from "@/data/names";
 
 export function NameCard({
   entry,
   showCategories = false,
+  inCategory,
 }: {
   entry: NameEntry;
   showCategories?: boolean;
+  /** Kategorilista kortet står i. Da vises de *andre* bruksområdene. */
+  inCategory?: Category;
 }) {
+  const alsoUsedAs = inCategory ? entry.categories.filter((c) => c !== inCategory) : [];
   return (
     <li className="group rounded-2xl border border-border bg-card p-5 transition-shadow hover:shadow-md">
       <div className="flex items-start justify-between gap-3">
@@ -38,15 +48,27 @@ export function NameCard({
               {styleLabels[s]}
             </span>
           ))}
-        {showCategories &&
-          entry.categories.map((c) => (
-            <span
-              key={c}
-              className="rounded-full border border-border px-2.5 py-1 text-muted-foreground"
-            >
-              {categoryLabels[c]}
-            </span>
-          ))}
+        {showCategories
+          ? entry.categories.map((c) => (
+              <span
+                key={c}
+                className="rounded-full border border-border px-2.5 py-1 text-muted-foreground"
+              >
+                {categoryLabels[c]}
+              </span>
+            ))
+          : // I en kategoriliste er det kategorien man allerede står i som er
+            // uinteressant. Vis de andre – at Angus også er et guttenavn er
+            // nettopp det som skiller det fra Pusur.
+            spansKinds(entry) &&
+            alsoUsedAs.map((c) => (
+              <span
+                key={c}
+                className="rounded-full border border-dashed border-border px-2.5 py-1 text-muted-foreground"
+              >
+                Også {categoryLabels[c].toLowerCase()}
+              </span>
+            ))}
       </div>
     </li>
   );

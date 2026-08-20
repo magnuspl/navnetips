@@ -18,6 +18,7 @@ import {
   categoryPages,
   firstLetter,
   namesIn,
+  primaryCategory,
   styleAdjective,
   styleOrder,
   type CategoryPage,
@@ -85,6 +86,8 @@ export function CategoryPageView({
       if (filters.origins.length && !filters.origins.includes(n.origin)) return false;
       if (filters.styles.length && !filters.styles.some((s) => n.styles.includes(s))) return false;
       if (filters.lengths.length && !filters.lengths.includes(lengthOf(n.name))) return false;
+      if (filters.use === "primar" && primaryCategory(n) !== page.category) return false;
+      if (filters.use === "ogsa" && primaryCategory(n) === page.category) return false;
       return true;
     });
 
@@ -100,7 +103,7 @@ export function CategoryPageView({
           return a.name.localeCompare(b.name, "nb");
       }
     });
-  }, [pool, filters]);
+  }, [pool, filters, page.category]);
 
   const randomize = () => {
     const source = list.length ? list : pool;
@@ -120,6 +123,7 @@ export function CategoryPageView({
       letters={letters}
       origins={origins}
       styles={styles}
+      category={page.category}
       {...(lockedStyle ? { lockedStyle } : {})}
       {...(lockedLetter ? { lockedLetter } : {})}
       activeCount={activeCount}
@@ -184,7 +188,7 @@ export function CategoryPageView({
 
             <ul className="mt-6 grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
               {list.map((n) => (
-                <NameCard key={n.slug} entry={n} />
+                <NameCard key={n.slug} entry={n} inCategory={page.category} />
               ))}
             </ul>
             {list.length === 0 && (

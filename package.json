@@ -10,7 +10,8 @@
     "preview": "vite preview",
     "lint": "eslint .",
     "format": "prettier --write .",
-    "redirects": "node --experimental-strip-types scripts/build-redirects.mjs"
+    "redirects": "node --experimental-strip-types scripts/build-redirects.mjs",
+    "navn:sjekk": "node --experimental-strip-types scripts/check-names.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",

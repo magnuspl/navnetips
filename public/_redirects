@@ -12,10 +12,14 @@
 # Navn med æ/ø/å – slugen er translitterert, så disse må listes eksplisitt.
 # Både dekodet og prosentkodet form, så regelen treffer uansett hvordan
 # forespørselen kommer inn.
+/guttenavn/asbjørn  /navn/asbjorn  301
+/guttenavn/asbj%C3%B8rn  /navn/asbjorn  301
 /guttenavn/bjørn  /navn/bjorn  301
 /guttenavn/bj%C3%B8rn  /navn/bjorn  301
 /guttenavn/bjørnar  /navn/bjornar  301
 /guttenavn/bj%C3%B8rnar  /navn/bjornar  301
+/guttenavn/bård  /navn/bard  301
+/guttenavn/b%C3%A5rd  /navn/bard  301
 /jentenavn/frøya  /navn/froya  301
 /jentenavn/fr%C3%B8ya  /navn/froya  301
 /jentenavn/hallbjørg  /navn/hallbjorg  301
@@ -24,10 +28,16 @@
 /guttenavn/h%C3%A5kon  /navn/hakon  301
 /guttenavn/håvar  /navn/havar  301
 /guttenavn/h%C3%A5var  /navn/havar  301
+/guttenavn/håvard  /navn/havard  301
+/guttenavn/h%C3%A5vard  /navn/havard  301
+/guttenavn/jørgen  /navn/jorgen  301
+/guttenavn/j%C3%B8rgen  /navn/jorgen  301
 /guttenavn/kolbjørn  /navn/kolbjorn  301
 /guttenavn/kolbj%C3%B8rn  /navn/kolbjorn  301
 /guttenavn/kåre  /navn/kare  301
 /guttenavn/k%C3%A5re  /navn/kare  301
+/jentenavn/målfrid  /navn/malfrid  301
+/jentenavn/m%C3%A5lfrid  /navn/malfrid  301
 /kattenavn/måne  /navn/mane  301
 /kattenavn/m%C3%A5ne  /navn/mane  301
 /guttenavn/njål  /navn/njal  301
@@ -36,6 +46,8 @@
 /hundenavn/sn%C3%B8  /navn/sno  301
 /guttenavn/torbjørn  /navn/torbjorn  301
 /guttenavn/torbj%C3%B8rn  /navn/torbjorn  301
+/guttenavn/vebjørn  /navn/vebjorn  301
+/guttenavn/vebj%C3%B8rn  /navn/vebjorn  301
 /guttenavn/øystein  /navn/oystein  301
 /guttenavn/%C3%B8ystein  /navn/oystein  301
 /guttenavn/øyvind  /navn/oyvind  301

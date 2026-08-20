@@ -9,7 +9,9 @@ import {
   categoryPageFor,
   findBySlug,
   names,
+  primaryCategory,
   relatedNames,
+  spansKinds,
   styleLabels,
   type NameEntry,
 } from "@/data/names";
@@ -253,8 +255,16 @@ function NameDetail() {
             </div>
 
             <p className="mt-4 text-lg text-muted-foreground">
-              {entry.name} betyr «{entry.meaning}» og kommer fra {entry.origin.toLowerCase()}.
-              Navnet brukes som {joinNo(usedAs)}.
+              {entry.name} betyr «{entry.meaning}» og kommer fra {entry.origin.toLowerCase()}.{" "}
+              {spansKinds(entry) ? (
+                <>
+                  Navnet brukes først og fremst som{" "}
+                  {categoryLabels[primaryCategory(entry)].toLowerCase()}, men også som{" "}
+                  {joinNo(usedAs.slice(1))}.
+                </>
+              ) : (
+                <>Navnet brukes som {joinNo(usedAs)}.</>
+              )}
             </p>
 
             <dl className="mt-8 grid gap-4 sm:grid-cols-3">
@@ -416,6 +426,41 @@ function NameDetail() {
               ))}
             </dl>
           </section>
+
+          {/* ------------------------------------------------------- kilder -- */}
+
+          {detail.sources?.length ? (
+            <section className="mt-12">
+              <h2 className="text-2xl">Kilder</h2>
+              <p className="mt-3 text-sm text-muted-foreground">
+                Opplysningene om {entry.name} kan etterprøves her:
+              </p>
+              <ul className="mt-4 space-y-2 text-sm">
+                {detail.sources.map((source) => (
+                  <li key={`${source.title}-${source.publisher ?? ""}`} className="flex gap-3">
+                    <span
+                      aria-hidden="true"
+                      className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-muted-foreground/50"
+                    />
+                    <span className="text-muted-foreground">
+                      {source.url ? (
+                        <a
+                          href={source.url}
+                          className="text-foreground underline underline-offset-4 hover:text-primary"
+                          rel="noreferrer"
+                        >
+                          {source.title}
+                        </a>
+                      ) : (
+                        <span className="text-foreground">{source.title}</span>
+                      )}
+                      {source.publisher ? ` – ${source.publisher}` : ""}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          ) : null}
         </article>
 
         {/* --------------------------------------------------- samme opphav -- */}

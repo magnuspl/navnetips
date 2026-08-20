@@ -209,19 +209,6 @@ export const norroneHO: Record<string, NameDetail> = {
     origin:
       "Jorunn er satt sammen av hest og det å elske. Navnet har vært i bruk i Norge siden norrøn tid og er fortsatt tydelig norsk i klang.",
   },
-  kaja: {
-    elements: [{ form: "katharos", sense: "ren" }],
-    origin:
-      "Kaja er en nordisk kortform av Katarina, som kommer fra gresk og knyttes til ordet for ren. Formen brukes i dag som selvstendig navn i hele Norden.",
-    variants: ["Kaia", "Caia"],
-    related: ["Katarina"],
-  },
-  kari: {
-    elements: [{ form: "katharos", sense: "ren" }],
-    origin:
-      "Kari er den norske formen av Katarina, forkortet og tilpasset norsk uttale. Det var i lang tid ett av de aller vanligste kvinnenavnene i Norge, og brukes fortsatt som bilde på den typiske nordmannen i «Ola og Kari».",
-    related: ["Kaja"],
-  },
   kine: {
     elements: [{ form: "kœnn", sense: "modig, dyktig" }],
     origin:
@@ -308,24 +295,6 @@ export const norroneHO: Record<string, NameDetail> = {
     elements: [{ form: "magn", sense: "kraft, styrke" }],
     origin:
       "Magni er sønn av Tor i norrøn mytologi, og den eneste som var sterk nok til å løfte jotnen Rungnes fot av faren sin. Navnet betyr rett og slett styrke.",
-  },
-  malin: {
-    elements: [{ form: "Magdala", sense: "fra Magdala" }],
-    origin:
-      "Malin er en nordisk kortform av Magdalena, som viser til stedet Magdala ved Genesaretsjøen. Formen har vært brukt i Norden siden middelalderen.",
-    related: ["Magdalena"],
-  },
-  mette: {
-    elements: [{ form: "margarites", sense: "perle" }],
-    origin:
-      "Mette er en dansk-norsk kortform av Margrete, som går tilbake på det greske ordet for perle. Kortformen har vært selvstendig navn i Norden i flere hundre år.",
-    related: ["Margrete"],
-  },
-  mia: {
-    elements: [{ form: "Maria", sense: "Maria" }],
-    origin:
-      "Mia er en kortform av Maria, brukt som selvstendig navn i store deler av Europa. Betydningen av Maria er omdiskutert – både «den bitre», «den elskede» og «den opphøyde» er foreslått.",
-    related: ["Maria"],
   },
   nanna: {
     elements: [{ form: "nanþ", sense: "modig, dristig" }],

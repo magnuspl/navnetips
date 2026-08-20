@@ -21,8 +21,16 @@
 // ikke gjør det uten å hente tallet fra SSB først. Samme regel som gjelder
 // for src/data/stats.ts.
 //
-// Alle felt er valgfrie. Navnesiden bygger tekst av det som finnes, og faller
-// tilbake på det som kan utledes av selve navnet når feltene mangler.
+// KILDER
+// ------
+// Nye navn skal ha minst én kilde, og kildene vises nederst på navnesiden.
+// Reglene står i docs/legge-til-navn.md, og `npm run navn:sjekk` håndhever dem.
+//
+// Navnene som lå inne før kildekravet ble innført, mangler ennå kilder.
+// Sjekkskriptet teller dem, så hullet er synlig og kan tettes over tid.
+//
+// Utover `sources` er alle felt valgfrie. Navnesiden bygger tekst av det som
+// finnes, og faller tilbake på det som kan utledes av selve navnet.
 
 export type NameElement = {
   /** Leddet slik det ser ut i kildespråket, f.eks. «bjǫrn» eller «hildr». */
@@ -57,4 +65,28 @@ export type NameDetail = {
    * synlig i selve skrivemåten.
    */
   related?: string[];
+
+  /**
+   * Hvor leseren kan etterprøve opplysningene. Vises nederst på navnesiden.
+   *
+   * Påkrevd for nye navn. Se docs/legge-til-navn.md for hvilke kilder som
+   * holder mål.
+   */
+  sources?: NameSource[];
+};
+
+export type NameSource = {
+  /** Tittelen på verket, oppslaget eller artikkelen. */
+  title: string;
+
+  /** Forlag, leksikon eller nettsted som står bak. */
+  publisher?: string;
+
+  /**
+   * Direkte lenke.
+   *
+   * Ta bare med en URL du faktisk har åpnet og sett at peker på riktig navn.
+   * En død lenke er verre enn ingen lenke – da er tittel og utgiver nok.
+   */
+  url?: string;
 };

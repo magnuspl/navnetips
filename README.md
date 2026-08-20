@@ -33,6 +33,13 @@ npm run lint
 | `scripts/build-redirects.mjs` | Genererer `public/_redirects`.                                                |
 | `scripts/post-build.mjs`      | 404.html og opprydding i sitemap.                                             |
 
+### Legge til navn
+
+Reglene står i [docs/legge-til-navn.md](docs/legge-til-navn.md). Kort fortalt:
+hvert navn trenger en linje i `names.ts`, en oppføring i `name-details/`, og
+**minst én kilde** – kildene vises nederst på navnesiden. Kjør `npm run
+navn:sjekk` før du committer.
+
 ### Navnedatamodellen
 
 Ett navn er én oppføring og én side på `/navn/<slug>`. Et navn kan høre hjemme i
@@ -40,6 +47,9 @@ flere kategorier – Luna brukes både som jente-, hunde- og kattenavn – derfo
 `categories` en liste, ikke ett felt.
 
 Slugen er translitterert (`Bjørn` → `bjorn`), så URL-ene er rene ASCII.
+
+Første kategori i lista er hovedbruken, og den styrer brødsmuler, JSON-LD og
+«Bruk»-filteret på kategorisidene. Nye kategorier legges til sist.
 
 ## Adresser og omdirigeringer
 

@@ -299,12 +299,6 @@ export const norroneAG: Record<string, NameDetail> = {
     origin:
       "Eldrid er satt sammen av ild og fríðr. Navnet hører til en gruppe norrøne kvinnenavn der et naturelement møter det samme vakre andreleddet – som i Solfrid og Dagfrid.",
   },
-  eline: {
-    elements: [{ form: "helios", sense: "sol, lys" }],
-    origin:
-      "Eline er en nordisk form av Helena, som kommer fra gresk og knyttes til ordet for sol og lys. Navnet kom inn i Norden gjennom kirken og har vært i bruk siden middelalderen.",
-    variants: ["Elin", "Eline", "Elina"],
-  },
   embla: {
     elements: [{ form: "embla", sense: "alm, slyngtre" }],
     origin:
