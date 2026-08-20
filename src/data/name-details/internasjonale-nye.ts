@@ -62,9 +62,9 @@ export const internasjonaleNye: Record<string, NameDetail> = {
   },
   mari: {
     origin:
-      "Mari er den norske formen av Maria, og har vært i bruk her siden middelalderen. Betydningen av Maria er usikker – både «den elskede», «den opphøyde» og «den bitre» er foreslått.",
+      "Mari er den norske formen av Maria, i bruk her siden middelalderen. Mariakulten sto sterkt i norsk middelalder, og en rekke stedsnavn og merkedager bærer navnet – Marimesse, Marisokk og Marihøne, som egentlig er «Marias høne».",
     variants: ["Marie", "Maria"],
-    sources: [NPL, BTN],
+    sources: [NPL, SNL],
   },
   mikael: {
     elements: [{ form: "mi ka el", sense: "hvem er som Gud" }],
@@ -102,9 +102,10 @@ export const internasjonaleNye: Record<string, NameDetail> = {
   },
   ellinor: {
     origin:
-      "Ellinor er en nordisk form av Eleonora. Opphavet er omdiskutert – navnet knyttes både til gresk og til oksitansk, og kom til Nord-Europa gjennom Eleonora av Aquitaine på 1100-tallet.",
+      "Ellinor er en nordisk form av Eleonora. Opphavet er omdiskutert – navnet knyttes både til gresk og til oksitansk, og en gammel forklaring om «den andre Aenor» regnes i dag som folkeetymologi. Eleonora av Aquitaine, dronning i både Frankrike og England på 1100-tallet, brakte navnet til Nord-Europa.",
     variants: ["Eleonora", "Elinor"],
-    sources: [BTN, NPL],
+    related: ["Nora", "Ellie"],
+    sources: [BTN, SNL],
   },
   helene: {
     elements: [{ form: "helene", sense: "fakkel, lys" }],
@@ -164,25 +165,23 @@ export const internasjonaleNye: Record<string, NameDetail> = {
 
   julie: {
     origin:
-      "Julie kommer av det romerske slektsnavnet Julius, som Julius Cæsar tilhørte. Slekten regnet seg som etterkommere av Aeneas' sønn Ascanius, også kalt Iulus.",
+      "Julie kommer av det romerske slektsnavnet Julius, som Julius Cæsar tilhørte. Slekten regnet seg som etterkommere av Aeneas' sønn Ascanius, også kalt Iulus, og dermed av gudinnen Venus. Måneden juli er oppkalt etter Cæsar. Shakespeares Julie gjorde navnet kjent i hele Europa.",
     variants: ["Julia", "Juliane"],
     sources: [BTN, SNL],
   },
   maren: {
     origin:
-      "Maren er en nordisk form av Marina, av latin marinus – som hører havet til. Navnet blandes ofte sammen med Maria, og de to linjene har delvis smeltet sammen i Norden.",
+      "Maren er en nordisk form av Marina, av latin marinus – som hører havet til. Navnet blandes ofte sammen med Maria, og de to linjene har delvis smeltet sammen i Norden. Maren har vært i bruk i Norge siden middelalderen.",
     variants: ["Marin", "Marina"],
+    related: ["Marie"],
     sources: [NPL, BTN],
   },
   morten: {
     origin:
-      "Morten er den nordiske formen av Martin, avledet av krigsguden Mars. Mortensdagen 11. november er oppkalt etter Sankt Martin av Tours, og markeres med gås i Danmark.",
+      "Morten er den nordiske formen av Martin, avledet av krigsguden Mars. Mortensdagen 11. november er oppkalt etter Sankt Martin av Tours, og markeres med gås i Danmark – etter legenden gjemte Martin seg i en gåsefjøs for å slippe å bli biskop, men gjessene røpet ham.",
     variants: ["Martin"],
     sources: [NPL, SNL],
   },
-
-  /* ---------------------------------------------------------- germanske -- */
-
   amalie: {
     elements: [{ form: "amal", sense: "arbeid, virke" }],
     origin:
@@ -216,8 +215,9 @@ export const internasjonaleNye: Record<string, NameDetail> = {
 
   kasper: {
     origin:
-      "Kasper går tilbake på persisk gizbar, skattmester. Etter tradisjonen er Kaspar en av de tre vise menn som kom til Betlehem, selv om evangeliet ikke navngir dem.",
+      "Kasper går tilbake på persisk gizbar, skattmester. Etter tradisjonen er Kaspar en av de tre vise menn, men Matteusevangeliet verken navngir dem eller sier at de var tre – tallet kommer av at det var tre gaver. Navnene dukker først opp i en tekst fra 500-tallet.",
     variants: ["Casper", "Jesper"],
+    related: ["Jasper", "Jesper"],
     sources: [BTN, SNL],
   },
   marte: {

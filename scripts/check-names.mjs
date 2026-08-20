@@ -56,7 +56,7 @@ const familySrc = fs.readFileSync(path.join(root, "src/lib/name-content.ts"), "u
 const knownOrigins = new Set(
   [
     ...familySrc.matchAll(
-      /^\s{2}([A-Za-zÆØÅæøå]+): "(?:nordisk|bibelsk|gresk|latinsk|germansk|keltisk|romansk|slavisk)"/gm,
+      /^\s{2}([A-Za-zÆØÅæøå]+): "(?:nordisk|norsk|bibelsk|gresk|latinsk|germansk|keltisk|romansk|slavisk)"/gm,
     ),
   ].map((m) => m[1]),
 );
@@ -138,9 +138,19 @@ for (const entry of rows) {
   } else {
     const block = body.slice(body.indexOf("sources:"));
     const inline = [...block.matchAll(/title:\s*"([^"]*)"/g)].map((m) => m[1]);
-    const viaConst = [...block.matchAll(/([A-Z][A-Z0-9_]+)/g)]
-      .map((m) => detail.consts.get(m[1]))
-      .filter(Boolean);
+    const referenced = [...block.matchAll(/([A-Z][A-Z0-9_]+)/g)].map((m) => m[1]);
+
+    // En kilde som viser til en konstant som ikke finnes i fila, gir
+    // byggefeil – ta den her i stedet.
+    for (const name of referenced) {
+      if (!detail.consts.has(name)) {
+        errors.push(
+          `kilder: «${entry.name}» viser til «${name}», som ikke er definert i ${detail.file}`,
+        );
+      }
+    }
+
+    const viaConst = referenced.map((n) => detail.consts.get(n)).filter(Boolean);
     const titles = [...inline, ...viaConst];
     if (titles.length === 0 || titles.some((t) => !t.trim())) {
       errors.push(`kilder: «${entry.name}» har en kilde uten tittel`);

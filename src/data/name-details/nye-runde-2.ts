@@ -9,20 +9,21 @@ const SNL = { title: "Store norske leksikon", publisher: "snl.no" };
 export const nyeRunde2: Record<string, NameDetail> = {
   anita: {
     origin:
-      "Anita er en spansk kjæleform av Ana, altså Anna. Formen kom til Norden på 1900-tallet og var særlig populær i Norge på 1960- og 70-tallet.",
+      "Anita er en spansk kjæleform av Ana, altså Anna, dannet med diminutivendelsen -ita. Formen kom til Norden på 1900-tallet gjennom film og musikk, og var særlig populær i Norge på 1960- og 70-tallet.",
     related: ["Anna", "Anne"],
     sources: [NPL, BTN],
   },
   aron: {
     origin:
-      "Aron er Moses' bror og den første ypperstepresten i Andre Mosebok. Opphavet er usikkert og kanskje egyptisk; den vanligste tolkningen knytter navnet til et ord for fjell.",
+      "Aron er Moses' bror og den første ypperstepresten i Andre Mosebok – den som taler for Moses fordi Moses selv er tungebundet. Opphavet er usikkert og kanskje egyptisk, som Moses' eget navn. Den vanligste tolkningen knytter det til et ord for fjell.",
     variants: ["Aaron"],
     sources: [BTN, SNL],
   },
   bendik: {
     origin:
-      "Bendik er en norsk form av Benedikt, av latin benedictus – den velsignede. Navnet er kjent fra folkevisen om Bendik og Årolilja.",
+      "Bendik er en norsk form av Benedikt, av latin benedictus – den velsignede. Navnet er kjent fra folkevisen om Bendik og Årolilja, en av de mest sungne norske middelalderballadene, der de to elskende dør og det vokser en lilje opp av gravene deres.",
     variants: ["Benedikt", "Bent"],
+    related: ["Bente"],
     sources: [NPL, SNL],
   },
   bjarte: {
@@ -88,7 +89,7 @@ export const nyeRunde2: Record<string, NameDetail> = {
   },
   jo: {
     origin:
-      "Jo er en norsk kortform av Johannes, i samme gruppe som Jon og John. Formen er særlig vanlig i Gudbrandsdalen og brukes også som del av dobbeltnavn.",
+      "Jo er en norsk kortform av Johannes, i samme gruppe som Jon og John. Formen er særlig vanlig i Gudbrandsdalen og brukes ofte som første ledd i dobbeltnavn. I engelsktalende land er Jo derimot en kortform av Josephine, altså et kvinnenavn.",
     variants: ["Jon", "Johannes"],
     sources: [NPL, NORDIC],
   },
@@ -104,9 +105,9 @@ export const nyeRunde2: Record<string, NameDetail> = {
   },
   kim: {
     origin:
-      "Kim brukes i Norden både som kortform av Joakim og som selvstendig navn. I Norge er det først og fremst et guttenavn, mens det i Sverige og Danmark også brukes om jenter.",
+      "Kim brukes i Norden både som kortform av Joakim og som selvstendig navn. I Norge er det først og fremst et guttenavn, mens det i Sverige og Danmark også brukes om jenter. Rudyard Kiplings roman «Kim» fra 1901 bidro til å spre det som selvstendig navn.",
     related: ["Joakim"],
-    sources: [NPL, NORDIC],
+    sources: [NPL, BTN],
   },
   kjetil: {
     elements: [{ form: "ketill", sense: "kjele, hjelm" }],
@@ -141,9 +142,9 @@ export const nyeRunde2: Record<string, NameDetail> = {
   },
   rasmus: {
     origin:
-      "Rasmus er en kortform av Erasmus, av gresk erasmios – den elskede eller etterlengtede. Erasmus av Rotterdam er den mest kjente bæreren.",
+      "Rasmus er en kortform av Erasmus, av gresk erasmios – den elskede eller etterlengtede. Erasmus av Rotterdam var renessansens mest leste humanist. På norsk finnes uttrykket «å ta Rasmus», altså å falle i vannet, der Rasmus er en omskriving for sjøen selv.",
     variants: ["Erasmus"],
-    sources: [NPL, BTN],
+    sources: [NPL, SNL],
   },
   reidar: {
     elements: [
@@ -213,13 +214,13 @@ export const nyeRunde2: Record<string, NameDetail> = {
   },
   bente: {
     origin:
-      "Bente er en dansk-norsk kvinnelig form av Bent, som igjen er en kortform av Benedikt – den velsignede. Navnet var svært vanlig i Norge midt på 1900-tallet.",
+      "Bente er en dansk-norsk kvinnelig form av Bent, som er en kortform av Benedikt – den velsignede. Navnet var svært vanlig i Norge midt på 1900-tallet, og hører til den samme familien som Bendik og Benedikte.",
     related: ["Bendik"],
     sources: [NPL, NORDIC],
   },
   bergit: {
     origin:
-      "Bergit er en norsk form av Birgitta, som går tilbake på det irske Brighid. Formen er særlig knyttet til Telemark og Hallingdal.",
+      "Bergit er en norsk form av Birgitta, som går tilbake på det irske Brighid – navnet på en keltisk gudinne og senere på Irlands vernehelgen. Formen Bergit er særlig knyttet til Telemark og Hallingdal, og hører sammen med Berit og Birgit.",
     variants: ["Berit", "Birgit"],
     sources: [NPL, NORDIC],
   },
@@ -234,15 +235,15 @@ export const nyeRunde2: Record<string, NameDetail> = {
   },
   camilla: {
     origin:
-      "Camilla er hentet fra Vergils Aeneiden, der Camilla er en krigersk kvinne. Ordet camillus var i Roma betegnelsen på en ung tempeltjener.",
+      "Camilla er hentet fra Vergils Aeneiden, der Camilla er en krigersk jomfru som er så rask at hun kan løpe over et kornåker uten å knekke stråene. Ordet camillus var i Roma betegnelsen på en ung tempeltjener. Camilla Collett gjorde navnet kjent i Norge.",
     variants: ["Kamilla"],
     sources: [BTN, SNL],
   },
   eli: {
     origin:
-      "Eli brukes i Norge som en kortform av Elisabet, og er dermed et kvinnenavn – i motsetning til det bibelske Eli, som er en mannlig prest i Samuelsboken.",
+      "Eli brukes i Norge som kortform av Elisabet, og er dermed et kvinnenavn. Det bibelske Eli er noe helt annet: en mannlig prest i Samuelsboken. De to har ingen språklig forbindelse, og sammenfallet er tilfeldig.",
     related: ["Elisabeth", "Elise"],
-    sources: [NPL, NORDIC],
+    sources: [NPL, BTN],
   },
   elin: {
     elements: [{ form: "helene", sense: "fakkel, lys" }],
@@ -284,7 +285,7 @@ export const nyeRunde2: Record<string, NameDetail> = {
   },
   iben: {
     origin:
-      "Iben er et dansk navn som brukes om både kvinner og menn. Opphavet er omdiskutert: navnet knyttes både til et ord for bjørnebær og til den norrøne formen Ingbjørn.",
+      "Iben er et dansk navn som brukes om både kvinner og menn. Opphavet er omdiskutert: det knyttes både til et dialektord for bjørnebær og til den norrøne formen Ingbjørn. Ingen av forklaringene er sikre, og navnet er uansett først og fremst moderne dansk.",
     sources: [NPL, NORDIC],
   },
   inger: {
@@ -309,7 +310,7 @@ export const nyeRunde2: Record<string, NameDetail> = {
   },
   jenny: {
     origin:
-      "Jenny oppsto som en engelsk kjæleform av Jane, altså Johanna. Den svenske sangerinnen Jenny Lind gjorde navnet populært i Norden på 1800-tallet.",
+      "Jenny oppsto som en engelsk kjæleform av Jane, altså Johanna. Den svenske sopranen Jenny Lind, «den svenske nattergalen», turnerte USA på 1850-tallet og gjorde navnet populært i hele Norden. I eldre engelsk var jenny dessuten et alminnelig ord for hunndyr, som i spinning jenny.",
     related: ["Johannes"],
     sources: [NPL, BTN],
   },
@@ -337,21 +338,21 @@ export const nyeRunde2: Record<string, NameDetail> = {
   },
   lene: {
     origin:
-      "Lene brukes i Norden som kortform av både Helene og Magdalene. De to linjene har smeltet sammen, slik at navnet i dag regnes som ett.",
+      "Lene brukes i Norden som kortform av både Helene og Magdalene. De to linjene har smeltet helt sammen, og i praksis skilles de ikke. Navnet var blant de mest populære i Norge på 1970- og 80-tallet.",
     variants: ["Lena"],
     related: ["Helene", "Malena"],
     sources: [NPL, NORDIC],
   },
   marie: {
     origin:
-      "Marie er den franske og norske formen av Maria. Betydningen er usikker – både «den elskede», «den opphøyde» og «den bitre» er foreslått, og ingen av dem er sikkert fastslått.",
+      "Marie er den franske og norske formen av Maria, og er det navnet som oftest inngår i norske dobbeltnavn – Anne Marie, Ann-Marie, Lise Marie. Betydningen av Maria er usikker: både «den elskede», «den opphøyde» og «den bitre» er foreslått, og opphavet er trolig egyptisk.",
     variants: ["Maria", "Mari"],
     sources: [NPL, BTN],
   },
   nina: {
     origin:
-      "Nina brukes både som kortform av Anna og Antonina, og som selvstendig navn. Nina Grieg, gift med komponisten, er blant de mest kjente norske bærerne.",
-    related: ["Anne"],
+      "Nina brukes både som kortform av Anna og Antonina, og som selvstendig navn. I russisk og italiensk tradisjon er begge veier vanlige. Nina Grieg, som var gift med og fetter av Edvard Grieg, var sanger og urframførte mange av hans egne sanger.",
+    related: ["Anne", "Anita"],
     sources: [NPL, BTN],
   },
   rita: {

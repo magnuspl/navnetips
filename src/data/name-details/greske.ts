@@ -37,13 +37,13 @@ export const greske: Record<string, NameDetail> = {
   },
   apollo: {
     origin:
-      "Apollon er guden for lys, musikk, bueskyting og spådom i gresk mytologi. Navnets egen opprinnelse er usikker, og er kanskje ikke gresk i det hele tatt.",
+      "Apollon er guden for lys, musikk, bueskyting, spådom og helbredelse i gresk mytologi, og en av de mest sammensatte skikkelsene i panteonet. Navnets egen opprinnelse er usikker og kanskje ikke gresk i det hele tatt – det kan være lånt fra Lilleasia. Orakelet i Delfi var viet ham.",
     sources: [SNL, BTN],
   },
   atlas: {
     origin:
-      "Atlas er titanen som holder himmelen oppe i gresk mytologi. Navnet ble senere brukt om kartverk, fordi tidlige kartsamlinger hadde et bilde av ham på forsiden.",
-    sources: [SNL, BTN],
+      "Atlas er titanen som må holde himmelhvelvet oppe som straff etter titanenes krig mot gudene. Navnet knyttes til gresk tlēnai, å bære. Kartsamlinger fikk navn etter ham fordi Mercator satte et bilde av titanen på forsiden av verket sitt i 1595, og Atlanterhavet betyr «Atlas' hav».",
+    sources: [SNL, ETYM],
   },
   chloe: {
     elements: [{ form: "chloe", sense: "grønt skudd, ungt løv" }],
@@ -55,12 +55,13 @@ export const greske: Record<string, NameDetail> = {
   },
   echo: {
     origin:
-      "Ekko er nymfen som mistet evnen til å si annet enn det andre sa sist, og som tæret bort til bare stemmen var igjen. Det er derfra vi har ordet ekko.",
-    sources: [SNL, BTN],
+      "Ekko er nymfen som ble straffet av Hera med å bare kunne gjenta det andre sa sist. Hun forelsket seg i Narkissos, ble avvist, og tæret bort til bare stemmen var igjen. Fortellingen står hos Ovid, og det er derfra vi har ordet ekko – i norsk som i de fleste europeiske språk.",
+    sources: [SNL, ETYM],
   },
   elida: {
     origin:
-      "Elida knyttes gjerne til landskapet Elis på Peloponnes, men opphavet er usikkert. Navnet kan også være dannet som en utvidelse av Eli eller Elin i Norden.",
+      "Elida er av usikkert opphav. Navnet knyttes gjerne til landskapet Elis på Peloponnes, der de olympiske lekene ble holdt, men det kan like gjerne være dannet i Norden som en utvidelse av Eli eller Elin. Usikkerheten er reell, og bør ikke skjules bak én tolkning.",
+    related: ["Eli", "Elin"],
     sources: [NPL, BTN],
   },
   eline: {
@@ -73,9 +74,9 @@ export const greske: Record<string, NameDetail> = {
   },
   ellie: {
     origin:
-      "Ellie er en engelsk kortform av navn som Eleanor, Ellen og Elisabet. Den har vært brukt som selvstendig navn siden 1800-tallet.",
-    related: ["Helena", "Eline"],
-    sources: [NPL, BTN],
+      "Ellie er en engelsk kortform som kan gå tilbake på flere navn: Eleanor, Ellen, Elisabet og Helena. Den har vært brukt som selvstendig navn siden 1800-tallet, og de ulike opphavene skilles ikke lenger i praktisk bruk.",
+    related: ["Helena", "Eline", "Ellinor"],
+    sources: [BTN, NPL],
   },
   filip: {
     elements: [
@@ -146,20 +147,20 @@ export const greske: Record<string, NameDetail> = {
   },
   linus: {
     origin:
-      "Linus er en skikkelse i gresk mytologi, sangeren som lærte Herakles musikk. Betydningen er usikker; navnet knyttes gjerne til en klagesang som bar samme navn.",
-    sources: [NPL, BTN],
+      "Linus er i gresk mytologi sangeren som lærte Herakles musikk – og som ble drept av eleven sin med en lyre. Betydningen er usikker; navnet knyttes gjerne til linos, en klagesang som bar samme navn. Linus er også en av de tidlige biskopene i Roma, og figuren med kosetteppet i Knøttene.",
+    sources: [BTN, SNL],
   },
   maggie: {
-    elements: [{ form: "margarites", sense: "perle" }],
     origin:
-      "Maggie er en engelsk kortform av Margaret, som kommer av det greske ordet for perle. Den norske formen er Margrete.",
-    related: ["Mette"],
-    sources: [NPL, BTN],
+      "Maggie er en engelsk kortform av Margaret, av gresk margarites – perle. Ordet kom til gresk fra et østlig språk, trolig via persisk. Den norske formen er Margrete, og hele familien omfatter Mette, Marit, Grete og Rita.",
+    related: ["Mette", "Marit", "Grete"],
+    sources: [BTN, NPL],
   },
   maja: {
     origin:
-      "Maja knyttes til Maia, en av plejadene i gresk mytologi og mor til Hermes. Navnet brukes i Norden også som kortform av Maria og Marja, og de to linjene har smeltet sammen.",
+      "Maja har to linjer som har smeltet sammen i Norden. Den ene går til Maia, en av plejadene i gresk mytologi og mor til Hermes; måneden mai er oppkalt etter henne. Den andre er kortformen av Maria og Marja. I norsk bruk skilles de ikke.",
     variants: ["Maia", "Maya"],
+    related: ["Marie", "Mia"],
     sources: [NPL, BTN],
   },
   melissa: {
@@ -199,14 +200,15 @@ export const greske: Record<string, NameDetail> = {
   },
   nyx: {
     origin:
-      "Nyx er nattens gudinne i gresk mytologi, født av kaos og mor til både søvnen og døden. Navnet er det greske ordet for natt.",
+      "Nyx er nattens gudinne i gresk mytologi, født av kaos og mor til både søvnen Hypnos og døden Thanatos. Hos Homer er hun en av de få gudene selv Zevs viker for. Navnet er det greske ordet for natt, i slekt med latin nox og norsk natt.",
     pronunciation: "«nyks»",
-    sources: [SNL, BTN],
+    related: ["Nox"],
+    sources: [SNL, ETYM],
   },
   onyx: {
     origin:
-      "Onyx er en svart edelsten. Det greske ordet betyr egentlig negl eller klo – steinen fikk navn etter fargelikheten med en neglrot.",
-    sources: [BTN, ETYM],
+      "Onyx er en svart eller stripet kvartsart. Det greske ordet betyr egentlig negl eller klo – steinen fikk navn etter fargelikheten med en neglrot. Etter en gresk myte klippet Eros neglene til Afrodite mens hun sov, og de falne bitene ble til stein.",
+    sources: [ETYM, SNL],
   },
   per: {
     elements: [{ form: "petros", sense: "stein, klippe" }],
@@ -227,9 +229,9 @@ export const greske: Record<string, NameDetail> = {
   },
   sebastian: {
     origin:
-      "Sebastian kommer av gresk sebastos, ærverdig – den greske oversettelsen av den romerske tittelen Augustus. Sankt Sebastian var en romersk soldat og martyr.",
+      "Sebastian kommer av gresk sebastos, ærverdig – som var den greske oversettelsen av den romerske keisertittelen Augustus. Sankt Sebastian var en romersk soldat som etter legenden overlevde å bli skutt med piler og deretter ble drept på nytt. Han er blant de mest avbildede helgenene i renessansekunsten.",
     shortForms: ["Sebbe"],
-    sources: [NPL, BTN],
+    sources: [BTN, SNL],
   },
   selina: {
     elements: [{ form: "selene", sense: "måne" }],
@@ -287,21 +289,20 @@ export const greske: Record<string, NameDetail> = {
     sources: [NPL, BTN],
   },
   theo: {
-    elements: [{ form: "theos", sense: "gud" }],
     origin:
-      "Theo er en kortform av Teodor og andre navn på Theo-. Den brukes i dag som selvstendig navn i store deler av Europa.",
+      "Theo er en kortform av Teodor og andre navn på Theo-, av gresk theos, gud. Den brukes i dag som selvstendig navn i store deler av Europa, og deler førsteledd med Thea, Teodor og Teofil.",
     related: ["Teodor", "Thea"],
-    sources: [NPL, BTN],
+    sources: [BTN, NPL],
   },
   zephyr: {
     origin:
-      "Zefyros er vestavinden i gresk mytologi, den mildeste av vindene og den som bringer våren. Ordet lever videre i tekstilet zefyr.",
-    sources: [BTN, ETYM],
+      "Zefyros er vestavinden i gresk mytologi, den mildeste av de fire vindene og den som varsler våren. Hos Homer er han far til Akhillevs' udødelige hester. Ordet lever videre i tekstilet sefyr, et lett bomullsstoff, og i engelsk zephyr om en lett bris.",
+    sources: [SNL, ETYM],
   },
   zeus: {
     origin:
-      "Zevs er den øverste guden i gresk mytologi, himmelens og tordenens hersker. Navnet går tilbake på en urindoeuropeisk rot for dagslys og himmel, den samme som ligger bak latin deus.",
-    sources: [SNL, BTN],
+      "Zevs er den øverste guden i gresk mytologi, himmelens og tordenens hersker. Navnet går tilbake på den urindoeuropeiske roten dyeu – dagslys, himmel – som også ligger bak latin deus og dies, og bak sanskrit Dyaus. Det er dermed i fjern slekt med både «dag» og «guddom».",
+    sources: [SNL, ETYM],
   },
   zoe: {
     elements: [{ form: "zoe", sense: "liv" }],

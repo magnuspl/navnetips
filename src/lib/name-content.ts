@@ -35,6 +35,7 @@ export const syllableWord = (n: number) =>
 
 export type OriginFamily =
   | "nordisk"
+  | "norsk"
   | "bibelsk"
   | "gresk"
   | "latinsk"
@@ -46,7 +47,7 @@ export type OriginFamily =
 
 const FAMILY_BY_ORIGIN: Record<string, OriginFamily> = {
   Norrønt: "nordisk",
-  Norsk: "nordisk",
+  Norsk: "norsk",
   Svensk: "nordisk",
   Dansk: "nordisk",
   Hebraisk: "bibelsk",
@@ -77,6 +78,8 @@ export const originFamily = (origin: string): OriginFamily => FAMILY_BY_ORIGIN[o
 const FAMILY_CONTEXT: Record<OriginFamily, string> = {
   nordisk:
     "Nordiske navn er den eldste laget i norsk navneskikk. Mange av dem har vært i sammenhengende bruk siden vikingtiden, og de fleste er satt sammen av to ledd som hver betyr noe for seg. Etter nasjonalromantikken på 1800-tallet ble en stor del av dem hentet fram igjen, og bølgen har kommet tilbake flere ganger siden.",
+  norsk:
+    "Norske ordnavn er hentet rett fra dagligspråket – et værord, en plante, en farge eller en lyd. De er ikke bygget som de norrøne toleddsnavnene, og de fleste er tatt i bruk som navn i nyere tid. Til gjengjeld er betydningen gjennomsiktig for alle som snakker norsk, og det er nettopp poenget med dem.",
   bibelsk:
     "Navn med hebraisk opphav kom til Norge med kristendommen og festet seg for alvor etter reformasjonen, da folk begynte å hente fornavn fra Bibelen. De har holdt seg stabilt i bruk siden, og flere av dem er blant navnene som går igjen i generasjon etter generasjon.",
   gresk:

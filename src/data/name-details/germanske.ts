@@ -11,6 +11,8 @@ const NPL = { title: "Norsk personnamnleksikon", publisher: "Det Norske Samlaget
 const BTN = { title: "Behind the Name", publisher: "behindthename.com" };
 const ETYM = { title: "Online Etymology Dictionary", publisher: "etymonline.com" };
 
+const SNL = { title: "Store norske leksikon", publisher: "snl.no" };
+
 export const germanske: Record<string, NameDetail> = {
   ada: {
     elements: [{ form: "adal", sense: "edel, av god ætt" }],
@@ -41,9 +43,9 @@ export const germanske: Record<string, NameDetail> = {
   },
   baron: {
     origin:
-      "Baron er en adelstittel som kom inn i engelsk med normannerne, av et germansk ord for kriger eller fri mann. Som hundenavn hører det til gruppen med Duke, King og Prince.",
-    related: ["Duke", "King"],
-    sources: [BTN, ETYM],
+      "Baron er en adelstittel som kom inn i engelsk med normannerne, av et frankisk ord for fri mann eller kriger. I det norske adelssystemet var friherre den tilsvarende tittelen. Som hundenavn hører det til gruppen titteldyrenavn sammen med Duke, King og Prince.",
+    related: ["Duke", "King", "Prince"],
+    sources: [ETYM, BTN],
   },
   bruno: {
     elements: [{ form: "brun", sense: "brun" }],
@@ -78,9 +80,9 @@ export const germanske: Record<string, NameDetail> = {
   },
   ella: {
     origin:
-      "Ella er opprinnelig en kortform av germanske navn på Al-, som Alberta og Alfhild, men brukes i dag også som kortform av Eleonora og Elisabet. Det har vært blant de mest brukte jentenavnene i Norge.",
-    related: ["Ellie"],
-    sources: [NPL, BTN],
+      "Ella har flere opphav som er smeltet sammen. Det eldste er en kortform av germanske navn på Ali- og Adal-, som Alberta og Adelheid. I moderne bruk fungerer det like mye som kortform av Eleonora, Gabriella og Isabella. Ella Fitzgerald er blant de mest kjente bærerne.",
+    related: ["Ellie", "Ellinor"],
+    sources: [BTN, NPL],
   },
   emma: {
     elements: [{ form: "ermin", sense: "hel, altomfattende" }],
@@ -90,15 +92,15 @@ export const germanske: Record<string, NameDetail> = {
   },
   frankie: {
     origin:
-      "Frankie er en engelsk kjæleform av Frank eller Francis. Frank viser til frankerne, folket som ga Frankrike navn, og ordet kom til å bety fri.",
-    related: ["Carl"],
-    sources: [BTN, ETYM],
+      "Frankie er en engelsk kjæleform av Frank eller Francis, og brukes om både menn og kvinner. Frank viser til frankerne, det germanske folket som ga Frankrike navn. Fordi frankerne var de frie i det erobrede Gallia, kom ordet til å bety fri – som i «frankly» og i norsk «franko».",
+    related: ["Karl", "Charlie"],
+    sources: [ETYM, BTN],
   },
   gus: {
     origin:
-      "Gus er en engelsk kortform av August eller Gustav. August kommer av latin augustus, opphøyd – tittelen den første romerske keiseren tok.",
+      "Gus er en engelsk kortform av August eller Gustav. August kommer av latin augustus, opphøyd eller ærverdig – tittelen den første romerske keiseren tok i stedet for et navn, og som ga oss måneden august.",
     related: ["Gustav"],
-    sources: [NPL, BTN],
+    sources: [BTN, ETYM],
   },
   hedvig: {
     elements: [
@@ -161,9 +163,9 @@ export const germanske: Record<string, NameDetail> = {
       { form: "wig", sense: "kamp" },
     ],
     origin:
-      "Louie er en engelsk skrivemåte av Louis, den franske formen av Ludvig. Atten franske konger bar navnet.",
+      "Louie er en engelsk skrivemåte av Louis, den franske formen av Ludvig. Atten franske konger bar navnet, fra Ludvig I til Ludvig XVIII, og det er trolig det mest brukte kongenavnet i europeisk historie.",
     related: ["Ludvig"],
-    sources: [NPL, BTN],
+    sources: [BTN, NPL],
   },
   ludvig: {
     elements: [
@@ -194,23 +196,22 @@ export const germanske: Record<string, NameDetail> = {
     sources: [NPL, BTN],
   },
   otto: {
-    elements: [{ form: "aud", sense: "rikdom, eiendom" }],
     origin:
-      "Otto er en kortform av germanske navn på Od-, som Ottokar. Fire tysk-romerske keisere bar navnet.",
-    related: ["Oda"],
-    sources: [NPL, BTN],
+      "Otto er en kortform av germanske navn på Od-, som Ottokar, av et ledd som betyr rikdom og arvegods. Fire tysk-romerske keisere bar navnet, og Otto I la grunnlaget for riket i 962. Leddet svarer til norrønt auðr, som står i Aud og Audun.",
+    related: ["Oda", "Aud"],
+    sources: [BTN, NPL],
   },
   rocco: {
     origin:
-      "Rocco er den italienske formen av Rochus, trolig av et germansk ledd som betyr hvile eller ro. San Rocco er pestens vernehelgen i Italia.",
+      "Rocco er den italienske formen av Rochus, trolig av et germansk ledd som betyr ro eller hvile. San Rocco er pestens vernehelgen i Italia, og framstilles nesten alltid med en hund – etter legenden brakte hunden ham brød mens han lå syk i skogen.",
     variants: ["Rocko", "Rocky"],
-    sources: [NPL, BTN],
+    sources: [BTN, SNL],
   },
   rocky: {
     origin:
-      "Rocky kommer av det engelske ordet rock, stein, og brukes om noe hardført. Navnet er uløselig knyttet til bokseren Rocky Balboa.",
+      "Rocky kommer av det engelske ordet rock, stein, og brukes om noe hardført. Navnet er uløselig knyttet til bokseren Rocky Balboa fra 1976, som igjen var inspirert av Rocky Marciano – den eneste tungvektsmesteren som la opp uten et eneste tap.",
     related: ["Rocco"],
-    sources: [BTN, ETYM],
+    sources: [ETYM, BTN],
   },
   rudy: {
     elements: [
@@ -218,15 +219,15 @@ export const germanske: Record<string, NameDetail> = {
       { form: "wulf", sense: "ulv" },
     ],
     origin:
-      "Rudy er en kortform av Rudolf, den berømte ulven. Førsteleddet hrod svarer til norrønt hróðr, som står i Roar og Roald.",
-    related: ["Rudolf"],
-    sources: [NPL, BTN],
+      "Rudy er en kortform av Rudolf, «den berømte ulven». Førsteleddet hrod svarer til norrønt hróðr, som står i Roar og Roald, og andreleddet er ulven – samme dyr som i Ulf og Ylva. Rudolf med den røde nesen er fra en amerikansk reklamefortelling fra 1939.",
+    related: ["Roar", "Roald", "Ulf"],
+    sources: [BTN, NPL],
   },
   teddy: {
     origin:
-      "Teddy er en engelsk kjæleform av Theodore og Edward. Teddybjørnen har navn etter president Theodore Roosevelt, som nektet å skyte en bundet bjørn på jakt i 1902.",
-    related: ["Teodor"],
-    sources: [NPL, BTN],
+      "Teddy er en engelsk kjæleform av Theodore og Edward. Teddybjørnen har navn etter president Theodore Roosevelt, som i 1902 nektet å skyte en bundet bjørn på jakt – episoden ble en avistegning, og en leketøysprodusent spurte presidenten om lov til å bruke navnet.",
+    related: ["Teodor", "Edvard"],
+    sources: [ETYM, SNL],
   },
   ulrik: {
     elements: [
@@ -251,8 +252,8 @@ export const germanske: Record<string, NameDetail> = {
   },
   zelda: {
     origin:
-      "Zelda forklares på to måter: som kortform av Griselda, av germansk gris og hild – grå kamp – eller som en jiddisk form av Selde, den velsignede. Navnet er i dag mest kjent fra spillserien.",
+      "Zelda har to forklaringer som begge er i bruk. Den ene er kortform av Griselda, av germansk gris, grå, og hild, kamp. Den andre er en jiddisk form av Selde, den velsignede. Navnet er i dag mest kjent fra spillserien, der prinsessen ble oppkalt etter Zelda Fitzgerald.",
     related: ["Hedvig"],
-    sources: [NPL, BTN],
+    sources: [BTN, ETYM],
   },
 };

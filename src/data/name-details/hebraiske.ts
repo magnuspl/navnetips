@@ -12,12 +12,14 @@ const NORDIC = { title: "Nordic Names", publisher: "nordicnames.de" };
 const BTN = { title: "Behind the Name", publisher: "behindthename.com" };
 const ETYM = { title: "Online Etymology Dictionary", publisher: "etymonline.com" };
 
+const SNL = { title: "Store norske leksikon", publisher: "snl.no" };
+
 export const hebraiske: Record<string, NameDetail> = {
   abby: {
     origin:
-      "Abby er en engelsk kortform av Abigail, som i Bibelen er en av kong Davids hustruer. Navnet betyr «min far er glede».",
+      "Abby er en engelsk kortform av Abigail, som i Første Samuelsbok er gift med den uforsonlige Nabal og senere blir en av kong Davids hustruer. Hun beskrives som klok og handlekraftig, og avverger blodsutgytelse ved å gå David i møte. Navnet betyr «min far er glede».",
     related: ["Abigail"],
-    sources: [NPL, BTN],
+    sources: [BTN, SNL],
   },
   aksel: {
     elements: [
@@ -31,7 +33,7 @@ export const hebraiske: Record<string, NameDetail> = {
   },
   ane: {
     origin:
-      "Ane er en nordisk form av Anna, som går tilbake på hebraisk Hannah. Formen uten sluttvokal er særlig vanlig i Danmark og Norge.",
+      "Ane er en nordisk form av Anna, som går tilbake på hebraisk Channah – nåde. Formen uten sluttvokal er særlig vanlig i Danmark og på Vestlandet, og har vært i bruk i Norge siden middelalderen. Den brukes også som ledd i dobbeltnavn som Ane Marie.",
     variants: ["Anne", "Anna"],
     sources: [NPL, BTN],
   },
@@ -55,8 +57,8 @@ export const hebraiske: Record<string, NameDetail> = {
   },
   dina: {
     origin:
-      "Dina kommer av hebraisk Dinah, datteren til Jakob og Lea i Første Mosebok. Navnet knyttes til roten din, som betyr å dømme, og tolkes gjerne som den som har fått sin rett.",
-    sources: [NPL, BTN],
+      "Dina kommer av hebraisk Dinah, datteren til Jakob og Lea i Første Mosebok. Navnet knyttes til roten din, å dømme, og tolkes gjerne som den som har fått sin rett. I Norge er navnet også kjent fra Herbjørg Wassmos «Dinas bok».",
+    sources: [BTN, SNL],
   },
   elias: {
     elements: [
@@ -90,22 +92,22 @@ export const hebraiske: Record<string, NameDetail> = {
   },
   hank: {
     origin:
-      "Hank er en amerikansk kortform av Henry, som opprinnelig gikk via Hendrick og Hankin. Som hundenavn er det kort og bærer godt.",
-    related: ["Henrik"],
-    sources: [NPL, BTN],
+      "Hank er en amerikansk kortform av Henry. Veien dit går om middelalderformen Hankin, en diminutiv av Han – som igjen var en kortform av Johan. Hank ble derfor først knyttet til Johannes-navnene, og først senere til Henry. Hank Williams og Hank Aaron er blant de kjente bærerne.",
+    related: ["Henrik", "Henry"],
+    sources: [BTN, ETYM],
   },
   hans: {
     origin:
-      "Hans er den tyske og nordiske kortformen av Johannes, «Gud er nådig». Formen kom inn med lavtysk i hansatiden og ble et av de aller vanligste mannsnavnene i Norge.",
+      "Hans er den tyske og nordiske kortformen av Johannes, «Herren er nådig». Formen kom inn med lavtysk i hansatiden og ble et av de aller vanligste mannsnavnene i Norge. Den er så vanlig at den brukes generisk i uttrykk som «Hans og Grete» og i tyske «Hans im Glück».",
     related: ["Johannes", "Jon"],
     sources: [NPL, BTN],
   },
   isabella: {
     origin:
-      "Isabella er en italiensk og spansk form av Elisabet, som oppsto i middelalderen da Elisabet ble omformet i romanske språk. Navnet ble kongelig i Spania og spredte seg derfra.",
+      "Isabella oppsto i middelalderen da Elisabet ble omformet i romanske språk: den innledende E-en ble oppfattet som en artikkel og falt bort, og resten ble tilpasset spansk og italiensk lydverk. Isabella av Castilla, som finansierte Columbus' ferd i 1492, gjorde navnet kongelig og europeisk.",
     variants: ["Isabel", "Isabelle"],
-    related: ["Elise"],
-    sources: [NPL, BTN],
+    related: ["Elisabeth", "Elise"],
+    sources: [BTN, SNL],
   },
   isak: {
     elements: [{ form: "jitschaq", sense: "han ler" }],
@@ -116,15 +118,15 @@ export const hebraiske: Record<string, NameDetail> = {
   },
   jack: {
     origin:
-      "Jack er en engelsk kortform av John, altså Johannes. Formen oppsto i middelalderen via Jankin og ble så vanlig at den ble et allment ord for «kar».",
+      "Jack er en engelsk kortform av John, altså Johannes. Den gikk veien om Jankin, en diminutiv av Jan. Formen ble så vanlig i middelalderen at den ble et allment ord for «kar» – derav jack of all trades, lumberjack og jack som betegnelse på både verktøy og spillkort.",
     related: ["Jon", "Johannes"],
-    sources: [NPL, BTN],
+    sources: [BTN, ETYM],
   },
   jackson: {
     origin:
-      "Jackson betyr Jacks sønn, og er et engelsk etternavn som er tatt i bruk som fornavn. Endelsen -son er den samme som i norske etternavn på -sen.",
+      "Jackson betyr Jacks sønn, og er et engelsk etternavn som er tatt i bruk som fornavn. Endelsen -son er den samme som i norske etternavn på -sen. Navnet er også kjent fra byen Jackson i Mississippi og fra president Andrew Jackson.",
     related: ["Jack"],
-    sources: [NPL, BTN],
+    sources: [BTN, ETYM],
   },
   jacob: {
     elements: [{ form: "aqev", sense: "hæl" }],
@@ -135,9 +137,9 @@ export const hebraiske: Record<string, NameDetail> = {
   },
   jake: {
     origin:
-      "Jake er en engelsk kortform av Jacob. Den korte formen med én stavelse gjør navnet spesielt godt egnet som hundenavn.",
-    related: ["Jacob"],
-    sources: [NPL, BTN],
+      "Jake er en engelsk kortform av Jacob. Den korte formen med én stavelse og hard konsonant i begge ender gjør navnet spesielt godt egnet som hundenavn – det skjærer gjennom støy og forveksles ikke lett med kommandoord.",
+    related: ["Jacob", "Jakob"],
+    sources: [BTN, ETYM],
   },
   jakob: {
     elements: [{ form: "aqev", sense: "hæl" }],
@@ -149,14 +151,14 @@ export const hebraiske: Record<string, NameDetail> = {
   },
   jan: {
     origin:
-      "Jan er en kortform av Johannes som kom til Norge via nederlandsk og tysk. Den var svært vanlig i Norge midt på 1900-tallet, ofte i dobbeltnavn som Jan Erik og Jan Ove.",
-    related: ["Jon", "Johannes"],
+      "Jan er en kortform av Johannes som kom til Norge via nederlandsk og tysk. Den var svært vanlig i Norge midt på 1900-tallet, ofte som førsteledd i dobbeltnavn: Jan Erik, Jan Ove, Jan Petter. I Nederland er Jan så alminnelig at det brukes generisk, som «Jan Modaal» – gjennomsnittsnordmannen.",
+    related: ["Jon", "Johannes", "Hans"],
     sources: [NPL, BTN],
   },
   jesse: {
     origin:
-      "Jesse er faren til kong David i Det gamle testamentet, på hebraisk Jisjai. Navnet tolkes som «Gud er til».",
-    sources: [NPL, BTN],
+      "Jesse er faren til kong David i Det gamle testamentet, på hebraisk Jisjai. Navnet tolkes som «Gud er til». Jesse rot er et fast motiv i kirkekunsten: et slektstre som vokser ut av Jesses side og ender i Kristus, framstilt i glassmalerier over hele Europa.",
+    sources: [BTN, SNL],
   },
   jon: {
     elements: [
@@ -187,14 +189,14 @@ export const hebraiske: Record<string, NameDetail> = {
   },
   malena: {
     origin:
-      "Malena er en nordisk form av Magdalena, som viser til Maria Magdalena fra byen Magdala ved Genesaretsjøen. Stedsnavnet betyr tårn.",
+      "Malena er en nordisk form av Magdalena, som viser til Maria Magdalena fra byen Magdala ved Genesaretsjøen. Stedsnavnet kommer av migdal, tårn. Magdala var et fiskevær, og navnet knyttes til tårnene der fisken ble tørket.",
     related: ["Malin", "Magdalena"],
     sources: [NPL, BTN],
   },
   malin: {
     origin:
-      "Malin er en kortform av Magdalena som har vært brukt i Norden siden middelalderen. Navnet viser til byen Magdala, og er i slekt med Malena og Lena.",
-    related: ["Malena"],
+      "Malin er en kortform av Magdalena som har vært brukt i Norden siden middelalderen. Navnet viser til byen Magdala, og er i slekt med Malena og Lena. I Sverige er formen særlig vanlig.",
+    related: ["Malena", "Lene"],
     sources: [NPL, BTN],
   },
   mathea: {
@@ -230,15 +232,15 @@ export const hebraiske: Record<string, NameDetail> = {
   },
   mia: {
     origin:
-      "Mia er en kortform av Maria som brukes som selvstendig navn i store deler av Europa. Betydningen av Maria er usikker – både «den elskede», «den opphøyde» og «den bitre» er foreslått, og ingen av dem er sikkert fastslått.",
-    related: ["Maria"],
-    sources: [NPL, BTN],
+      "Mia er en kortform av Maria som brukes som selvstendig navn i store deler av Europa. Betydningen av Maria er blant de mest omdiskuterte i navneforskningen: «den elskede», «den opphøyde» og «den bitre» er alle foreslått, og opphavet er trolig egyptisk snarere enn hebraisk. Ingen av tolkningene er sikkert fastslått.",
+    related: ["Maria", "Marie", "Mari"],
+    sources: [BTN, NPL],
   },
   mickey: {
     origin:
-      "Mickey er en engelsk kjæleform av Michael. Navnet er uløselig knyttet til Mikke Mus, som het Mickey Mouse fra 1928.",
-    related: ["Mikkel"],
-    sources: [NPL, BTN],
+      "Mickey er en engelsk kjæleform av Michael. Navnet er uløselig knyttet til Mikke Mus, som fikk navnet i 1928 – Walt Disney hadde først kalt figuren Mortimer, men kona hans mente det lød for pretensiøst.",
+    related: ["Mikkel", "Mikael"],
+    sources: [BTN, SNL],
   },
   mikkel: {
     elements: [{ form: "mi ka el", sense: "hvem er som Gud" }],
@@ -249,9 +251,9 @@ export const hebraiske: Record<string, NameDetail> = {
   },
   molly: {
     origin:
-      "Molly er en engelsk kjæleform av Mary, altså Maria. Den gikk veien om Mally og Molly, på samme måte som Sally kom av Sarah.",
-    related: ["Mia", "Maria"],
-    sources: [NPL, BTN],
+      "Molly er en engelsk kjæleform av Mary, altså Maria. Den gikk veien om Mally, med den l-for-r-vekslingen som også ga Sally av Sarah og Hal av Harry. Molly Bloom i Joyces «Ulysses» er blant de kjente bærerne.",
+    related: ["Maria", "Mia"],
+    sources: [BTN, ETYM],
   },
   noah: {
     elements: [{ form: "noach", sense: "hvile, trøst" }],
@@ -262,28 +264,28 @@ export const hebraiske: Record<string, NameDetail> = {
   },
   noomi: {
     origin:
-      "Noomi er svigermoren til Rut i Ruts bok. Navnet betyr «min glede», og i teksten ber hun selv om å bli kalt Mara, «den bitre», etter å ha mistet mann og sønner – en av de sterkeste navnescenene i Bibelen.",
+      "Noomi er svigermoren til Rut i Ruts bok, og navnet betyr «min glede». I teksten ber hun selv om å bli kalt Mara, «den bitre», etter å ha mistet mann og begge sønner – en av de sterkeste navnescenene i Bibelen, der hun forkaster sitt eget navn fordi det ikke lenger passer livet hennes.",
     variants: ["Naomi"],
     related: ["Ruth"],
-    sources: [NPL, BTN],
+    sources: [BTN, SNL],
   },
   ronja: {
     origin:
-      "Ronja ble skapt av Astrid Lindgren til Ronja Røverdatter i 1981. Lindgren hentet navnet fra Ronjajaure, et vann i Lappland, og det ble tatt i bruk som fornavn i hele Norden etter boken.",
-    sources: [NPL, NORDIC],
+      "Ronja ble skapt av Astrid Lindgren til «Ronja Røverdatter» i 1981. Hun hentet navnet fra Ronjajaure, et vann i Lappland – forleddet er samisk. Boken gjorde navnet til et vanlig fornavn i hele Norden i løpet av få år, og det er et av de tydeligste eksemplene på at én bok kan innføre et navn.",
+    sources: [NPL, SNL],
   },
   ruth: {
     origin:
-      "Rut har sin egen bok i Det gamle testamentet, kjent for løftet til svigermoren Noomi: «Dit du går, vil jeg gå.» Navnet knyttes til et ord for vennskap og trofasthet.",
+      "Rut har sin egen bok i Det gamle testamentet, kjent for løftet til svigermoren Noomi: «Dit du går, vil jeg gå.» Hun er moabitt, altså utlending, og blir likevel oldemor til kong David – et poeng teksten selv legger vekt på. Navnet knyttes til et ord for vennskap og trofasthet.",
     variants: ["Rut"],
     related: ["Noomi"],
-    sources: [NPL, BTN],
+    sources: [BTN, SNL],
   },
   sadie: {
     origin:
-      "Sadie er en engelsk kjæleform av Sarah. Navnet ble selvstendig i USA på 1800-tallet og brukes i dag mye som hundenavn.",
+      "Sadie er en engelsk kjæleform av Sarah, dannet med den samme -ie-endelsen som ga Katie og Maggie. Den ble selvstendig navn i USA på 1800-tallet og er i dag blant de vanligste hundenavnene i engelsktalende land.",
     related: ["Sara"],
-    sources: [NPL, BTN],
+    sources: [BTN, ETYM],
   },
   salem: {
     elements: [{ form: "shalom", sense: "fred" }],
@@ -293,16 +295,16 @@ export const hebraiske: Record<string, NameDetail> = {
   },
   sam: {
     origin:
-      "Sam er en kortform av Samuel, profeten som salver både Saul og David til konge. Samuel tolkes som «Gud har hørt».",
+      "Sam er en kortform av Samuel, profeten som salver både Saul og David til konge i Første Samuelsbok. Samuel tolkes som «Gud har hørt» – teksten knytter navnet til at Hanna fikk bønnen sin oppfylt. Sam brukes også som kortform av Samson.",
     variants: ["Sammy"],
     related: ["Samson"],
-    sources: [NPL, BTN],
+    sources: [BTN, SNL],
   },
   sammy: {
     origin:
-      "Sammy er en kjæleform av Sam og Samuel. De to stavelsene med vokal til slutt gjør navnet lett å lære inn for både hund og katt.",
+      "Sammy er en kjæleform av Sam og Samuel. To stavelser med trykk først og vokal til slutt er den formen hunder og katter lærer inn raskest, og det er en av grunnene til at -y-formene er så vanlige som dyrenavn.",
     variants: ["Sam"],
-    sources: [NPL, BTN],
+    sources: [BTN, ETYM],
   },
   samson: {
     elements: [{ form: "shemesh", sense: "sol" }],
@@ -329,8 +331,8 @@ export const hebraiske: Record<string, NameDetail> = {
   },
   toby: {
     origin:
-      "Toby er en engelsk kortform av Tobias. Den har vært brukt som selvstendig navn i England siden 1600-tallet, og er i dag et av de vanligste hundenavnene.",
+      "Toby er en engelsk kortform av Tobias, «Herren er god». Den har vært brukt som selvstendig navn i England siden 1600-tallet. En Toby jug er et engelsk ølkrus formet som en sittende mann med trekantet hatt, oppkalt etter navnet.",
     related: ["Tobias"],
-    sources: [NPL, BTN],
+    sources: [BTN, ETYM],
   },
 };
