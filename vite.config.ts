@@ -40,6 +40,11 @@ function staticPages() {
       });
     }
 
+    // «Korte jentenavn» og «lange guttenavn» er egne søk.
+    for (const length of ["korte", "lange"]) {
+      pages.push({ path: `/${c.slug}/lengde/${length}`, sitemap: { priority: 0.7 } });
+    }
+
     // Stilsider finnes bare for jente- og guttenavn.
     if (c.category === "jente" || c.category === "gutt") {
       for (const style of styleOrder) {

@@ -13,7 +13,11 @@ import {
   emptyFilters,
   lengthOf,
   type FilterState,
+  type LengthKey,
 } from "@/components/name-filters";
+import { CategoryPopularity } from "@/components/category-popularity";
+import { categoryFaq } from "@/lib/category-faq";
+import { yearStats } from "@/data/stats";
 import {
   categoryPages,
   firstLetter,
@@ -35,6 +39,7 @@ export type CategoryViewProps = {
   editorial?: Editorial;
   lockedStyle?: Style;
   lockedLetter?: string;
+  lockedLength?: LengthKey;
   breadcrumb?: { label: string; to: string }[];
 };
 
@@ -45,6 +50,7 @@ export function CategoryPageView({
   editorial,
   lockedStyle,
   lockedLetter,
+  lockedLength,
 }: CategoryViewProps) {
   const [filters, setFilters] = useState<FilterState>(emptyFilters);
   const navigate = useNavigate();
@@ -53,8 +59,9 @@ export function CategoryPageView({
     let list = namesIn(page.category);
     if (lockedStyle) list = list.filter((n) => n.styles.includes(lockedStyle));
     if (lockedLetter) list = list.filter((n) => firstLetter(n.name) === lockedLetter);
+    if (lockedLength) list = list.filter((n) => lengthOf(n.name) === lockedLength);
     return list;
-  }, [page.category, lockedStyle, lockedLetter]);
+  }, [page.category, lockedStyle, lockedLetter, lockedLength]);
 
   const letters = useMemo(
     () =>
@@ -126,6 +133,7 @@ export function CategoryPageView({
       category={page.category}
       {...(lockedStyle ? { lockedStyle } : {})}
       {...(lockedLetter ? { lockedLetter } : {})}
+      {...(lockedLength ? { lockedLength } : {})}
       activeCount={activeCount}
       resultCount={list.length}
     />
@@ -167,7 +175,9 @@ export function CategoryPageView({
 
           <div>
             <div className="flex flex-wrap items-center justify-between gap-3">
-              <h2 className="text-3xl">{list.length} navn</h2>
+              <h2 className="text-3xl">
+                {list.length} {page.slug} med betydning
+              </h2>
               <div className="flex gap-2">
                 <Sheet>
                   <SheetTrigger asChild>
@@ -224,6 +234,27 @@ export function CategoryPageView({
               </nav>
             )}
 
+            {!lockedLength && (
+              <nav aria-label="Bla etter lengde" className="mt-8">
+                <h2 className="text-xs uppercase tracking-[0.14em] text-muted-foreground">
+                  Bla etter lengde
+                </h2>
+                <ul className="mt-3 flex flex-wrap gap-2">
+                  {(["kort", "lang"] as const).map((l) => (
+                    <li key={l}>
+                      <Link
+                        to={`/${page.slug}/lengde/$length`}
+                        params={{ length: l === "kort" ? "korte" : "lange" }}
+                        className="inline-block rounded-full border border-border bg-card px-4 py-2 text-sm transition-colors hover:bg-secondary"
+                      >
+                        {l === "kort" ? "Korte" : "Lange"} {page.slug}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+            )}
+
             {stylePageSlug && !lockedStyle && (
               <nav aria-label="Bla etter stil" className="mt-8">
                 <h2 className="text-xs uppercase tracking-[0.14em] text-muted-foreground">
@@ -258,6 +289,22 @@ export function CategoryPageView({
           </div>
         )}
 
+        {(page.category === "jente" || page.category === "gutt") && (
+          <CategoryPopularity category={page.category} />
+        )}
+
+        <section className="mt-16 border-t border-border pt-10">
+          <h2 className="text-3xl">Spørsmål om {page.slug}</h2>
+          <dl className="mt-5 divide-y divide-border overflow-hidden rounded-2xl border border-border bg-card">
+            {categoryFaq(page).map((f) => (
+              <div key={f.q} className="p-5">
+                <dt className="font-medium text-foreground">{f.q}</dt>
+                <dd className="mt-1.5 text-muted-foreground">{f.a}</dd>
+              </div>
+            ))}
+          </dl>
+        </section>
+
         <nav className="mt-14 border-t border-border pt-8">
           <h2 className="text-2xl">Andre navnelister</h2>
           <ul className="mt-4 flex flex-wrap gap-3">
@@ -282,12 +329,25 @@ export function CategoryPageView({
 }
 
 export function categoryHead(page: CategoryPage) {
+  const faq = categoryFaq(page);
+
+  // Årstallet og toppnavnet i beskrivelsen gir et ferskhetssignal i utdraget,
+  // uten å legge et årstall i tittelen som blir stående og eldes.
+  const latest = yearStats[0];
+  const top =
+    latest && (page.category === "jente" || page.category === "gutt")
+      ? latest[page.category][0]
+      : undefined;
+  const description = top
+    ? `${page.description} ${top.name} var det mest brukte ${page.slug.replace(/navn$/, "navnet")} i ${latest!.year}.`
+    : page.description;
+
   return {
     meta: [
       { title: page.title },
-      { name: "description", content: page.description },
+      { name: "description", content: description },
       { property: "og:title", content: page.title },
-      { property: "og:description", content: page.description },
+      { property: "og:description", content: description },
       { property: "og:type", content: "website" },
       { property: "og:url", content: `${SITE}/${page.slug}` },
       { name: "twitter:card", content: "summary_large_image" },
@@ -300,8 +360,21 @@ export function categoryHead(page: CategoryPage) {
           "@context": "https://schema.org",
           "@type": "CollectionPage",
           name: page.h1,
-          description: page.description,
+          description,
           url: `${SITE}/${page.slug}`,
+        }),
+      },
+      {
+        // Spørsmålene står synlig på siden; markeringen gjentar bare dem.
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: faq.map((f) => ({
+            "@type": "Question",
+            name: f.q,
+            acceptedAnswer: { "@type": "Answer", text: f.a },
+          })),
         }),
       },
     ],

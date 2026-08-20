@@ -76,6 +76,7 @@ type Props = {
   /** Filtre som er låst av selve siden (f.eks. /guttenavn/kategori/norrønt). */
   lockedStyle?: Style;
   lockedLetter?: string;
+  lockedLength?: LengthKey;
   activeCount: number;
   resultCount: number;
 };
@@ -93,6 +94,7 @@ export function NameFilters({
   category,
   lockedStyle,
   lockedLetter,
+  lockedLength,
   activeCount,
   resultCount,
 }: Props) {
@@ -121,7 +123,7 @@ export function NameFilters({
         )}
       </div>
 
-      {(lockedStyle || lockedLetter) && (
+      {(lockedStyle || lockedLetter || lockedLength) && (
         <p className="rounded-xl bg-secondary/70 px-3 py-2 text-xs text-secondary-foreground">
           Denne siden viser bare{" "}
           {lockedStyle ? <strong>{styleLabels[lockedStyle].toLowerCase()} navn</strong> : null}
@@ -131,7 +133,8 @@ export function NameFilters({
               navn på <strong>{lockedLetter}</strong>
             </>
           ) : null}
-          . Filtrene under gjelder innenfor det utvalget.
+          {lockedLength ? <strong>{lengthLabels[lockedLength].toLowerCase()}</strong> : null}.
+          Filtrene under gjelder innenfor det utvalget.
         </p>
       )}
 
@@ -206,15 +209,17 @@ export function NameFilters({
         </div>
       )}
 
-      <FilterGroup
-        label="Lengde"
-        options={(Object.keys(lengthLabels) as LengthKey[]).map((k) => ({
-          value: k,
-          label: lengthLabels[k],
-        }))}
-        selected={filters.lengths}
-        onToggle={(v) => patch({ lengths: toggle(filters.lengths, v) })}
-      />
+      {!lockedLength && (
+        <FilterGroup
+          label="Lengde"
+          options={(Object.keys(lengthLabels) as LengthKey[]).map((k) => ({
+            value: k,
+            label: lengthLabels[k],
+          }))}
+          selected={filters.lengths}
+          onToggle={(v) => patch({ lengths: toggle(filters.lengths, v) })}
+        />
+      )}
 
       {!lockedStyle && styles.length > 1 && (
         <FilterGroup

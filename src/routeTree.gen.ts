@@ -23,10 +23,14 @@ import { Route as KattenavnIndexRouteImport } from './routes/kattenavn.index'
 import { Route as NavnSlugRouteImport } from './routes/navn.$slug'
 import { Route as GuttenavnBokstavLetterRouteImport } from './routes/guttenavn.bokstav.$letter'
 import { Route as GuttenavnKategoriStyleRouteImport } from './routes/guttenavn.kategori.$style'
+import { Route as GuttenavnLengdeLengthRouteImport } from './routes/guttenavn.lengde.$length'
 import { Route as HundenavnBokstavLetterRouteImport } from './routes/hundenavn.bokstav.$letter'
+import { Route as HundenavnLengdeLengthRouteImport } from './routes/hundenavn.lengde.$length'
 import { Route as JentenavnBokstavLetterRouteImport } from './routes/jentenavn.bokstav.$letter'
 import { Route as JentenavnKategoriStyleRouteImport } from './routes/jentenavn.kategori.$style'
+import { Route as JentenavnLengdeLengthRouteImport } from './routes/jentenavn.lengde.$length'
 import { Route as KattenavnBokstavLetterRouteImport } from './routes/kattenavn.bokstav.$letter'
+import { Route as KattenavnLengdeLengthRouteImport } from './routes/kattenavn.lengde.$length'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -98,9 +102,19 @@ const GuttenavnKategoriStyleRoute = GuttenavnKategoriStyleRouteImport.update({
   path: '/guttenavn/kategori/$style',
   getParentRoute: () => rootRouteImport,
 } as any)
+const GuttenavnLengdeLengthRoute = GuttenavnLengdeLengthRouteImport.update({
+  id: '/guttenavn/lengde/$length',
+  path: '/guttenavn/lengde/$length',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const HundenavnBokstavLetterRoute = HundenavnBokstavLetterRouteImport.update({
   id: '/hundenavn/bokstav/$letter',
   path: '/hundenavn/bokstav/$letter',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HundenavnLengdeLengthRoute = HundenavnLengdeLengthRouteImport.update({
+  id: '/hundenavn/lengde/$length',
+  path: '/hundenavn/lengde/$length',
   getParentRoute: () => rootRouteImport,
 } as any)
 const JentenavnBokstavLetterRoute = JentenavnBokstavLetterRouteImport.update({
@@ -113,9 +127,19 @@ const JentenavnKategoriStyleRoute = JentenavnKategoriStyleRouteImport.update({
   path: '/jentenavn/kategori/$style',
   getParentRoute: () => rootRouteImport,
 } as any)
+const JentenavnLengdeLengthRoute = JentenavnLengdeLengthRouteImport.update({
+  id: '/jentenavn/lengde/$length',
+  path: '/jentenavn/lengde/$length',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const KattenavnBokstavLetterRoute = KattenavnBokstavLetterRouteImport.update({
   id: '/kattenavn/bokstav/$letter',
   path: '/kattenavn/bokstav/$letter',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KattenavnLengdeLengthRoute = KattenavnLengdeLengthRouteImport.update({
+  id: '/kattenavn/lengde/$length',
+  path: '/kattenavn/lengde/$length',
   getParentRoute: () => rootRouteImport,
 } as any)
 
@@ -134,10 +158,14 @@ export interface FileRoutesByFullPath {
   '/kattenavn/': typeof KattenavnIndexRoute
   '/guttenavn/bokstav/$letter': typeof GuttenavnBokstavLetterRoute
   '/guttenavn/kategori/$style': typeof GuttenavnKategoriStyleRoute
+  '/guttenavn/lengde/$length': typeof GuttenavnLengdeLengthRoute
   '/hundenavn/bokstav/$letter': typeof HundenavnBokstavLetterRoute
+  '/hundenavn/lengde/$length': typeof HundenavnLengdeLengthRoute
   '/jentenavn/bokstav/$letter': typeof JentenavnBokstavLetterRoute
   '/jentenavn/kategori/$style': typeof JentenavnKategoriStyleRoute
+  '/jentenavn/lengde/$length': typeof JentenavnLengdeLengthRoute
   '/kattenavn/bokstav/$letter': typeof KattenavnBokstavLetterRoute
+  '/kattenavn/lengde/$length': typeof KattenavnLengdeLengthRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -154,10 +182,14 @@ export interface FileRoutesByTo {
   '/kattenavn': typeof KattenavnIndexRoute
   '/guttenavn/bokstav/$letter': typeof GuttenavnBokstavLetterRoute
   '/guttenavn/kategori/$style': typeof GuttenavnKategoriStyleRoute
+  '/guttenavn/lengde/$length': typeof GuttenavnLengdeLengthRoute
   '/hundenavn/bokstav/$letter': typeof HundenavnBokstavLetterRoute
+  '/hundenavn/lengde/$length': typeof HundenavnLengdeLengthRoute
   '/jentenavn/bokstav/$letter': typeof JentenavnBokstavLetterRoute
   '/jentenavn/kategori/$style': typeof JentenavnKategoriStyleRoute
+  '/jentenavn/lengde/$length': typeof JentenavnLengdeLengthRoute
   '/kattenavn/bokstav/$letter': typeof KattenavnBokstavLetterRoute
+  '/kattenavn/lengde/$length': typeof KattenavnLengdeLengthRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -175,10 +207,14 @@ export interface FileRoutesById {
   '/kattenavn/': typeof KattenavnIndexRoute
   '/guttenavn/bokstav/$letter': typeof GuttenavnBokstavLetterRoute
   '/guttenavn/kategori/$style': typeof GuttenavnKategoriStyleRoute
+  '/guttenavn/lengde/$length': typeof GuttenavnLengdeLengthRoute
   '/hundenavn/bokstav/$letter': typeof HundenavnBokstavLetterRoute
+  '/hundenavn/lengde/$length': typeof HundenavnLengdeLengthRoute
   '/jentenavn/bokstav/$letter': typeof JentenavnBokstavLetterRoute
   '/jentenavn/kategori/$style': typeof JentenavnKategoriStyleRoute
+  '/jentenavn/lengde/$length': typeof JentenavnLengdeLengthRoute
   '/kattenavn/bokstav/$letter': typeof KattenavnBokstavLetterRoute
+  '/kattenavn/lengde/$length': typeof KattenavnLengdeLengthRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -197,10 +233,14 @@ export interface FileRouteTypes {
     | '/kattenavn/'
     | '/guttenavn/bokstav/$letter'
     | '/guttenavn/kategori/$style'
+    | '/guttenavn/lengde/$length'
     | '/hundenavn/bokstav/$letter'
+    | '/hundenavn/lengde/$length'
     | '/jentenavn/bokstav/$letter'
     | '/jentenavn/kategori/$style'
+    | '/jentenavn/lengde/$length'
     | '/kattenavn/bokstav/$letter'
+    | '/kattenavn/lengde/$length'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -217,10 +257,14 @@ export interface FileRouteTypes {
     | '/kattenavn'
     | '/guttenavn/bokstav/$letter'
     | '/guttenavn/kategori/$style'
+    | '/guttenavn/lengde/$length'
     | '/hundenavn/bokstav/$letter'
+    | '/hundenavn/lengde/$length'
     | '/jentenavn/bokstav/$letter'
     | '/jentenavn/kategori/$style'
+    | '/jentenavn/lengde/$length'
     | '/kattenavn/bokstav/$letter'
+    | '/kattenavn/lengde/$length'
   id:
     | '__root__'
     | '/'
@@ -237,10 +281,14 @@ export interface FileRouteTypes {
     | '/kattenavn/'
     | '/guttenavn/bokstav/$letter'
     | '/guttenavn/kategori/$style'
+    | '/guttenavn/lengde/$length'
     | '/hundenavn/bokstav/$letter'
+    | '/hundenavn/lengde/$length'
     | '/jentenavn/bokstav/$letter'
     | '/jentenavn/kategori/$style'
+    | '/jentenavn/lengde/$length'
     | '/kattenavn/bokstav/$letter'
+    | '/kattenavn/lengde/$length'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -258,10 +306,14 @@ export interface RootRouteChildren {
   KattenavnIndexRoute: typeof KattenavnIndexRoute
   GuttenavnBokstavLetterRoute: typeof GuttenavnBokstavLetterRoute
   GuttenavnKategoriStyleRoute: typeof GuttenavnKategoriStyleRoute
+  GuttenavnLengdeLengthRoute: typeof GuttenavnLengdeLengthRoute
   HundenavnBokstavLetterRoute: typeof HundenavnBokstavLetterRoute
+  HundenavnLengdeLengthRoute: typeof HundenavnLengdeLengthRoute
   JentenavnBokstavLetterRoute: typeof JentenavnBokstavLetterRoute
   JentenavnKategoriStyleRoute: typeof JentenavnKategoriStyleRoute
+  JentenavnLengdeLengthRoute: typeof JentenavnLengdeLengthRoute
   KattenavnBokstavLetterRoute: typeof KattenavnBokstavLetterRoute
+  KattenavnLengdeLengthRoute: typeof KattenavnLengdeLengthRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -364,11 +416,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof GuttenavnKategoriStyleRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/guttenavn/lengde/$length': {
+      id: '/guttenavn/lengde/$length'
+      path: '/guttenavn/lengde/$length'
+      fullPath: '/guttenavn/lengde/$length'
+      preLoaderRoute: typeof GuttenavnLengdeLengthRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/hundenavn/bokstav/$letter': {
       id: '/hundenavn/bokstav/$letter'
       path: '/hundenavn/bokstav/$letter'
       fullPath: '/hundenavn/bokstav/$letter'
       preLoaderRoute: typeof HundenavnBokstavLetterRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/hundenavn/lengde/$length': {
+      id: '/hundenavn/lengde/$length'
+      path: '/hundenavn/lengde/$length'
+      fullPath: '/hundenavn/lengde/$length'
+      preLoaderRoute: typeof HundenavnLengdeLengthRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/jentenavn/bokstav/$letter': {
@@ -385,11 +451,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof JentenavnKategoriStyleRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/jentenavn/lengde/$length': {
+      id: '/jentenavn/lengde/$length'
+      path: '/jentenavn/lengde/$length'
+      fullPath: '/jentenavn/lengde/$length'
+      preLoaderRoute: typeof JentenavnLengdeLengthRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/kattenavn/bokstav/$letter': {
       id: '/kattenavn/bokstav/$letter'
       path: '/kattenavn/bokstav/$letter'
       fullPath: '/kattenavn/bokstav/$letter'
       preLoaderRoute: typeof KattenavnBokstavLetterRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/kattenavn/lengde/$length': {
+      id: '/kattenavn/lengde/$length'
+      path: '/kattenavn/lengde/$length'
+      fullPath: '/kattenavn/lengde/$length'
+      preLoaderRoute: typeof KattenavnLengdeLengthRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -410,10 +490,14 @@ const rootRouteChildren: RootRouteChildren = {
   KattenavnIndexRoute: KattenavnIndexRoute,
   GuttenavnBokstavLetterRoute: GuttenavnBokstavLetterRoute,
   GuttenavnKategoriStyleRoute: GuttenavnKategoriStyleRoute,
+  GuttenavnLengdeLengthRoute: GuttenavnLengdeLengthRoute,
   HundenavnBokstavLetterRoute: HundenavnBokstavLetterRoute,
+  HundenavnLengdeLengthRoute: HundenavnLengdeLengthRoute,
   JentenavnBokstavLetterRoute: JentenavnBokstavLetterRoute,
   JentenavnKategoriStyleRoute: JentenavnKategoriStyleRoute,
+  JentenavnLengdeLengthRoute: JentenavnLengdeLengthRoute,
   KattenavnBokstavLetterRoute: KattenavnBokstavLetterRoute,
+  KattenavnLengdeLengthRoute: KattenavnLengdeLengthRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

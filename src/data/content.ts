@@ -19,118 +19,176 @@ export type Editorial = {
 
 export const categoryEditorial: Record<Category, Editorial> = {
   gutt: {
-    lead: "Velkommen til vår omfattende guide til guttenavn. Her finner du et bredt utvalg av fine guttenavn og gamle guttenavn med ulik opprinnelse, betydning og karakter.",
+    lead: "Guttenavn med betydning, opprinnelse og stil – fra norrøne navn som har vært i bruk siden vikingtiden, til bibelske og internasjonale navn som kom hit senere. Her er hele utvalget samlet, med egen side for hvert navn.",
     sections: [
       {
         heading: "Hvordan velge guttenavn?",
-        body: "Å velge navn til en gutt er en viktig beslutning som vil følge barnet gjennom hele livet. Her er noen ting det er verdt å tenke over:",
+        body: "Et fornavn følger et menneske gjennom hele livet, i alle sammenhenger. Disse fire tingene er verdt å sjekke før du bestemmer deg:",
         bullets: [
-          { lead: "Betydning", text: "Vurder navnets betydning og historie" },
-          { lead: "Uttale", text: "Tenk på hvordan navnet uttales og skrives" },
           {
-            lead: "Kombinasjoner",
-            text: "Se hvordan navnet fungerer med eventuelle mellomnavn og etternavn",
+            lead: "Klangen sammen med etternavnet",
+            text: "si hele navnet høyt. Korte fornavn kler lange etternavn, og motsatt. To harde konsonanter som møtes blir tunge å få fram",
           },
           {
-            lead: "Tidløshet",
-            text: "Vurder om navnet vil passe like godt for en voksen mann som for en liten gutt",
+            lead: "Kortformen",
+            text: "lange navn får nesten alltid en dagligform. Tenk gjennom hvilken før andre velger den for deg",
+          },
+          {
+            lead: "Initialene",
+            text: "skriv dem ned sammen med eventuelle mellomnavn og se hva som står",
+          },
+          {
+            lead: "Skrivemåten",
+            text: "navn med æ, ø eller å fungerer fint i Norge, men endrer seg i utenlandske systemer og e-postadresser",
           },
         ],
       },
       {
+        heading: "Norrøne guttenavn",
+        body: "Norrøne navn er det eldste laget i norsk navneskikk, og de fleste er satt sammen av to ledd som hver betyr noe for seg. Harald er hær og hersker, Torbjørn er guden Tor og bjørnen, Sigurd er seier og vokter. Det er derfor navnene henger sammen i familier: alle navn med leddet bjǫrn er i slekt, og det samme gjelder Tor-navnene, som er den største gruppen av dem alle.",
+      },
+      {
+        heading: "Klassiske og bibelske guttenavn",
+        body: "Navn som Jakob, Johannes, Elias og Tobias kom til Norge med kristendommen og festet seg for alvor etter reformasjonen. De har holdt seg påfallende stabile siden – flere av dem har ligget i bruk i over fem hundre år uten å gå av moten, og flere er blant de mest brukte guttenavnene også i dag.",
+      },
+      {
+        heading: "Korte guttenavn",
+        body: "Korte navn på én stavelse har fått en tydelig oppsving. De er lette å rope, de tåler lange etternavn, og de blir sjelden forkortet. Odd, Bo, Dag, Finn, Leo og Ask hører til denne gruppen. Motsatt gir lengre navn rom for en kortform som familien kan gjøre til sin egen.",
+      },
+      {
         heading: "Trender i guttenavn",
         bullets: [
-          { text: "Korte, fine guttenavn blir stadig mer populære" },
-          { text: "Økende interesse for gamle guttenavn fra norrøn tid" },
-          { text: "Internasjonale navn får større aksept" },
-          { text: "Gamle navn får ny popularitet" },
+          { text: "Norrøne navn fortsetter å stige, og flere av dem er nå tilbake i toppen" },
+          { text: "Korte navn på én og to stavelser vinner terreng" },
+          { text: "Naturnavn som Birk, Ask og Storm er tatt i bruk som fornavn" },
+          { text: "Navn som fungerer på tvers av språkgrenser blir stadig vanligere" },
         ],
       },
     ],
   },
   jente: {
-    lead: "Utforsk vår samling av fine jentenavn og sjeldne jentenavn med betydning. Fra tidløse klassikere til unike perler finner du inspirasjon til å velge det perfekte navnet.",
+    lead: "Jentenavn med betydning og opprinnelse – fra norrøne navn som Ingrid og Astrid, til bibelske, greske og moderne navn. Hele utvalget er samlet her, og hvert navn har sin egen side med etymologi og kilder.",
     sections: [
       {
         heading: "Hvordan velge jentenavn?",
-        body: "Når du skal velge navn til en jente, er det flere faktorer å tenke på:",
+        body: "Navnet skal fungere både på lekeplassen og i en jobbsøknad tretti år senere. Det er verdt å tenke gjennom:",
         bullets: [
-          { lead: "Klang", text: "Hvordan navnet lyder og flyter" },
-          { lead: "Betydning", text: "Navnets historie og symbolikk" },
-          { lead: "Anvendelighet", text: "Hvordan navnet fungerer i ulike livsfaser" },
-          { lead: "Kulturell tilknytning", text: "Navnets kulturelle og familiære bånd" },
+          {
+            lead: "Klangen sammen med etternavnet",
+            text: "si hele navnet høyt noen ganger. Ulik rytme i fornavn og etternavn gir som regel best fall",
+          },
+          {
+            lead: "Kortformen",
+            text: "Elisabeth blir Lise, Eli eller Bettina. Velg gjerne kortformen bevisst",
+          },
+          {
+            lead: "Betydningen",
+            text: "de fleste navn har en historie, og noen har en som overrasker. Det er verdt å slå opp",
+          },
+          {
+            lead: "Skrivemåten",
+            text: "mange jentenavn finnes i flere varianter – Sofie og Sofia, Linnea og Linnéa. Varianten du velger blir stående",
+          },
         ],
       },
       {
-        heading: "Moderne trender",
+        heading: "Norrøne jentenavn",
+        body: "Norrøne kvinnenavn er som regel satt sammen av to ledd, og de forteller ofte noe annet enn folk venter. Leddet hildr betyr kamp og avslutter Gunnhild, Ragnhild, Brynhild og Alvhild. Leddet fríðr betyr vakker og elsket, og står sist i Astrid, Ingrid, Sigrid og Turid. Mange av dem var i bruk allerede i vikingtiden og er det fortsatt.",
+      },
+      {
+        heading: "Sjeldne og unike jentenavn",
+        body: "Leter du etter noe som ikke står på hver eneste klasseliste, finnes det en stor gruppe navn med lang historie og lite bruk: Bergljot, Målfrid, Åshild, Oddveig, Jorunn og Hervor. De er ikke oppfunnet – de har vært i bruk i århundrer, bare i mindre kretser.",
+      },
+      {
+        heading: "Korte jentenavn",
+        body: "Korte navn er lette å skrive, lette å rope og vanskelige å forkorte. Liv, Unn, Sol, Gro, Eir, Aud og Siv er blant de korteste norske jentenavnene, og flere av dem er også blant de eldste.",
+      },
+      {
+        heading: "Trender i jentenavn",
         bullets: [
-          { text: "Gjenoppdagelse av sjeldne jentenavn" },
-          { text: "Økende popularitet for fine jentenavn inspirert av naturen" },
-          { text: "Kortere varianter av lengre navn" },
-          { text: "Internasjonale navn blir mer vanlige" },
+          { text: "Norrøne navn som Frida, Alma og Selma har steget kraftig de siste årene" },
+          { text: "Naturnavn og blomsternavn er i vekst" },
+          { text: "Korte former blir tatt i bruk som selvstendige navn" },
+          { text: "Gamle navn fra oldemors generasjon kommer tilbake" },
         ],
       },
     ],
   },
   hund: {
-    lead: "Å velge det perfekte navnet til din firbente venn er en viktig beslutning. Et godt hundenavn skal være lett å rope på, ha en positiv klang, og passe til hundens personlighet.",
+    lead: "Et godt hundenavn er kort, tydelig og lett å skille fra kommandoene dine. Her er forslag med betydning og opprinnelse – både klassiske hundenavn, menneskenavn som brukes på hund, og norske ordnavn.",
     sections: [
       {
-        heading: "Tips for å velge hundenavn",
+        heading: "Hvordan velge hundenavn?",
+        body: "Hunden skal kjenne igjen navnet sitt blant alt annet du sier. Det stiller noen krav et menneskenavn ikke gjør:",
         bullets: [
-          { text: "Velg et navn som er lett å uttale og gjenkjenne for hunden" },
-          { text: "Unngå navn som kan forveksles med kommandoer" },
-          { text: "Tenk på navnet i hverdagssituasjoner, som på hundeparken" },
+          {
+            lead: "Én til to stavelser",
+            text: "det er formen hunder lærer inn raskest, med trykk på den første",
+          },
+          {
+            lead: "Unngå kommandokrasj",
+            text: "navn som ligner «sitt», «nei», «bli», «kom» eller «hent» gjør innlæringen unødvendig vanskelig",
+          },
+          {
+            lead: "Vokal til slutt",
+            text: "navn som ender på vokal bærer bedre når du roper over avstand",
+          },
+          {
+            lead: "Tenk på hundeparken",
+            text: "du kommer til å rope dette høyt blant fremmede, flere ganger om dagen, i mange år",
+          },
         ],
       },
       {
-        heading: "Populære kategorier",
-        bullets: [
-          { lead: "Klassiske navn", text: "Tidløse valg som alltid fungerer" },
-          {
-            lead: "Menneskenavn",
-            text: "Stadig mer populært å gi hunder menneskelige navn",
-          },
-          {
-            lead: "Naturinspirerte navn",
-            text: "Navn inspirert av naturfenomener og årstider",
-          },
-        ],
+        heading: "Klassiske hundenavn",
+        body: "Noen navn har vært brukt på hund så lenge at de nesten er en egen sjanger: Rex, Buster, Bella, Charlie og Max. Titteldyrenavnene hører til samme tradisjon – King, Duke, Prince og Baron er alle rangbetegnelser satt på en firbeint.",
       },
       {
-        heading: "Trender i hundenavn",
-        body: "Moderne hundeeiere velger ofte navn som reflekterer deres interesser, humor eller kulturelle referanser. Noen velger også navn som passer til hundens rase eller opprinnelsesland.",
+        heading: "Norske hundenavn",
+        body: "De norske ordnavnene er hentet rett fra dagligspråket, og betydningen er gjennomsiktig for alle: Tassen, Snø, Bris, Lykke, Gulltass og Skygge. De skiller seg fra de engelske ved at ingen trenger å slå dem opp.",
+      },
+      {
+        heading: "Menneskenavn på hund",
+        body: "En stor del av de vanligste hundenavnene er helt alminnelige personnavn – Molly, Henry, Jack, Milo og Angus. Navnene står oppført i begge listene her, og hver navneside sier hva navnet først og fremst brukes som.",
       },
     ],
   },
   katt: {
-    lead: "Katter fortjener navn som reflekterer deres unike personlighet og eleganse. Et godt kattenavn kan være alt fra søtt og lekent til sofistikert og verdig.",
+    lead: "Kattenavn med betydning og opprinnelse – fra klassiske norske navn som Pusur og Mons, til mytiske, lekne og internasjonale favoritter. Katter svarer best på navn med tydelig vokalklang.",
     sections: [
       {
-        heading: "Velge det perfekte kattenavnet",
+        heading: "Hvordan velge kattenavn?",
+        body: "Katter reagerer på lyd mer enn på ord, og noen lyder når bedre fram enn andre:",
         bullets: [
-          { text: "La kattens personlighet inspirere navnevalget" },
-          { text: "Tenk på hvordan navnet vil passe både en kattunge og en voksen katt" },
-          { text: "Vurder navn som er lette å si og som katten kan lære å gjenkjenne" },
+          {
+            lead: "Lys vokal",
+            text: "navn med i-lyd eller vokal til slutt fanger oppmerksomheten best",
+          },
+          {
+            lead: "To stavelser",
+            text: "gjentakelse og tydelig rytme gjør navnet lettere å kjenne igjen",
+          },
+          {
+            lead: "Tål å rope det",
+            text: "navnet skal kunne ropes ut i hagen sent på kvelden uten at du kvier deg",
+          },
+          {
+            lead: "Vent litt",
+            text: "kattens personlighet foreslår ofte navnet selv i løpet av de første dagene",
+          },
         ],
       },
       {
-        heading: "Populære temaer",
-        bullets: [
-          {
-            lead: "Royale navn",
-            text: "Katter har ofte blitt assosiert med kongelig verdighet",
-          },
-          {
-            lead: "Mytologiske navn",
-            text: "Mange kulturer knytter katter til guddommer og myter",
-          },
-          { lead: "Naturinspirerte navn", text: "Navn som reflekterer kattens ville natur" },
-        ],
+        heading: "Klassiske norske kattenavn",
+        body: "Pusur, Mons, Puse og Kjell hører til den norske kattetradisjonen. Pusur er den norske Garfield og er blitt selve arketypen på et kattenavn her i landet, mens pus er lokkeordet i hele Norden.",
       },
       {
-        heading: "Moderne kattenavn",
-        body: "Dagens katteeiere velger ofte navn som reflekterer deres interesser eller humor. Mange velger også navn fra populærkultur eller litteratur.",
+        heading: "Mytiske kattenavn",
+        body: "Frøya kjørte etter myten en vogn trukket av katter, og det gjør gudinnenavnet særlig velvalgt. Loke, Saga, Odin, Luna og Nyx hører til samme gruppe – navn hentet fra norrøn, gresk og romersk mytologi.",
+      },
+      {
+        heading: "Beskrivende kattenavn",
+        body: "Mange kattenavn beskriver dyret snarere enn å bety noe: Myk, Spragle, Skygge, Snute og Smule. Det er en egen liten norsk sjanger, der navnet sier hvordan katten ser ut eller oppfører seg.",
       },
     ],
   },
