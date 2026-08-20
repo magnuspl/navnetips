@@ -75,6 +75,9 @@ export function SiteHeader({
             </Link>
           ))}
           <span aria-hidden="true" className="mx-1 h-5 w-px bg-border" />
+          <Link to="/navnestatistikk" className={linkClass} activeProps={activeClass}>
+            Statistikk
+          </Link>
           <Link to="/navneforslag" className={linkClass} activeProps={activeClass}>
             Forslag
           </Link>

@@ -27,7 +27,7 @@ function staticPages() {
     // kopieres til dist/client/404.html av scripts/post-build.mjs.
     { path: "/404", sitemap: { exclude: true } },
     { path: "/sok", sitemap: { exclude: true } },
-    { path: "/navnestatistikk", sitemap: { exclude: true } },
+    { path: "/navnestatistikk", sitemap: { priority: 0.8 } },
   ];
 
   for (const c of categoryPages) {

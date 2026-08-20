@@ -172,7 +172,18 @@ function StatsPage() {
           ))}
         </div>
 
-        <p className="mt-6 max-w-2xl text-muted-foreground">{stats.note}</p>
+        {/* Oppsummeringen regnes ut av tallene, så den kan ikke komme i utakt
+            med tabellen under. */}
+        <p className="mt-6 max-w-2xl text-muted-foreground">
+          I {stats.year} var {stats.jente[0]!.name} det mest brukte jentenavnet, med{" "}
+          {stats.jente[0]!.count} nyfødte, og {stats.gutt[0]!.name} det mest brukte guttenavnet, med{" "}
+          {stats.gutt[0]!.count}. Til sammen fikk{" "}
+          {(
+            stats.jente.reduce((a, e) => a + e.count, 0) +
+            stats.gutt.reduce((a, e) => a + e.count, 0)
+          ).toLocaleString("nb-NO")}{" "}
+          barn ett av de tjue navnene på listene under.
+        </p>
 
         <div className="mt-8 grid gap-6 lg:grid-cols-2">
           <StatList heading={`Jentenavn ${stats.year}`} entries={stats.jente} />

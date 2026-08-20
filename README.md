@@ -67,10 +67,19 @@ eksplisitt (slugen er translitterert, så en jokerregel ville bommet).
 
 ## Statistikksiden
 
-Tallene i `src/data/stats.ts` er **plassholdere fra designutkastet, ikke
-offisiell statistikk**. Så lenge `statsAreVerified` er `false` viser
-`/navnestatistikk` en tydelig advarsel og ber søkemotorer om å ikke indeksere
-siden. Bytt inn tall fra SSB og sett flagget til `true` for å ta siden i bruk.
+`/navnestatistikk` og `/populaere-navn` viser tall fra **SSB tabell 10467**,
+«Fødte, etter jentenavn og guttenavn». Tallene hentes over SSBs åpne API og
+rangeres maskinelt – ingenting skrives av for hånd.
+
+Når SSB publiserer et nytt år: legg året inn i `YEARS` i
+[scripts/fetch-stats.mjs](scripts/fetch-stats.mjs) og kjør
+
+```sh
+npm run stats:hent
+```
+
+`src/data/stats.ts` er generert og skal ikke redigeres manuelt. SSB-data er
+lisensiert som CC BY 4.0.
 
 ## Utgivelse
 

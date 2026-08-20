@@ -1,205 +1,199 @@
+// Navnestatistikk for Norge.
+//
+// GENERERT AV scripts/fetch-stats.mjs – ikke rediger for hånd.
+// Kjør `npm run stats:hent` for å hente nye tall.
+//
+// KILDE
+// -----
+// Statistisk sentralbyrå, tabell 10467 «Fødte, etter jentenavn og guttenavn».
+// Tallene viser hvor mange nyfødte som fikk navnet som første fornavn.
+//
+// To forbehold fra SSB, som også står på siden: navn med færre enn fire
+// forekomster publiseres ikke, og tallene gjelder navngivingsår fra og med
+// 2021, mens de før 2021 gjelder fødselsår.
+//
+// Data fra SSB er lisensiert som CC BY 4.0.
+
 export type StatEntry = { name: string; count: number };
 
 export type YearStats = {
   year: number;
   jente: StatEntry[];
   gutt: StatEntry[];
-  note: string;
 };
 
 /**
- * TALLENE UNDER ER PLASSHOLDERE – IKKE OFFISIELL STATISTIKK.
- *
- * De fulgte med designutkastet og er ikke hentet fra SSB. De ligner ekte
- * navnetrender, men antallene er oppdiktede.
- *
- * Slik tar du siden i bruk på ordentlig:
- *  1. Hent «Navn til nyfødte» fra SSB (tabell 10467 / 10501 på ssb.no).
- *  2. Bytt ut listene under med de faktiske tallene.
- *  3. Sett `statsAreVerified` til true.
- *
- * Så lenge flagget er false viser siden en tydelig advarsel og ber
- * søkemotorer om å ikke indeksere den.
+ * Settes av generatoren. Er den false, viser siden en advarsel og ber
+ * søkemotorer om å ikke indeksere – se historikken bak dette flagget.
  */
-export const statsAreVerified = false;
+export const statsAreVerified = true;
 
-/** Kildehenvisning som vises på siden når tallene er verifisert. */
 export const statsSource = {
-  label: "Statistisk sentralbyrå (SSB)",
-  url: "https://www.ssb.no/navn",
+  label: "Statistisk sentralbyrå, tabell 10467",
+  url: "https://www.ssb.no/statbank/table/10467",
 };
 
-/**
- * Topp 10 jente- og guttenavn per år i Norge.
- * Tallene viser hvor mange nyfødte som fikk navnet som første fornavn.
- */
 export const yearStats: YearStats[] = [
   {
     year: 2025,
-    note: "Emma og Noah holder stand på toppen, mens naturnavn som Vår og Birk klatrer videre.",
     jente: [
-      { name: "Emma", count: 340 },
-      { name: "Nora", count: 312 },
-      { name: "Olivia", count: 305 },
-      { name: "Ella", count: 288 },
-      { name: "Sofie", count: 271 },
-      { name: "Maja", count: 259 },
-      { name: "Frøya", count: 248 },
-      { name: "Ingrid", count: 236 },
-      { name: "Alma", count: 224 },
-      { name: "Selma", count: 217 },
+      { name: "Emma", count: 386 },
+      { name: "Olivia", count: 368 },
+      { name: "Nora", count: 357 },
+      { name: "Ella", count: 348 },
+      { name: "Frida", count: 337 },
+      { name: "Sofie", count: 336 },
+      { name: "Ellinor", count: 308 },
+      { name: "Alma", count: 297 },
+      { name: "Astrid", count: 296 },
+      { name: "Hedda", count: 296 },
     ],
     gutt: [
-      { name: "Noah", count: 352 },
-      { name: "Oliver", count: 331 },
-      { name: "Emil", count: 318 },
-      { name: "Elias", count: 302 },
-      { name: "Lucas", count: 289 },
-      { name: "Aksel", count: 275 },
-      { name: "Håkon", count: 262 },
-      { name: "Iver", count: 251 },
-      { name: "Birk", count: 240 },
-      { name: "Odin", count: 228 },
+      { name: "Noah", count: 460 },
+      { name: "Emil", count: 405 },
+      { name: "William", count: 368 },
+      { name: "Elias", count: 357 },
+      { name: "Oliver", count: 343 },
+      { name: "Isak", count: 320 },
+      { name: "Liam", count: 314 },
+      { name: "Johannes", count: 305 },
+      { name: "Jakob", count: 297 },
+      { name: "Olav", count: 285 },
     ],
   },
   {
     year: 2024,
-    note: "Nora tok tilbake førsteplassen blant jentenavn, og Emil var årets største klatrer.",
     jente: [
-      { name: "Nora", count: 336 },
-      { name: "Emma", count: 329 },
-      { name: "Olivia", count: 298 },
-      { name: "Ella", count: 279 },
-      { name: "Maja", count: 266 },
-      { name: "Sofie", count: 258 },
-      { name: "Ingrid", count: 244 },
-      { name: "Frøya", count: 232 },
-      { name: "Alma", count: 221 },
-      { name: "Liv", count: 205 },
+      { name: "Emma", count: 379 },
+      { name: "Nora", count: 366 },
+      { name: "Olivia", count: 330 },
+      { name: "Ella", count: 324 },
+      { name: "Selma", count: 291 },
+      { name: "Sofie", count: 287 },
+      { name: "Hedda", count: 277 },
+      { name: "Alma", count: 268 },
+      { name: "Ellinor", count: 268 },
+      { name: "Frida", count: 264 },
     ],
     gutt: [
-      { name: "Noah", count: 345 },
-      { name: "Emil", count: 327 },
-      { name: "Oliver", count: 315 },
-      { name: "Elias", count: 296 },
-      { name: "Aksel", count: 281 },
-      { name: "Lucas", count: 270 },
-      { name: "Håkon", count: 255 },
-      { name: "Odin", count: 243 },
-      { name: "Iver", count: 234 },
-      { name: "Noa", count: 219 },
+      { name: "Oliver", count: 398 },
+      { name: "Emil", count: 396 },
+      { name: "Noah", count: 382 },
+      { name: "William", count: 360 },
+      { name: "Liam", count: 330 },
+      { name: "Johannes", count: 322 },
+      { name: "Elias", count: 319 },
+      { name: "Theodor", count: 305 },
+      { name: "Olav", count: 298 },
+      { name: "Henrik", count: 292 },
     ],
   },
   {
     year: 2023,
-    note: "Norrøne navn som Frøya og Odin fortsatte oppgangen etter flere år på listene.",
     jente: [
-      { name: "Emma", count: 331 },
-      { name: "Nora", count: 320 },
-      { name: "Olivia", count: 292 },
-      { name: "Ella", count: 271 },
-      { name: "Sofie", count: 263 },
-      { name: "Maja", count: 252 },
-      { name: "Ingrid", count: 239 },
-      { name: "Frøya", count: 225 },
-      { name: "Selma", count: 212 },
-      { name: "Alma", count: 201 },
+      { name: "Emma", count: 360 },
+      { name: "Olivia", count: 355 },
+      { name: "Ella", count: 341 },
+      { name: "Nora", count: 304 },
+      { name: "Alma", count: 288 },
+      { name: "Ada", count: 287 },
+      { name: "Sofie", count: 285 },
+      { name: "Selma", count: 265 },
+      { name: "Frida", count: 258 },
+      { name: "Iben", count: 258 },
     ],
     gutt: [
-      { name: "Noah", count: 338 },
-      { name: "Oliver", count: 322 },
-      { name: "Emil", count: 309 },
-      { name: "Elias", count: 291 },
-      { name: "Lucas", count: 277 },
-      { name: "Aksel", count: 264 },
-      { name: "Odin", count: 248 },
-      { name: "Håkon", count: 238 },
-      { name: "Iver", count: 226 },
-      { name: "Jakob", count: 214 },
+      { name: "Noah", count: 391 },
+      { name: "Oliver", count: 366 },
+      { name: "Elias", count: 345 },
+      { name: "Emil", count: 345 },
+      { name: "William", count: 328 },
+      { name: "Isak", count: 327 },
+      { name: "Johannes", count: 311 },
+      { name: "Liam", count: 304 },
+      { name: "Theodor", count: 287 },
+      { name: "Magnus", count: 285 },
     ],
   },
   {
     year: 2022,
-    note: "Jakob og Filip lå tett bak toppen, mens Iben så vidt nådde topp ti for første gang.",
     jente: [
-      { name: "Nora", count: 327 },
-      { name: "Emma", count: 318 },
-      { name: "Ella", count: 286 },
-      { name: "Olivia", count: 274 },
-      { name: "Sofie", count: 261 },
-      { name: "Maja", count: 249 },
-      { name: "Ingrid", count: 235 },
-      { name: "Frøya", count: 218 },
-      { name: "Iben", count: 204 },
-      { name: "Alma", count: 197 },
+      { name: "Nora", count: 338 },
+      { name: "Emma", count: 337 },
+      { name: "Olivia", count: 331 },
+      { name: "Ella", count: 326 },
+      { name: "Sofie", count: 279 },
+      { name: "Frida", count: 269 },
+      { name: "Iben", count: 266 },
+      { name: "Ingrid", count: 253 },
+      { name: "Alma", count: 249 },
+      { name: "Selma", count: 247 },
     ],
     gutt: [
-      { name: "Noah", count: 334 },
-      { name: "Emil", count: 316 },
-      { name: "Oliver", count: 303 },
-      { name: "Elias", count: 288 },
-      { name: "Aksel", count: 271 },
-      { name: "Jakob", count: 258 },
-      { name: "Lucas", count: 246 },
-      { name: "Håkon", count: 233 },
-      { name: "Filip", count: 221 },
-      { name: "Odin", count: 209 },
+      { name: "Emil", count: 405 },
+      { name: "Noah", count: 400 },
+      { name: "Oliver", count: 382 },
+      { name: "Isak", count: 348 },
+      { name: "William", count: 348 },
+      { name: "Jakob", count: 298 },
+      { name: "Liam", count: 282 },
+      { name: "Johannes", count: 280 },
+      { name: "Elias", count: 277 },
+      { name: "Theodor", count: 272 },
     ],
   },
   {
     year: 2021,
-    note: "Klassikerne dominerte, og Sofie/Sofia var samlet sett årets mest brukte jentenavn.",
     jente: [
-      { name: "Nora", count: 322 },
-      { name: "Emma", count: 310 },
-      { name: "Sofie", count: 296 },
-      { name: "Ella", count: 278 },
-      { name: "Olivia", count: 265 },
-      { name: "Maja", count: 247 },
-      { name: "Ingrid", count: 231 },
-      { name: "Selma", count: 214 },
-      { name: "Frøya", count: 203 },
-      { name: "Leah", count: 192 },
+      { name: "Nora", count: 397 },
+      { name: "Emma", count: 369 },
+      { name: "Olivia", count: 311 },
+      { name: "Ella", count: 302 },
+      { name: "Sofie", count: 292 },
+      { name: "Frida", count: 276 },
+      { name: "Ingrid", count: 273 },
+      { name: "Ada", count: 272 },
+      { name: "Alma", count: 261 },
+      { name: "Emilie", count: 259 },
     ],
     gutt: [
-      { name: "Jakob", count: 329 },
-      { name: "Emil", count: 312 },
-      { name: "Noah", count: 301 },
-      { name: "Oliver", count: 287 },
-      { name: "Elias", count: 273 },
-      { name: "Aksel", count: 259 },
-      { name: "Håkon", count: 241 },
-      { name: "Lucas", count: 229 },
-      { name: "Filip", count: 216 },
-      { name: "Iver", count: 204 },
+      { name: "Noah", count: 383 },
+      { name: "Oliver", count: 367 },
+      { name: "Emil", count: 346 },
+      { name: "Isak", count: 315 },
+      { name: "William", count: 313 },
+      { name: "Aksel", count: 292 },
+      { name: "Elias", count: 283 },
+      { name: "Liam", count: 282 },
+      { name: "Magnus", count: 275 },
+      { name: "Tobias", count: 275 },
     ],
   },
   {
     year: 2020,
-    note: "Nora og Jakob toppet listene, slik de gjorde gjennom mye av forrige tiår.",
     jente: [
-      { name: "Nora", count: 318 },
-      { name: "Emma", count: 305 },
-      { name: "Sofie", count: 291 },
-      { name: "Olivia", count: 262 },
-      { name: "Ella", count: 254 },
-      { name: "Maja", count: 243 },
-      { name: "Ingrid", count: 228 },
-      { name: "Sara", count: 211 },
-      { name: "Selma", count: 199 },
-      { name: "Frøya", count: 186 },
+      { name: "Nora", count: 398 },
+      { name: "Emma", count: 362 },
+      { name: "Ella", count: 337 },
+      { name: "Olivia", count: 315 },
+      { name: "Emilie", count: 306 },
+      { name: "Frida", count: 268 },
+      { name: "Sofie", count: 268 },
+      { name: "Ingrid", count: 267 },
+      { name: "Selma", count: 241 },
+      { name: "Ada", count: 239 },
     ],
     gutt: [
-      { name: "Jakob", count: 326 },
-      { name: "Emil", count: 308 },
-      { name: "Noah", count: 294 },
-      { name: "Oliver", count: 281 },
-      { name: "Elias", count: 268 },
-      { name: "William", count: 252 },
-      { name: "Aksel", count: 238 },
-      { name: "Håkon", count: 224 },
-      { name: "Lucas", count: 212 },
-      { name: "Filip", count: 198 },
+      { name: "Emil", count: 369 },
+      { name: "Oliver", count: 354 },
+      { name: "Noah", count: 333 },
+      { name: "William", count: 293 },
+      { name: "Liam", count: 273 },
+      { name: "Henrik", count: 254 },
+      { name: "Elias", count: 249 },
+      { name: "Magnus", count: 245 },
+      { name: "Johannes", count: 235 },
+      { name: "Jakob", count: 229 },
     ],
   },
 ];

@@ -5,14 +5,19 @@ import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { Button } from "@/components/ui/button";
 import { findByName, names } from "@/data/names";
-import { popularBoyNames, popularGirlNames, popularYear, type PopularEntry } from "@/data/popular";
+import { statsSource, yearStats, type StatEntry } from "@/data/stats";
 import { SITE } from "@/lib/site";
 
-const description = `Utforsk de mest populære navnene i ${popularYear}. Topp 10 gutte- og jentenavn med betydning og opprinnelse – finn trendene for årets navn.`;
+// Samme kilde som /navnestatistikk. Tidligere lå det en håndskrevet topp
+// ti-liste her, og den var ikke i takt med SSB – to sider på samme nettsted
+// sa ulike ting om samme år.
+const latest = yearStats[0]!;
+
+const description = `De mest populære navnene i Norge i ${latest.year}. Topp 10 jente- og guttenavn med antall nyfødte, betydning og opprinnelse. Tall fra Statistisk sentralbyrå.`;
 
 export const Route = createFileRoute("/populaere-navn")({
   head: () => {
-    const title = `Mest populære navn ${popularYear} – topp 10 liste | Navnetips.no`;
+    const title = `Mest populære navn ${latest.year} – topp 10 liste | Navnetips.no`;
     return {
       meta: [
         { title },
@@ -29,8 +34,8 @@ export const Route = createFileRoute("/populaere-navn")({
           children: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "ItemList",
-            name: `Mest populære navn ${popularYear}`,
-            itemListElement: [...popularGirlNames, ...popularBoyNames].map((n, i) => ({
+            name: `Mest populære navn ${latest.year}`,
+            itemListElement: [...latest.jente, ...latest.gutt].map((n, i) => ({
               "@type": "ListItem",
               position: i + 1,
               name: n.name,
@@ -43,7 +48,7 @@ export const Route = createFileRoute("/populaere-navn")({
   component: PopulaereNavn,
 });
 
-function TopList({ heading, entries }: { heading: string; entries: PopularEntry[] }) {
+function TopList({ heading, entries }: { heading: string; entries: StatEntry[] }) {
   return (
     <section>
       <h2 className="text-3xl">{heading}</h2>
@@ -76,10 +81,19 @@ function TopList({ heading, entries }: { heading: string; entries: PopularEntry[
                 </div>
                 <FavoriteButton name={entry.name} />
               </div>
-              <p className="mt-1 text-sm text-muted-foreground">{entry.meaning}</p>
-              <span className="mt-4 inline-block rounded-full bg-secondary px-2.5 py-1 text-xs text-secondary-foreground">
-                {entry.origin}
-              </span>
+
+              {known && <p className="mt-1 text-sm text-muted-foreground">{known.meaning}</p>}
+
+              <p className="mt-3 text-sm text-foreground">
+                <span className="tabular-nums font-medium">{entry.count}</span>{" "}
+                <span className="text-muted-foreground">nyfødte</span>
+              </p>
+
+              {known && (
+                <span className="mt-4 inline-block rounded-full bg-secondary px-2.5 py-1 text-xs text-secondary-foreground">
+                  {known.origin}
+                </span>
+              )}
             </li>
           );
         })}
@@ -104,24 +118,36 @@ function PopulaereNavn() {
         <p className="inline-flex items-center gap-2 text-sm text-muted-foreground">
           <TrendingUp className="h-4 w-4 text-accent" /> Årets navn
         </p>
-        <h1 className="mt-2 text-4xl md:text-5xl">Mest populære navn {popularYear}</h1>
+        <h1 className="mt-2 text-4xl md:text-5xl">Mest populære navn {latest.year}</h1>
         <div className="mt-5 max-w-2xl space-y-4 text-lg text-muted-foreground">
           <p>
-            Leter du etter det perfekte navnet til barnet ditt? Her finner du de mest populære
-            navnene i {popularYear}.
+            Leter du etter det perfekte navnet til barnet ditt? Her er navnene flest foreldre i
+            Norge valgte i {latest.year}, med tall fra Statistisk sentralbyrå.
           </p>
           <p>
-            Navnetrender endrer seg over tid, men noen navn forblir tidløse favoritter. Utforsk
-            listene over de mest populære gutte- og jentenavnene.
+            Navnetrender endrer seg over tid, men noen navn forblir tidløse favoritter. Tallene
+            viser hvor mange nyfødte som fikk navnet som første fornavn.
           </p>
         </div>
 
         <div className="mt-14 space-y-14">
-          <TopList heading={`Topp 10 jentenavn i ${popularYear}`} entries={popularGirlNames} />
-          <TopList heading={`Topp 10 guttenavn i ${popularYear}`} entries={popularBoyNames} />
+          <TopList heading={`Topp 10 jentenavn i ${latest.year}`} entries={latest.jente} />
+          <TopList heading={`Topp 10 guttenavn i ${latest.year}`} entries={latest.gutt} />
         </div>
 
-        <div className="mt-14 flex flex-wrap gap-3 border-t border-border pt-8">
+        <p className="mt-12 text-sm text-muted-foreground">
+          Kilde:{" "}
+          <a
+            href={statsSource.url}
+            className="text-primary underline-offset-4 hover:underline"
+            rel="noreferrer"
+          >
+            {statsSource.label}
+          </a>
+          . Tallene viser antall nyfødte som fikk navnet som første fornavn.
+        </p>
+
+        <div className="mt-10 flex flex-wrap gap-3 border-t border-border pt-8">
           <Button asChild variant="outline">
             <Link to="/navnestatistikk">Se navnestatistikk år for år</Link>
           </Button>
