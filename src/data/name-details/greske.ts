@@ -250,10 +250,13 @@ export const greske: Record<string, NameDetail> = {
   },
   sofie: {
     elements: [{ form: "sophia", sense: "visdom" }],
-    origin:
-      "Sofie er den nordiske formen av Sofia. Begge skrivemåtene brukes mye i Norge, og de har ligget tett på hverandre på navnestatistikken i lang tid.",
-    variants: ["Sophie", "Sofia"],
-    sources: [NPL, BTN],
+    origin: [
+      "Sofie er den nordiske formen av Sofia, av gresk sophia – visdom. Ordet er det samme som i filosofi, «kjærlighet til visdom», og i sofist, som opprinnelig betydde en lærd og først senere fikk klangen av ordkløver.",
+      "Hagia Sofia i Konstantinopel er viet den hellige visdommen, ikke en helgen med navnet – en misforståelse som er lett å gjøre. Kirken sto ferdig i 537 og var verdens største bygning under kuppel i nesten tusen år.",
+      "Navnet kom til Norden gjennom kirken og ble kongelig gjennom flere danske og svenske dronninger. Sofie og Sofia brukes side om side i Norge, og har begge ligget høyt på navnelistene i flere tiår.",
+    ],
+    variants: ["Sophie", "Sofia", "Sophia"],
+    sources: [NPL, BTN, SNL],
   },
   sophia: {
     elements: [{ form: "sophia", sense: "visdom" }],

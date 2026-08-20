@@ -76,10 +76,14 @@ export const norskeOgOvrige: Record<string, NameDetail> = {
     sources: [SNL, ORDBOK],
   },
   nora: {
-    origin:
-      "Nora er en kortform av Eleonora og Honoria som er blitt selvstendig navn i hele Norden. Ibsens Nora i «Et dukkehjem» heter egentlig Eleonora, og sluttscenen der hun går ut og lukker døren er blant de mest omtalte i europeisk teaterhistorie. Navnet har ligget helt i toppen av norsk navnestatistikk i flere tiår.",
+    origin: [
+      "Nora er en kortform av Eleonora og Honoria som er blitt selvstendig navn i hele Norden. Begge de lange formene er selv omdiskuterte: Eleonora knyttes både til gresk og til oksitansk, mens Honoria kommer av latin honor, ære.",
+      "Ibsens «Et dukkehjem» fra 1879 gjorde navnet kjent over hele verden. Nora Helmer heter egentlig Eleonora, og sluttscenen der hun går ut og lukker døren bak seg regnes som et av de mest omtalte øyeblikkene i europeisk teaterhistorie – den ble så omstridt at Ibsen motvillig skrev en alternativ slutt for tyske teatre.",
+      "I Norge har Nora ligget helt i toppen av navnestatistikken i flere tiår, og var det mest brukte jentenavnet flere år på rad rundt 2020.",
+    ],
+    variants: ["Norah"],
     related: ["Ellinor"],
-    sources: [NPL, SNL],
+    sources: [NPL, SNL, BTN],
   },
   purre: {
     origin:
@@ -92,10 +96,14 @@ export const norskeOgOvrige: Record<string, NameDetail> = {
     sources: [ORDBOK, NPL],
   },
   selma: {
-    origin:
-      "Selma har to forklaringer. Den ene går til James Macphersons Ossian-dikt fra 1760-tallet, der Selma er navnet på kong Fingals borg – diktene var utgitt som gammel gælisk poesi, men var i stor grad Macphersons eget verk. Den andre knytter navnet til Anselma, av germansk ans, gud, og helm, vern. Selma Lagerlöf gjorde navnet kjent i Norden.",
+    origin: [
+      "Selma har to forklaringer, og begge er i bruk. Den ene går til James Macphersons Ossian-dikt fra 1760-tallet, der Selma er navnet på kong Fingals borg. Diktene ble utgitt som oversettelser av gammel gælisk poesi, men var i stor grad Macphersons eget verk – en av litteraturhistoriens mest omtalte forfalskninger, og samtidig en av de mest innflytelsesrike bøkene i europeisk romantikk.",
+      "Den andre forklaringen knytter navnet til Anselma, av germansk ans, gud, og helm, vern – altså «vernet av Gud».",
+      "Selma Lagerlöf gjorde navnet kjent i Norden. Hun ble i 1909 den første kvinnen som fikk Nobelprisen i litteratur, og «Nils Holgerssons underbara resa» ble opprinnelig skrevet som lærebok i geografi for svenske skolebarn.",
+      "I Norge har Selma steget markert siden 1990-tallet og ligger nå blant de mest brukte jentenavnene.",
+    ],
     related: ["Anselm"],
-    sources: [NPL, BTN],
+    sources: [NPL, BTN, SNL],
   },
   skygge: {
     origin:
@@ -159,8 +167,11 @@ export const norskeOgOvrige: Record<string, NameDetail> = {
     sources: [BTN, NPL],
   },
   liam: {
-    origin:
-      "Liam er en irsk kortform av Uilliam, den irske formen av William. Det betyr dermed det samme: viljesterkt vern. Kortformen har de siste tiårene blitt et av de aller mest brukte guttenavnene i den engelsktalende verden, og ligger også høyt på norsk statistikk.",
+    origin: [
+      "Liam er en irsk kortform av Uilliam, den irske formen av William. Det betyr dermed det samme: den som verner med vilje og besluttsomhet.",
+      "Kortformen fulgte den irske utvandringen til USA og Storbritannia, og gikk fra å være et innenirsk kjælenavn til et selvstendig navn i løpet av 1900-tallet. De siste tiårene har det steget usedvanlig raskt – i USA har det vært det mest brukte guttenavnet flere år på rad.",
+      "I Norge kom navnet for alvor på 2010-tallet og ligger nå blant de mest brukte guttenavnene.",
+    ],
     related: ["William"],
     sources: [BTN, NPL],
   },

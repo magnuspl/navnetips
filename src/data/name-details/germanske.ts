@@ -79,16 +79,25 @@ export const germanske: Record<string, NameDetail> = {
     sources: [NPL, BTN],
   },
   ella: {
-    origin:
-      "Ella har flere opphav som er smeltet sammen. Det eldste er en kortform av germanske navn på Ali- og Adal-, som Alberta og Adelheid. I moderne bruk fungerer det like mye som kortform av Eleonora, Gabriella og Isabella. Ella Fitzgerald er blant de mest kjente bærerne.",
-    related: ["Ellie", "Ellinor"],
+    origin: [
+      "Ella har flere opphav som har smeltet sammen, og det er ikke mulig å skille dem i moderne bruk. Det eldste er en germansk kortform av navn på Ali- og Adal-, som Adelheid – leddet adal betyr edel. Normannerne tok formen med til England på 1000-tallet.",
+      "I dag fungerer navnet like mye som kortform av Eleonora, Gabriella og Isabella, der -ella er endelsen snarere enn stammen. Begge veier er like gyldige.",
+      "Ella Fitzgerald gjorde navnet kjent langt utenfor navnelistene. Hun ble oppdaget i en amatørkonkurranse på Apollo Theater i 1934, der hun egentlig hadde meldt seg på som danser og byttet til sang i siste liten.",
+      "Navnet har vært blant de mest brukte jentenavnene i Norge de siste tiårene.",
+    ],
+    related: ["Ellie", "Ellinor", "Isabella"],
     sources: [BTN, NPL],
   },
   emma: {
     elements: [{ form: "ermin", sense: "hel, altomfattende" }],
-    origin:
-      "Emma er en kortform av germanske navn på Ermin-, som Ermintrude. Leddet knyttes til noe helt eller altomfattende, og navnet har ligget på toppen av norske navnelister i flere tiår.",
-    sources: [NPL, BTN],
+    origin: [
+      "Emma begynte som en kortform av germanske navn på Ermin- og Irmin-, som Ermintrude og Irmgard. Leddet ermin knyttes til noe helt eller altomfattende, og var også navnet på en guddom hos de kontinentale germanerne – Irminsul var en hellig søyle sakserne dyrket, som Karl den store lot hogge ned i 772.",
+      "Navnet kom til England med Emma av Normandie, som ble dronning to ganger på 1000-tallet: først gift med Ethelred den rådville, deretter med Knut den mektige. Hun er en av få kvinner fra perioden med sin egen samtidige biografi.",
+      "I nyere tid er navnet uløselig knyttet til Jane Austens roman «Emma» fra 1815, der hovedpersonen er en velmenende, men litt for selvsikker ekteskapsmekler. Austen skal selv ha sagt at hun skrev en heltinne «ingen andre enn jeg selv kommer til å like særlig godt».",
+      "Emma har ligget helt i toppen av norsk navnestatistikk gjennom hele 2000-tallet, og har vært det mest brukte jentenavnet flere år på rad.",
+    ],
+    variants: ["Emmy", "Ema"],
+    sources: [NPL, BTN, SNL],
   },
   frankie: {
     origin:
@@ -172,11 +181,15 @@ export const germanske: Record<string, NameDetail> = {
       { form: "hlod", sense: "berømt, navngjeten" },
       { form: "wig", sense: "kamp" },
     ],
-    origin:
-      "Ludvig kommer av Hludwig, den berømte krigeren. Det er samme navn som Louis, Lewis og Clovis – Clovis var den frankiske kongen som først bar det.",
+    origin: [
+      "Ludvig kommer av frankisk Hludwig, «den berømte krigeren». Det er samme navn som Louis, Lewis, Luigi og Clovis – Clovis er bare en latinisert form av det samme, og han var den frankiske kongen som først bar det, på 400-tallet.",
+      "Atten franske konger hette Louis, flere enn noe annet kongenavn i Europa. Ludvig XIV satt på tronen i 72 år, lengre enn noen annen europeisk monark.",
+      "Beethoven er den mest kjente bæreren av den tyske formen. I Norge er navnet også kjent fra Kardemomme by, der Ludvig er den ene av de tre røverne.",
+      "Ludvig har steget markert i Norge de siste tiårene og ligger nå blant de mest brukte guttenavnene.",
+    ],
     variants: ["Ludwig", "Louis"],
     related: ["Louie"],
-    sources: [NPL, BTN],
+    sources: [NPL, BTN, SNL],
   },
   oda: {
     elements: [{ form: "aud", sense: "rikdom, eiendom" }],
@@ -244,11 +257,16 @@ export const germanske: Record<string, NameDetail> = {
       { form: "wil", sense: "vilje" },
       { form: "helm", sense: "hjelm, vern" },
     ],
-    origin:
-      "William betyr den som verner med vilje. Vilhelm Erobreren tok navnet med til England i 1066, og det ble raskt et av de vanligste navnene i landet.",
+    origin: [
+      "William er germansk og satt sammen av vilje og hjelm – altså den som verner med vilje og besluttsomhet. Andreleddet helm er det samme ordet som norsk hjelm, og finnes også i Anselm og Vilhelm.",
+      "Vilhelm Erobreren tok navnet med til England i 1066, og det ble raskt så vanlig at rundt en femtedel av alle engelske menn skal ha hett William på 1200-tallet. Derfra kommer også mengden kortformer: Will, Bill, Billy, Liam og walisiske Gwilym.",
+      "Shakespeare er den mest kjente bæreren, og fire engelske konger har hett William – den siste tronarvingen inkludert.",
+      "I Norge kom navnet for alvor på 1990-tallet og har siden ligget stabilt blant de mest brukte guttenavnene.",
+    ],
     variants: ["Vilhelm", "Wilhelm"],
+    shortForms: ["Will", "Liam"],
     related: ["Liam"],
-    sources: [NPL, BTN],
+    sources: [BTN, NPL, SNL],
   },
   zelda: {
     origin:

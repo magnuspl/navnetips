@@ -47,8 +47,14 @@ export type NameDetail = {
    */
   elements?: NameElement[];
 
-  /** Én til tre setninger om hvor navnet kommer fra og hvordan det kom hit. */
-  origin?: string;
+  /**
+   * Hvor navnet kommer fra og hvordan det kom hit.
+   *
+   * Én streng blir ett avsnitt. De mest brukte navnene tåler mer – der er
+   * søkevolumet størst, og der er det mest å fortelle – så feltet tar også en
+   * liste med avsnitt.
+   */
+  origin?: string | string[];
 
   /** Andre skrivemåter av samme navn. */
   variants?: string[];

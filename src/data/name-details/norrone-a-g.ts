@@ -12,6 +12,8 @@ const NORDIC = { title: "Nordic Names", publisher: "nordicnames.de" };
 const BTN = { title: "Behind the Name", publisher: "behindthename.com" };
 const SNL = { title: "Store norske leksikon", publisher: "snl.no" };
 
+const ORDBOK = { title: "Bokmålsordboka", publisher: "Språkrådet og Universitetet i Bergen" };
+
 export const norroneAG: Record<string, NameDetail> = {
   alf: {
     elements: [{ form: "alfr", sense: "alv" }],
@@ -101,10 +103,14 @@ export const norroneAG: Record<string, NameDetail> = {
       { form: "áss", sense: "gud, æsene" },
       { form: "fríðr", sense: "vakker, elsket" },
     ],
-    origin:
-      "Astrid kommer av norrønt Ástríðr. Andreleddet fríðr betyr vakker eller elsket og er ett av de vanligste avslutningene i norrøne kvinnenavn – det samme leddet står i Ingrid, Sigrid og Turid.",
+    origin: [
+      "Astrid kommer av norrønt Ástríðr. Førsteleddet áss viser til æsene, gudeslekten i norrøn tro, og andreleddet fríðr betyr vakker eller elsket – det samme leddet som avslutter Ingrid, Sigrid og Turid.",
+      "Navnet har vært kongelig i Norden i tusen år. Astrid Olavsdatter var datter av Olav Skötkonung og gift med Olav den hellige, og i nyere tid har både prinsesse Astrid av Norge og dronning Astrid av Belgia båret det.",
+      "Astrid Lindgren er den mest kjente bæreren i moderne tid. Hun het Ericsson som ugift, tok mannens etternavn, og skrev Pippi Langstrømpe etter at datteren Karin – syk i sengen – ba om en historie om noen med det navnet.",
+      "Astrid har holdt seg jevnt i bruk i Norge gjennom hele nyere tid og ligger fortsatt blant de mest brukte jentenavnene.",
+    ],
     shortForms: ["Asta", "Assi"],
-    sources: [NPL, NORDIC],
+    sources: [NPL, NORDIC, SNL],
   },
   aud: {
     elements: [{ form: "auðr", sense: "rikdom, lykke" }],
@@ -152,10 +158,14 @@ export const norroneAG: Record<string, NameDetail> = {
   },
   birk: {
     elements: [{ form: "bjǫrk", sense: "bjørk" }],
-    origin:
-      "Birk er et naturnavn hentet rett fra treet. Slike trenavn har fått ny popularitet i Norden de siste tiårene, sammen med navn som Ask, Bjørk og Lind.",
-    related: ["Bjørk"],
-    sources: [NPL, NORDIC],
+    origin: [
+      "Birk er et naturnavn hentet rett fra treet. Bjørka er det treslaget som først vender tilbake etter isbreer og skogbrann, og den går lengst nord og høyest til fjells av alle norske løvtrær – et bilde på nøysomhet og seighet.",
+      "Ordet er felles germansk og går tilbake på en indoeuropeisk rot som betyr lys eller skinnende, etter den hvite barken. Samme rot ligger bak norrønt bjartr, som gir navnet Bjarte.",
+      "Navnet er også kjent fra Astrid Lindgrens «Ronja Røverdatter», der Birk Borkason er Ronjas venn.",
+      "Trenavn har fått en tydelig oppsving i Norden de siste tiårene, og Birk ligger nå blant de mest brukte guttenavnene i Norge.",
+    ],
+    related: ["Bjørk", "Ask", "Bjarte"],
+    sources: [NPL, NORDIC, ORDBOK],
   },
   bjarne: {
     elements: [{ form: "bjǫrn", sense: "bjørn" }],
@@ -411,10 +421,14 @@ export const norroneAG: Record<string, NameDetail> = {
   },
   frida: {
     elements: [{ form: "fríðr", sense: "vakker, elsket" }],
-    origin:
-      "Frida bygger på leddet fríðr, som avslutter en lang rekke norrøne kvinnenavn. Navnet kan også ses som en kortform av lengre navn som Frideborg eller Alfrida.",
+    origin: [
+      "Frida bygger på leddet fríðr, som avslutter en lang rekke norrøne kvinnenavn – Astrid, Sigrid, Ingrid og Turid ender alle på det samme. Ordet betyr vakker eller elsket, og skal ikke forveksles med friðr, fred, som ligner til forveksling.",
+      "Navnet kan også ses som en kortform av germanske navn som Frideborg og Alfrida. I Norden har begge linjene vært i bruk side om side i lang tid.",
+      "Frida Kahlo har gjort navnet internasjonalt kjent. Hun het egentlig Frieda, med tysk skrivemåte etter faren, men droppet e-en på 1930-tallet – etter noen framstillinger fordi navnet lignet for mye på tysk Freude i en tid da det ikke var behagelig å virke tysk.",
+      "I Norge har Frida steget markert de siste årene og ligger nå blant de mest brukte jentenavnene.",
+    ],
     variants: ["Frida", "Frieda"],
-    sources: [NPL, NORDIC],
+    sources: [NPL, NORDIC, BTN],
   },
   frode: {
     elements: [{ form: "fróðr", sense: "vis, kunnskapsrik" }],

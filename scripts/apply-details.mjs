@@ -49,7 +49,12 @@ function render(slug, next, prev) {
   }
 
   const origin = next.origin ?? prev.origin;
-  if (origin) parts.push(`    origin:\n      ${q(origin)},`);
+  if (Array.isArray(origin)) {
+    // Flere avsnitt – brukes på de mest brukte navnene.
+    parts.push(`    origin: [\n${origin.map((o) => `      ${q(o)},`).join("\n")}\n    ],`);
+  } else if (origin) {
+    parts.push(`    origin:\n      ${q(origin)},`);
+  }
 
   const pron = next.pronunciation ?? prev.pronunciation;
   if (pron) parts.push(`    pronunciation: ${q(pron)},`);
@@ -69,8 +74,16 @@ function render(slug, next, prev) {
 function parseExisting(body) {
   const out = {};
 
-  const om = body.match(/origin:\s*\n?\s*"((?:[^"\\]|\\.)*)"/);
-  if (om) out.origin = om[1].replace(/\\"/g, '"').replace(/\\\\/g, "\\");
+  const unq = (s) => s.replace(/\\"/g, '"').replace(/\\\\/g, "\\");
+
+  // origin er enten én streng eller en liste med avsnitt.
+  const oList = body.match(/origin: \[([\s\S]*?)\n\s{4}\],/);
+  if (oList) {
+    out.origin = [...oList[1].matchAll(/"((?:[^"\\]|\\.)*)"/g)].map((m) => unq(m[1]));
+  } else {
+    const om = body.match(/origin:\s*\n?\s*"((?:[^"\\]|\\.)*)"/);
+    if (om) out.origin = unq(om[1]);
+  }
 
   const pm = body.match(/pronunciation:\s*"((?:[^"\\]|\\.)*)"/);
   if (pm) out.pronunciation = pm[1].replace(/\\"/g, '"');

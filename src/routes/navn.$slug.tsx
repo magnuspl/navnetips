@@ -16,6 +16,8 @@ import {
   type NameEntry,
 } from "@/data/names";
 import { nameDetails, type NameDetail } from "@/data/name-details";
+import { popularityFor } from "@/data/name-popularity";
+import { NamePopularity } from "@/components/name-popularity";
 import { SITE } from "@/lib/site";
 import { joinNo } from "@/lib/text";
 import {
@@ -35,6 +37,7 @@ export const Route = createFileRoute("/navn/$slug")({
     return {
       entry,
       detail: nameDetails[entry.slug] ?? {},
+      popularity: popularityFor(entry.slug) ?? null,
       related: relatedNames(entry),
       elementRelations: sharedElementNames(entry.slug),
       sameOrigin: sameOriginNames(entry),
@@ -141,6 +144,10 @@ export const Route = createFileRoute("/navn/$slug")({
   component: NameDetail,
 });
 
+/** origin kan være ett avsnitt eller flere. */
+const originParagraphs = (origin: string | string[] | undefined): string[] =>
+  origin === undefined ? [] : Array.isArray(origin) ? origin : [origin];
+
 /** Spørsmålene bygges ett sted, så synlig tekst og markering ikke kan sprike. */
 function buildFaq({ entry, detail }: { entry: NameEntry; detail: NameDetail }) {
   const faq: { q: string; a: string }[] = [];
@@ -160,8 +167,8 @@ function buildFaq({ entry, detail }: { entry: NameEntry; detail: NameDetail }) {
     q: `Hvor kommer navnet ${entry.name} fra?`,
     // «kommer fra norrønt» framfor «har norrønt opprinnelse»: opphavene er
     // substantiv (Norrønt, Latin, Gresk) og bøyes ikke som adjektiv.
-    a: detail.origin
-      ? `${entry.name} kommer fra ${entry.origin.toLowerCase()}. ${detail.origin}`
+    a: originParagraphs(detail.origin).length
+      ? `${entry.name} kommer fra ${entry.origin.toLowerCase()}. ${originParagraphs(detail.origin)[0]}`
       : `${entry.name} kommer fra ${entry.origin.toLowerCase()}.`,
   });
 
@@ -206,7 +213,8 @@ function buildFaq({ entry, detail }: { entry: NameEntry; detail: NameDetail }) {
 }
 
 function NameDetail() {
-  const { entry, detail, related, elementRelations, sameOrigin } = Route.useLoaderData();
+  const { entry, detail, related, elementRelations, sameOrigin, popularity } =
+    Route.useLoaderData();
   const navigate = useNavigate();
 
   const randomName = () => {
@@ -321,9 +329,15 @@ function NameDetail() {
 
           <section className="mt-12">
             <h2 className="text-3xl">Hvor kommer {entry.name} fra?</h2>
-            {detail.origin && <p className="mt-4 text-muted-foreground">{detail.origin}</p>}
+            {originParagraphs(detail.origin).map((text) => (
+              <p key={text} className="mt-4 text-muted-foreground">
+                {text}
+              </p>
+            ))}
             <p className="mt-4 text-muted-foreground">{familyContext(entry.origin)}</p>
           </section>
+
+          {popularity && <NamePopularity name={entry.name} series={popularity} />}
 
           {/* ---------------------------------------- uttale og skrivemåte -- */}
 

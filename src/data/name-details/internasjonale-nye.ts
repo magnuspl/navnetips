@@ -49,10 +49,13 @@ export const internasjonaleNye: Record<string, NameDetail> = {
       { form: "jah", sense: "Jahve, Herren" },
       { form: "chanan", sense: "å være nådig" },
     ],
-    origin:
-      "Johannes er grunnformen bak Jon, Jan, Hans, Jens og John. Både døperen Johannes og evangelisten bar navnet, og det er blant de mest utbredte mannsnavnene i Europa.",
-    shortForms: ["Jon", "Hans", "Jens"],
-    sources: [BTN, SNL],
+    origin: [
+      "Johannes er grunnformen bak en av Europas største navnefamilier. Jon, Jan, Hans, Jens, John, Jack, Juan, Giovanni, Ivan og Sean går alle tilbake på det samme hebraiske Jochanan – «Herren er nådig».",
+      "To sentrale skikkelser i Det nye testamentet bærer navnet: døperen Johannes, som døper Jesus i Jordan, og evangelisten. Sankthans 24. juni er døperens fødselsdag, og selve ordet sankthans er en sammentrekning av «sankt Hans».",
+      "I Norge har Johannes vært i bruk sammenhengende siden middelalderen. Etter en periode med lavere bruk på 1900-tallet har navnet steget markert igjen og ligger nå blant de mest brukte guttenavnene.",
+    ],
+    shortForms: ["Jon", "Hans", "Jens", "Jo"],
+    sources: [BTN, SNL, NPL],
   },
   jonas: {
     elements: [{ form: "jonah", sense: "due" }],
@@ -154,15 +157,17 @@ export const internasjonaleNye: Record<string, NameDetail> = {
       { form: "theos", sense: "gud" },
       { form: "doron", sense: "gave" },
     ],
-    origin:
-      "Theodor er skrivemåten med th, som gjengir den greske bokstaven theta. Navnet betyr Guds gave, og deler førsteledd med Thea og Theo.",
+    origin: [
+      "Theodor betyr Guds gave. Skrivemåten med th gjengir den greske bokstaven theta, som latin ikke hadde noe eget tegn for. Førsteleddet theos går igjen i Thea, Theo, Teofil og Dorothea – det siste er de samme to leddene i omvendt rekkefølge.",
+      "Navnet har samme betydning som hebraiske Mattias og Natanael, og som Bogdan i slaviske språk. At tre ubeslektede språkfamilier har laget det samme navnet sier noe om hvor nærliggende tanken var.",
+      "Teddybjørnen har navn etter president Theodore Roosevelt, som i 1902 nektet å skyte en bundet bjørn på jakt.",
+      "Theodor og Teodor har til sammen steget kraftig i Norge de siste tiårene og ligger nå blant de mest brukte guttenavnene.",
+    ],
     variants: ["Teodor"],
-    shortForms: ["Theo"],
-    sources: [BTN, NPL],
+    shortForms: ["Theo", "Teo"],
+    related: ["Thea", "Theo"],
+    sources: [BTN, NPL, SNL],
   },
-
-  /* ------------------------------------------------------------ latinske -- */
-
   julie: {
     origin:
       "Julie kommer av det romerske slektsnavnet Julius, som Julius Cæsar tilhørte. Slekten regnet seg som etterkommere av Aeneas' sønn Ascanius, også kalt Iulus, og dermed av gudinnen Venus. Måneden juli er oppkalt etter Cæsar. Shakespeares Julie gjorde navnet kjent i hele Europa.",
@@ -205,14 +210,15 @@ export const internasjonaleNye: Record<string, NameDetail> = {
       { form: "os", sense: "gud" },
       { form: "gar", sense: "spyd" },
     ],
-    origin:
-      "Oskar er den nordiske skrivemåten av Oscar. Navnet tolkes vanligvis som gudespyd, men knyttes også til irsk os-cara, hjortevenn – Ossian-diktningen gjorde det populært i Norden på 1800-tallet.",
+    origin: [
+      "Oskar tolkes vanligvis som gudespyd, av de samme leddene som norrønt Ásgeirr. En annen forklaring knytter navnet til irsk os-cara, hjortevenn.",
+      "Den irske linjen er grunnen til at navnet ble mote i Norden: i Macphersons Ossian-dikt er Oscar sønnesønn av Fingal, og Napoleon – som var glad i diktene – ga navnet til sin gudsønn, som senere ble Oscar I av Sverige og Norge. Derfra kom det inn i det svenske og norske kongehuset.",
+      "Oscar Wilde er den mest kjente internasjonale bæreren, og Oscar-statuetten fikk etter tradisjonen navnet fordi en bibliotekar ved akademiet syntes den lignet onkelen hennes.",
+      "Oskar og Oscar har til sammen ligget stabilt blant de mest brukte guttenavnene i Norge.",
+    ],
     variants: ["Oscar"],
-    sources: [NPL, BTN],
+    sources: [NPL, BTN, SNL],
   },
-
-  /* ------------------------------------------------------------- diverse -- */
-
   kasper: {
     origin:
       "Kasper går tilbake på persisk gizbar, skattmester. Etter tradisjonen er Kaspar en av de tre vise menn, men Matteusevangeliet verken navngir dem eller sier at de var tre – tallet kommer av at det var tre gaver. Navnene dukker først opp i en tekst fra 500-tallet.",

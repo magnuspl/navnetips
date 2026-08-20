@@ -26,10 +26,13 @@ export const hebraiske: Record<string, NameDetail> = {
       { form: "av", sense: "far" },
       { form: "shalom", sense: "fred" },
     ],
-    origin:
-      "Aksel er den nordiske formen av Absalom, som i Bibelen er kong Davids sønn. Navnet kom inn i dansk og norsk i middelalderen og har vært i bruk siden.",
-    variants: ["Axel", "Aksel"],
-    sources: [NPL, BTN],
+    origin: [
+      "Aksel er den nordiske formen av Absalom, kong Davids tredje sønn i Andre Samuelsbok. Navnet betyr «far til fred», noe som står i skarp kontrast til fortellingen: Absalom gjør opprør mot faren og blir drept mens han henger fast etter håret i et tre.",
+      "Formen Aksel oppsto i dansk middelalder, der Absalon også var navnet på biskopen som grunnla København i 1167.",
+      "Navnet har vært i bruk i Norge siden middelalderen, og har steget markert siden 1990-tallet. Det ligger nå blant de mest brukte guttenavnene.",
+    ],
+    variants: ["Axel", "Absalon"],
+    sources: [NPL, BTN, SNL],
   },
   ane: {
     origin:
@@ -65,10 +68,13 @@ export const hebraiske: Record<string, NameDetail> = {
       { form: "eli", sense: "min Gud" },
       { form: "jah", sense: "Jahve, Herren" },
     ],
-    origin:
-      "Elias er den greske formen av Elia, profeten som etter Bibelen ble tatt opp til himmelen i en ildvogn. Navnet setter sammen begge gudsnavnene og betyr «Herren er min Gud».",
+    origin: [
+      "Elias er den greske formen av Elia, profeten i Første og Andre Kongebok. Navnet setter sammen begge gudsnavnene i hebraisk og betyr «Herren er min Gud» – en programerklæring i en fortelling som nettopp handler om striden mellom Jahve-dyrkelse og Baal-kult.",
+      "Elia er en av bare to personer i Bibelen som ikke dør, men tas opp til himmelen – i hans tilfelle i en ildvogn. I jødisk tradisjon settes det fortsatt et glass til ham ved påskemåltidet.",
+      "Navnet kom til Norden gjennom kirken og har vært i bruk her siden middelalderen. I Norge har det steget kraftig siden 1990-tallet og ligger nå blant de aller mest brukte guttenavnene.",
+    ],
     variants: ["Elia", "Eli"],
-    sources: [NPL, BTN],
+    sources: [BTN, SNL],
   },
   elise: {
     elements: [
@@ -111,10 +117,13 @@ export const hebraiske: Record<string, NameDetail> = {
   },
   isak: {
     elements: [{ form: "jitschaq", sense: "han ler" }],
-    origin:
-      "Isak er sønn av Abraham og Sara i Første Mosebok. Navnet viser til at Sara lo da hun fikk høre at hun skulle føde i høy alder – latteren er selve forklaringen på navnet i teksten.",
+    origin: [
+      "Isak er sønn av Abraham og Sara i Første Mosebok, og navnet forklares i selve teksten: Sara lo da hun fikk høre at hun skulle føde i høy alder, og latteren blir stående som forklaringen på navnet. Det er et av få bibelske navn der betydningen forklares direkte i fortellingen.",
+      "Beretningen om at Abraham nesten ofrer Isak er blant de mest omdiskuterte tekstene i Bibelen, og Kierkegaard bygget hele «Frykt og Bæven» på den.",
+      "I Norge er navnet også kjent fra Hamsuns «Markens grøde», der Isak Sellanraa rydder gården i ødemarken. Isak har steget jevnt siden 1990-tallet og ligger nå blant de mest brukte guttenavnene.",
+    ],
     variants: ["Isaac", "Isac"],
-    sources: [NPL, BTN],
+    sources: [BTN, SNL],
   },
   jack: {
     origin:
@@ -143,11 +152,15 @@ export const hebraiske: Record<string, NameDetail> = {
   },
   jakob: {
     elements: [{ form: "aqev", sense: "hæl" }],
-    origin:
-      "Jakob er stamfaren til Israels tolv stammer i Det gamle testamentet. Navnet forklares i teksten med at han holdt broren i hælen ved fødselen, og har vært i bruk i Norge siden middelalderen.",
+    origin: [
+      "Jakob er stamfaren til Israels tolv stammer. Navnet forklares i Første Mosebok med at han holdt tvillingbroren Esau i hælen ved fødselen, og senere med at han «holdt igjen» broren for førstefødselsretten – teksten spiller bevisst på begge betydningene av roten.",
+      "Fortellingen om at Jakob bryter med en fremmed gjennom natten ved Jabbok og får navnet Israel, «den som kjemper med Gud», er blant de mest gjengitte motivene i vestlig kunst.",
+      "Fra Jakob kommer en usedvanlig stor navnefamilie i Europa: James, Jaime, Giacomo, Jacques og norske Jeppe går alle tilbake på det samme navnet.",
+      "Jakob har vært i bruk i Norge siden middelalderen og ligger fortsatt blant de mest brukte guttenavnene.",
+    ],
     variants: ["Jacob"],
     shortForms: ["Jakke"],
-    sources: [NPL, BTN],
+    sources: [BTN, SNL, NPL],
   },
   jan: {
     origin:
@@ -257,10 +270,13 @@ export const hebraiske: Record<string, NameDetail> = {
   },
   noah: {
     elements: [{ form: "noach", sense: "hvile, trøst" }],
-    origin:
-      "Noah bygger arken i Første Mosebok og redder slektene gjennom storflommen. Navnet knyttes til hvile og trøst, og har vært blant de mest brukte guttenavnene i Norge de siste årene.",
+    origin: [
+      "Noah bygger arken i Første Mosebok og berger slektene og dyrene gjennom storflommen. Teksten forklarer selv navnet: faren gir ham det fordi han skal gi «trøst i vårt arbeid», og roten nuach betyr å hvile.",
+      "Flommyten finnes i flere eldre mesopotamiske versjoner. I Gilgamesj-eposet heter den som bygger båten Utnapisjtim, og i den enda eldre Atrahasis-fortellingen slippes også en fugl ut for å se om vannet har sunket.",
+      "Navnet var lite brukt i Norden fram til 1990-tallet, men har siden steget svært raskt. Noah og skrivemåten Noa har til sammen ligget helt i toppen av norsk navnestatistikk de siste årene, og Noah var det mest brukte guttenavnet i 2025.",
+    ],
     variants: ["Noa"],
-    sources: [NPL, BTN],
+    sources: [BTN, SNL],
   },
   noomi: {
     origin:
@@ -324,10 +340,13 @@ export const hebraiske: Record<string, NameDetail> = {
       { form: "tov", sense: "god" },
       { form: "jah", sense: "Jahve, Herren" },
     ],
-    origin:
-      "Tobias er hovedpersonen i Tobits bok, som følges av erkeengelen Rafael på reisen. Navnet betyr «Herren er god».",
+    origin: [
+      "Tobias betyr «Herren er god». Han er hovedpersonen i Tobits bok, en fortelling som står i den katolske og ortodokse bibelen, men regnes som apokryf i den protestantiske – derfor er den mindre kjent i Norge enn innholdet skulle tilsi.",
+      "I fortellingen følges Tobias på reisen av erkeengelen Rafael i menneskeskikkelse, og av en hund som følger med hele veien. Hunden er en av svært få dyr i Bibelen som er omtalt vennlig, og motivet «Tobias og engelen» ble et yndet emne i renessansemaleriet.",
+      "Navnet kom til Norden gjennom reformasjonen og har vært i jevn bruk siden. I Norge har det ligget blant de mest brukte guttenavnene i flere tiår.",
+    ],
     shortForms: ["Tobbe", "Toby"],
-    sources: [NPL, BTN],
+    sources: [BTN, SNL],
   },
   toby: {
     origin:

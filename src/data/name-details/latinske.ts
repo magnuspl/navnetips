@@ -12,6 +12,8 @@ const BTN = { title: "Behind the Name", publisher: "behindthename.com" };
 const SNL = { title: "Store norske leksikon", publisher: "snl.no" };
 const ETYM = { title: "Online Etymology Dictionary", publisher: "etymonline.com" };
 
+const NORDIC = { title: "Nordic Names", publisher: "nordicnames.de" };
+
 export const latinske: Record<string, NameDetail> = {
   adrian: {
     origin:
@@ -21,9 +23,13 @@ export const latinske: Record<string, NameDetail> = {
   },
   alma: {
     elements: [{ form: "almus", sense: "nærende, god" }],
-    origin:
-      "Alma kommer av latin almus, som betyr nærende eller godgjørende – det samme ordet som i alma mater, den nærende moren. På spansk og italiensk betyr alma dessuten sjel.",
-    sources: [NPL, BTN],
+    origin: [
+      "Alma kommer av latin almus, som betyr nærende eller godgjørende – det samme ordet som i alma mater, «den nærende moren», om universitetet man er utdannet ved. På spansk og italiensk betyr alma dessuten sjel, av latin anima, og de to linjene blandes ofte.",
+      "Navnet fikk et uventet oppsving i England etter slaget ved Almaelven på Krim i 1854, der britiske og franske styrker vant over russerne. Elvenavnet har ingen forbindelse til det latinske ordet, men sammenfallet gjorde navnet mote.",
+      "Alma Mahler var en av Wienerkretsens mest omtalte skikkelser, gift etter tur med komponisten Gustav Mahler, arkitekten Walter Gropius og forfatteren Franz Werfel.",
+      "I Norge har Alma steget jevnt siden 2000-tallet og ligger nå blant de mest brukte jentenavnene.",
+    ],
+    sources: [NPL, BTN, SNL],
   },
   anton: {
     origin:
@@ -33,8 +39,11 @@ export const latinske: Record<string, NameDetail> = {
   },
   aurora: {
     elements: [{ form: "aurora", sense: "morgenrøde, daggry" }],
-    origin:
-      "Aurora er morgenrødens gudinne i romersk mytologi, søster til solen og månen. Nordlyset heter aurora borealis etter henne – den nordlige morgenrøden.",
+    origin: [
+      "Aurora er morgenrødens gudinne i romersk mytologi, søster til solen Sol og månen Luna. Hos grekerne heter hun Eos. Etter myten åpner hun himmelporten hver morgen så solvognen kan kjøre ut.",
+      "Nordlyset heter aurora borealis – den nordlige morgenrøden – etter henne. Navnet ble gitt av Galileo Galilei på 1600-tallet, og motstykket på sørhalvkulen heter aurora australis.",
+      "I Norge er navnet også kjent gjennom artisten Aurora Aksnes, og det har steget jevnt på navnelistene siden 2000-tallet.",
+    ],
     sources: [BTN, SNL],
   },
   celine: {
@@ -50,11 +59,15 @@ export const latinske: Record<string, NameDetail> = {
   },
   emil: {
     elements: [{ form: "aemulus", sense: "ivrig, kappelysten" }],
-    origin:
-      "Emil kommer av det romerske slektsnavnet Aemilius, som knyttes til aemulus – den som kappes eller strever. Emil i Lønneberget har gjort navnet kjent i hele Norden.",
+    origin: [
+      "Emil kommer av det romerske slektsnavnet Aemilius, en av de eldste patrisierslektene i Roma. Navnet knyttes til aemulus – den som kappes eller strever – som også ligger bak norsk «emulere».",
+      "Slekten har satt varige spor: veien Via Aemilia, bygget i 187 f.Kr. fra Rimini til Piacenza, går fortsatt i samme trasé, og den italienske regionen Emilia-Romagna har navn etter den.",
+      "Astrid Lindgrens «Emil i Lønneberget» fra 1963 har gjort navnet kjent i hele Norden. Bøkene ble til fordi Lindgren skulle roe et sint barnebarn, og hun begynte å fortelle om en gutt som gjorde ugagn.",
+      "Emil har ligget blant de aller mest brukte guttenavnene i Norge i mange år, og var på topp i både 2020 og 2022.",
+    ],
     variants: ["Emile"],
     related: ["Emilie", "Emilia"],
-    sources: [NPL, BTN],
+    sources: [NPL, BTN, SNL],
   },
   emilia: {
     elements: [{ form: "aemulus", sense: "ivrig, kappelysten" }],
@@ -110,10 +123,14 @@ export const latinske: Record<string, NameDetail> = {
   },
   lucas: {
     elements: [{ form: "lux", sense: "lys" }],
-    origin:
-      "Lucas kommer av Lucanus, «mannen fra Lucania» i Sør-Italia, men er tidlig blitt knyttet til lux, lys. Evangelisten Lukas bærer navnet, og det har vært blant de mest brukte guttenavnene i Norge de siste årene.",
+    origin: [
+      "Lucas kommer av Lucanus, «mannen fra Lucania» i Sør-Italia, men er tidlig blitt knyttet til latin lux, lys – en folkeetymologi som har festet seg så godt at den nå regnes som navnets betydning i praktisk bruk.",
+      "Evangelisten Lukas var etter tradisjonen lege, og er den eneste av evangelistene som trolig ikke var jøde. Han regnes også som forfatter av Apostlenes gjerninger, og symbolet hans er oksen.",
+      "Navnet har steget kraftig i Norge siden 1990-tallet, i skrivemåtene Lucas og Lukas, og ligger blant de mest brukte guttenavnene.",
+    ],
     variants: ["Lukas", "Luca"],
-    sources: [NPL, BTN],
+    related: ["Lucy"],
+    sources: [BTN, SNL, NPL],
   },
   lucy: {
     elements: [{ form: "lux", sense: "lys" }],
@@ -131,9 +148,14 @@ export const latinske: Record<string, NameDetail> = {
   },
   magnus: {
     elements: [{ form: "magnus", sense: "stor, mektig" }],
-    origin:
-      "Magnus kom til Norden gjennom Karl den store, Carolus Magnus. Olav den hellige oppkalte sønnen sin Magnus etter ham, og navnet ble deretter et av de vanligste kongenavnene i Norge.",
-    sources: [NPL, BTN],
+    origin: [
+      "Magnus er latin for stor, og kom til Norden på en uvanlig måte: gjennom et misforstått tilnavn. Olav den hellige oppkalte sønnen sin etter Karl den store, Carolus Magnus, men tok med etternavnet i stedet for fornavnet.",
+      "Magnus den gode ble dermed den første i Norden med navnet, og etter ham fulgte sju norske konger til – blant dem Magnus Lagabøte, som ga Norge en av Europas tidligste landsdekkende lovbøker i 1274.",
+      "Navnet har vært i sammenhengende bruk i Norge siden den gang. Magnus Carlsen har gjort det kjent internasjonalt i nyere tid.",
+      "Magnus ligger fortsatt blant de mest brukte guttenavnene i Norge.",
+    ],
+    related: ["Max"],
+    sources: [NPL, SNL, NORDIC],
   },
   marius: {
     origin:
@@ -192,16 +214,23 @@ export const latinske: Record<string, NameDetail> = {
     sources: [SNL, ETYM],
   },
   oliver: {
-    origin:
-      "Oliver har to mulige opphav som er vanskelige å skille. Det ene er latin oliva, oliventre – oliventreet er et av Middelhavets eldste fredssymboler. Det andre er norrønt Óleifr, altså Olav, som normannerne tok med til Frankrike og som der ble omformet til Olivier. Ridderen Olivier er Rolands venn i Rolandskvadet.",
+    origin: [
+      "Oliver har to opphav som er vanskelige å skille fra hverandre. Det ene er latin oliva, oliventre. Det andre er norrønt Óleifr – altså Olav – som normannerne tok med til Frankrike, der det ble omformet til Olivier under påvirkning fra oliventreet.",
+      "Ridderen Olivier er Rolands nærmeste venn i Rolandskvadet fra 1100-tallet, og paret Roland og Olivier ble stående som selve bildet på vennskap i middelalderlitteraturen.",
+      "Navnet fikk et kraftig fall i England på 1600-tallet på grunn av Oliver Cromwell, og kom først tilbake for alvor på 1900-tallet – blant annet gjennom Dickens' «Oliver Twist».",
+      "I Norge har Oliver ligget blant de mest brukte guttenavnene siden 2000-tallet, og var på topp i 2024.",
+    ],
     variants: ["Olivier"],
     related: ["Olivia", "Ollie", "Olav"],
     sources: [BTN, NPL],
   },
   olivia: {
-    origin:
-      "Olivia ble brukt av Shakespeare i «Helligtrekongersaften» rundt 1600, og det er trolig han som gjorde det til et fornavn – formen er ikke belagt før stykket. Navnet knyttes til oliventreet, som i Middelhavskulturen står for fred, fruktbarhet og velstand. Det har ligget i toppen av norsk navnestatistikk i flere år.",
-    related: ["Oliver"],
+    origin: [
+      "Olivia er trolig laget av Shakespeare. Formen er ikke belagt før «Helligtrekongersaften» rundt 1600, der Olivia er den sørgende grevinnen som forelsker seg i en forkledd kvinne. Shakespeare bygget den sannsynligvis på det italienske Oliva eller rett på latin oliva, oliventre.",
+      "Oliventreet er et av Middelhavskulturens eldste symboler. En olivengren sto for fred allerede i antikken, duen med olivengrenen kommer fra fortellingen om Noah, og seierherrene i de olympiske lekene fikk krans av oliven – ikke laurbær.",
+      "Navnet lå nesten ubrukt fram til 1900-tallet, og fikk sitt gjennombrudd først på 1990- og 2000-tallet. I dag er det blant de aller mest brukte jentenavnene i både Norge, Storbritannia og USA.",
+    ],
+    related: ["Oliver", "Ollie"],
     sources: [BTN, SNL],
   },
   ollie: {

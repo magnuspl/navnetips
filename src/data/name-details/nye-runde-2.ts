@@ -64,11 +64,16 @@ export const nyeRunde2: Record<string, NameDetail> = {
       { form: "haim", sense: "hjem" },
       { form: "rik", sense: "hersker, mektig" },
     ],
-    origin:
-      "Henrik er den nordiske formen av Heinrich, hjemmets hersker. Henrik Ibsen og Henrik Wergeland har begge gjort navnet til en del av norsk kulturhistorie.",
+    origin: [
+      "Henrik er den nordiske formen av germansk Haimirich – den som rår over hjemmet eller arvegodset. Andreleddet rik er det samme som i Erik, Ulrik og Fredrik, og er i slekt med latin rex.",
+      "Navnet ble kongelig over hele Europa: åtte engelske konger, sju tyske keisere og fire franske konger. Den engelske formen Henry ga også kortformene Harry og Hank.",
+      "I Norge er navnet uløselig knyttet til to av 1800-tallets største forfattere, Henrik Ibsen og Henrik Wergeland – begge med samme fornavn, og begge blant landets mest siterte.",
+      "Henrik har holdt seg jevnt blant de mest brukte guttenavnene i Norge gjennom hele nyere tid.",
+    ],
     variants: ["Henry", "Heinrich"],
     shortForms: ["Henke"],
-    sources: [NPL, SNL],
+    related: ["Henry", "Hank"],
+    sources: [NPL, BTN, SNL],
   },
   ingar: {
     elements: [

@@ -56,10 +56,13 @@ export const norroneHO: Record<string, NameDetail> = {
   },
   hedda: {
     elements: [{ form: "haðu", sense: "strid, kamp" }],
-    origin:
-      "Hedda er en nordisk kortform av Hedvig, som er germansk og bygget av to kampledd. Navnet er kjent fra Ibsens Hedda Gabler.",
+    origin: [
+      "Hedda er en nordisk kortform av Hedvig, som er germansk og satt sammen av to ledd som begge betyr kamp – hadu og wig. Slik dobling av samme betydning er ikke uvanlig i germansk navngiving; norrønt Gunnhild er bygget likedan.",
+      "Ibsens «Hedda Gabler» fra 1890 er den mest kjente bæreren. Ibsen valgte bevisst å kalle stykket Gabler og ikke Tesman, som er hennes gifte navn – han skrev selv at hun skulle oppfattes som farens datter mer enn mannens kone.",
+      "Navnet har steget markert i Norge siden 2000-tallet og ligger nå blant de mest brukte jentenavnene.",
+    ],
     related: ["Hedvig"],
-    sources: [NPL, BTN],
+    sources: [NPL, SNL, BTN],
   },
   helga: {
     elements: [{ form: "heilagr", sense: "hellig, viet" }],
@@ -162,10 +165,13 @@ export const norroneHO: Record<string, NameDetail> = {
       { form: "Ingvi", sense: "guden Ing, Frøys eldre navn" },
       { form: "fríðr", sense: "vakker, elsket" },
     ],
-    origin:
-      "Ingrid kommer av norrønt Ingiríðr og er blant de mest brukte kvinnenavnene i Norge gjennom hele nyere tid. Det deler andreledd med Astrid, Sigrid og Turid.",
+    origin: [
+      "Ingrid kommer av norrønt Ingiríðr. Førsteleddet er gudenavnet Ing, et eldre navn på fruktbarhetsguden Frøy, og det er samme ledd som i Inge, Ingeborg, Ingunn og Ingvild. Ynglingeætten, den eldste norske kongeslekten, regnet seg som etterkommere av ham.",
+      "Andreleddet fríðr deles med Astrid, Sigrid og Turid. Til sammen gir det en av de mest gjennomsiktige norrøne navnekonstruksjonene: gudenavnet først, en beskrivelse etter.",
+      "Ingrid Bergman gjorde navnet internasjonalt kjent, og i Norge har det holdt seg blant de mest brukte kvinnenavnene i over hundre år – uvanlig lenge for et navn å bli liggende så høyt.",
+    ],
     shortForms: ["Inga", "Ingri"],
-    sources: [NPL, NORDIC],
+    sources: [NPL, NORDIC, SNL],
   },
   ingunn: {
     elements: [
@@ -402,10 +408,14 @@ export const norroneHO: Record<string, NameDetail> = {
       { form: "anu", sense: "forfader, ane" },
       { form: "leifr", sense: "arving, etterkommer" },
     ],
-    origin:
-      "Olav kommer av norrønt Óláfr og betyr forfedrenes arving. Olav den hellige gjorde navnet til ett av de mest utbredte i Norden, og det har vært kongenavn i Norge helt fram til Olav V.",
-    variants: ["Olaf", "Ole", "Olaus"],
-    sources: [NPL, SNL],
+    origin: [
+      "Olav kommer av norrønt Óláfr og betyr forfedrenes arving. Andreleddet leifr er det samme som står alene i Leif og avslutter Torleif og Eilif.",
+      "Olav Haraldsson – Olav den hellige – falt på Stiklestad i 1030 og ble Norges evige konge. Helgenkulten rundt ham gjorde Nidaros til Nord-Europas viktigste pilegrimsmål, og navnet spredte seg med den til hele Nordsjøområdet.",
+      "Fem norske konger har hett Olav, sist Olav V. Navnet ligger bak en rekke stedsnavn, olsok 29. juli, og olavsrosa som merker norsk kulturarv.",
+      "Etter flere tiår med fallende bruk har Olav steget markert igjen de siste årene og ligger nå blant de mest brukte guttenavnene i Norge.",
+    ],
+    variants: ["Olaf", "Ole", "Ola"],
+    sources: [NPL, SNL, NORDIC],
   },
   olava: {
     elements: [
